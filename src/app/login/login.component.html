@@ -1,0 +1,13 @@
+<div *ngIf="error">Something went wrong. Check console!</div>
+
+<form>
+  <div class="form-control">
+    <label>Email:</label>
+    <input type="email" name="email" [(ngModel)]="account.email">
+  </div>
+  <div class="form-control">
+    <label>Passsword:</label>
+    <input type="password" name="password" [(ngModel)]="account.password">
+  </div>
+  <button (click)="login()">Login</button>
+</form>
