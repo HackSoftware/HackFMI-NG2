@@ -1,6 +1,7 @@
 <ul>
   <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
   <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Login</a></li>
+  <li><a routerLink="/teams" routerLinkActive="active">Teams</a></li>
   <li><a target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
   <li><button *ngIf="isLogged()" (click)="logout()">Logout</button></li>
 </ul>
