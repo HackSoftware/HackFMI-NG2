@@ -14,6 +14,10 @@ export class AuthService implements CanActivate {
     this._currentUser = JSON.parse(localStorage.getItem('user-data'));
   }
 
+  get token() {
+    return this._currentUser.token;
+  }
+
   canActivate(a: ActivatedRouteSnapshot, s:RouterStateSnapshot): boolean {
     var result: boolean = !!this._currentUser;
     if (!result) {
