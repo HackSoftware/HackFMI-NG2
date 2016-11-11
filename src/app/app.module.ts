@@ -5,9 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 /* App Root */
 import { AppComponent } from './app.component';
+import { appRoutes } from './app.routing';
 
 import { AuthService } from './auth/auth.service';
-import { appRoutes } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TeamsModule } from './teams/teams.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
+import { MentorsModule } from './mentors/mentors.module';
 
 
 @NgModule({
@@ -32,8 +33,9 @@ import { HomeModule } from './home/home.module';
 
     appRoutes,
     HomeModule,
-    TeamsModule,
     OnBoardingModule,
+    TeamsModule,
+    MentorsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
