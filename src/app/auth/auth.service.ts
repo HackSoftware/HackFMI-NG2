@@ -38,7 +38,7 @@ export class AuthService implements CanActivate {
   clearCurrentUser = () => {
     this._currentUser = null;
     localStorage.removeItem('user-data');
-    this._router.navigate(['login']);
+    this._router.navigate(['home']);
   }
 
   isLogged = ():boolean => !!this._currentUser;

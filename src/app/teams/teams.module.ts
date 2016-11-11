@@ -19,5 +19,4 @@ import { DetailComponent } from './detail/detail.component';
   exports: [TeamsRoutingModule],
   providers: [],
 })
-
 export class TeamsModule { }

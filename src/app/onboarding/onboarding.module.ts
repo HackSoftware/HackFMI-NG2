@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-
 import { OnboardingComponent } from './onboarding.component';
 import { OnboardingService } from './onboarding.service';
 import { OnBoardingRoutingModule } from './onboarding.routing';
+
 
 @NgModule({
   declarations: [
@@ -20,5 +20,4 @@ import { OnBoardingRoutingModule } from './onboarding.routing';
   exports: [OnBoardingRoutingModule],
   providers: [OnboardingService],
 })
-
 export class OnBoardingModule { }

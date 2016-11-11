@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Skill } from './onboarding.models';
 import { OnboardingService } from './onboarding.service';
 
-
 import 'rxjs/add/operator/map'
+
 
 @Component({
   selector: 'app-onboarding',
