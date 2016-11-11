@@ -9,27 +9,34 @@ import 'jwt-decode/build/jwt-decode'
 @Injectable()
 export class AuthService implements CanActivate {
   private _currentUser: IUserData = null;
+  private _redirectUrl:string = null;
 
   constructor(private _router: Router) {
     this._currentUser = JSON.parse(localStorage.getItem('user-data'));
+  }
+
+  get redirectUrl() {
+    return this._redirectUrl;
   }
 
   get token() {
     return this._currentUser.token;
   }
 
-  canActivate(a: ActivatedRouteSnapshot, s:RouterStateSnapshot): boolean {
+  canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): boolean {
     var result: boolean = !!this._currentUser;
+
     if (!result) {
       this._router.navigate(['login']);
     }
 
+    this._redirectUrl = state.url;
     return result;
   }
 
   setCurrentUser(data:ILoginData):void {
-    var token = data.token
-    var userData = jwt_decode(token)
+    var token = data.token;
+    var userData = jwt_decode(token);
     userData.token = token;
     this._currentUser = userData;
     localStorage.setItem('user-data', JSON.stringify(userData));
@@ -37,6 +44,7 @@ export class AuthService implements CanActivate {
 
   clearCurrentUser = () => {
     this._currentUser = null;
+    this._redirectUrl = null;
     localStorage.removeItem('user-data');
     this._router.navigate(['home']);
   }

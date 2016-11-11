@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
     this._tryLogin(this.account.email, this.account.password)
       .subscribe((data:any) => {
         this._authService.setCurrentUser(data);
-        this._router.navigate(['home']);
+        if (this._authService.redirectUrl) {
+          this._router.navigate([this._authService.redirectUrl]);
+        } else this._router.navigate(['home']);
       }, (err) => {
         this.error = true;
       })
