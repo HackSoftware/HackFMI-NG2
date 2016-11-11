@@ -1,18 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
+/* App Root */
 import { AppComponent } from './app.component';
+
 import { AuthService } from './auth/auth.service';
 import { HomeComponent } from './home/home.component';
 import { appRoutes } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
-import { OnboardingComponent } from './onboarding/onboarding.component';
-import { OnboardingService } from './onboarding/onboarding.service';
+
+/* Feature Modules */
 import { TeamsModule } from './teams/teams.module';
+import { OnBoardingModule } from './onboarding/onboarding.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,6 @@ import { TeamsModule } from './teams/teams.module';
     LoginComponent,
     NavigationComponent,
     FooterComponent,
-    OnboardingComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +31,10 @@ import { TeamsModule } from './teams/teams.module';
     HttpModule,
 
     appRoutes,
-    TeamsModule
+    TeamsModule,
+    OnBoardingModule,
   ],
-  providers: [AuthService, OnboardingService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { OnboardingService } from './onboarding.service';
 import { Skill } from './onboarding.models';
+import { OnboardingService } from './onboarding.service';
 
 
 import 'rxjs/add/operator/map'
