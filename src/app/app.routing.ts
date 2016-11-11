@@ -11,11 +11,6 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthService]
-  },
-  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',

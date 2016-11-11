@@ -7,7 +7,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
 import { AuthService } from './auth/auth.service';
-import { HomeComponent } from './home/home.component';
 import { appRoutes } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -16,11 +15,11 @@ import { FooterComponent } from './footer/footer.component';
 /* Feature Modules */
 import { TeamsModule } from './teams/teams.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     NavigationComponent,
     FooterComponent,
@@ -31,6 +30,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
     HttpModule,
 
     appRoutes,
+    HomeModule,
     TeamsModule,
     OnBoardingModule,
   ],
