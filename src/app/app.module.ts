@@ -12,6 +12,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { OnboardingComponent } from './onboarding/onboarding.component';
 import { OnboardingService } from './onboarding/onboarding.service';
+import { TeamsModule } from './teams/teams.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { OnboardingService } from './onboarding/onboarding.service';
     HttpModule,
 
     appRoutes,
+    TeamsModule
   ],
   providers: [AuthService, OnboardingService],
   bootstrap: [AppComponent]
