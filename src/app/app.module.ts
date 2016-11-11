@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routing';
 
 import { AuthService } from './auth/auth.service';
-import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -17,12 +16,12 @@ import { TeamsModule } from './teams/teams.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
 import { MentorsModule } from './mentors/mentors.module';
+import { LoginModule } from './login/login.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     NavigationComponent,
     FooterComponent,
   ],
@@ -32,6 +31,7 @@ import { MentorsModule } from './mentors/mentors.module';
     HttpModule,
 
     appRoutes,
+    LoginModule,
     HomeModule,
     OnBoardingModule,
     TeamsModule,
