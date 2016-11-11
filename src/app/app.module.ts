@@ -10,6 +10,8 @@ import { appRoutes } from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { OnboardingComponent } from './onboarding/onboarding.component';
+import { OnboardingService } from './onboarding/onboarding.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     NavigationComponent,
     FooterComponent,
+    OnboardingComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { FooterComponent } from './footer/footer.component';
 
     appRoutes,
   ],
-  providers: [AuthService],
+  providers: [AuthService, OnboardingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
