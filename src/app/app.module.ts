@@ -5,18 +5,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 /* App Root */
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { AuthService } from './auth/auth.service';
+
+/* Routing Module */
 import { appRoutes } from './app.routing';
 
-import { AuthService } from './auth/auth.service';
-import { NavigationComponent } from './navigation/navigation.component';
-import { FooterComponent } from './footer/footer.component';
-
 /* Feature Modules */
-import { TeamsModule } from './teams/teams.module';
+import { LoginModule } from './login/login.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
+import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
-import { LoginModule } from './login/login.module';
 
 
 @NgModule({
@@ -27,7 +28,6 @@ import { LoginModule } from './login/login.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
 
     appRoutes,

@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from './login.service';
 import { AuthService } from '../auth/auth.service';
 
 import 'rxjs/add/operator/map'
+
 
 @Component({
   selector: 'app-login',
@@ -19,24 +19,26 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private _router: Router, private _http: Http, private _authService:AuthService) { }
+  constructor(private _router: Router, private _loginService: LoginService, private _authService:AuthService) { }
 
-  ngOnInit() {
-  }
-
-  _tryLogin(email:string, password:string):Observable<any> {
-    return this._http.post('https://staging.hackbulgaria.com/hackfmi/api/jwt-login/', {"email": email, "password": password }).map(res => res.json());
-  }
+  ngOnInit() { }
 
   login():void {
-    this._tryLogin(this.account.email, this.account.password)
-      .subscribe((data:any) => {
-        this._authService.setCurrentUser(data);
-        if (this._authService.redirectUrl) {
-          this._router.navigate([this._authService.redirectUrl]);
-        } else this._router.navigate(['home']);
-      }, (err) => {
-        this.error = true;
-      })
+    this._loginService.login(this.account.email, this.account.password)
+                      .subscribe(
+                        data => this._handleSuccessfulLogin(data),
+                        err => this.error = true);  // TODO: Handle error
   }
+
+  private _handleSuccessfulLogin(data:any) {
+    this._authService.setCurrentUser(data);
+
+    /* Redirect to pre-requested page */
+    if (this._authService.redirectUrl) {
+      this._router.navigate([this._authService.redirectUrl]);
+    } else {
+      this._router.navigate(['home']);
+    }
+  }
+
 }
