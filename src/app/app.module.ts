@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AuthService } from './auth/auth.service';
+import { AuthHttp } from './auth/authHttp.service';
 
 /* Routing Module */
 import { appRoutes } from './app.routing';
@@ -37,7 +38,7 @@ import { MentorsModule } from './mentors/mentors.module';
     TeamsModule,
     MentorsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthHttp],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

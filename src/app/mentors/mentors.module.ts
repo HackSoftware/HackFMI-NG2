@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MentorsComponent } from './mentors.component';
 import { MentorsRoutingModule } from './mentors.routing';
-
+import { MentorsService } from './mentors.service';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,6 @@ import { MentorsRoutingModule } from './mentors.routing';
     MentorsRoutingModule
   ],
   exports: [MentorsRoutingModule],
-  providers: [],
+  providers: [MentorsService],
 })
 export class MentorsModule { }
