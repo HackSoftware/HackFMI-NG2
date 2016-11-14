@@ -2,17 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthHttp } from '../auth/authHttp.service';
-import { environment } from '../../environments/environment';
+import { ApiUrlsService } from '../core/apiUrls.service';
 
 
 @Injectable()
 export class MentorsService {
-  private _membersUrl = environment.apiUrl + 'me/';
-
-  constructor(private _authHttp: AuthHttp) { }
+  constructor(private _authHttp: AuthHttp, private _apiUrlsService: ApiUrlsService) { }
 
   getMentors():Observable<any> {
-    return this._authHttp.get(this._membersUrl)
+    return this._authHttp.get(this._apiUrlsService.membersPublicListUrl)
                           .map(res => res.json())
   }
 }

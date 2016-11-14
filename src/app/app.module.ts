@@ -14,6 +14,7 @@ import { AuthHttp } from './auth/authHttp.service';
 import { appRoutes } from './app.routing';
 
 /* Feature Modules */
+import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
@@ -32,6 +33,7 @@ import { MentorsModule } from './mentors/mentors.module';
     HttpModule,
 
     appRoutes,
+    CoreModule,
     LoginModule,
     HomeModule,
     OnBoardingModule,
