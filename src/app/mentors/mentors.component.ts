@@ -1,7 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-
+import { Mentor } from './mentors.models';
 import { MentorsService } from './mentors.service';
+
 
 @Component({
   selector: 'app-mentors',
@@ -9,22 +11,11 @@ import { MentorsService } from './mentors.service';
   styleUrls: ['./mentors.component.css']
 })
 export class MentorsComponent implements OnInit {
-  members: any;  // Fix type when data is being fetched
+  mentors: Mentor[];
 
-  constructor(private _mentorsService: MentorsService) { }
+  constructor(private _route: ActivatedRoute) { }
 
-  ngOnInit() { this.getMentors(); }
-
-  getMentors():void {
-    this._mentorsService.getMentors()
-                        .subscribe(
-                          data => this._handleMembersData(data),
-                          err => console.log(err));  // TODO: Handle error
+  ngOnInit() {
+    this.mentors = this._route.snapshot.data['mentors'];
   }
-
-  private _handleMembersData(data:any) {
-    console.log(data);
-    this.members = data;
-  }
-
 }

@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,10 +8,10 @@ import { ApiUrlsService } from '../core/apiUrls.service';
 
 @Injectable()
 export class MentorsService {
-  constructor(private _authHttp: AuthHttp, private _apiUrlsService: ApiUrlsService) { }
+  constructor(private _http: Http, private _apiUrlsService: ApiUrlsService) { }
 
-  getMentors():Observable<any> {
-    return this._authHttp.get(this._apiUrlsService.membersPublicListUrl)
+  getMentorsListInfo():Observable<any> {
+    return this._http.get(this._apiUrlsService.membersPublicListUrl)
                           .map(res => res.json())
   }
 }

@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 export class ApiUrlsService {
   loginUrl = environment.apiUrl + 'jwt-login/';               // Public
   currentSeasonDetailUrl = environment.apiUrl + 'season/';    // Public
-  membersPublicListUrl = environment.apiUrl + 'me/';          // Public
+  membersPublicListUrl = environment.apiUrl + 'mentors/';     // Public
   teamsPublicListUrl = environment.apiUrl + 'public-teams/';  // Public
 
   constructor() { }
