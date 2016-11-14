@@ -21,7 +21,7 @@ export class AuthHttp {
   }
 
   get(url:string):Observable<Response> {
-    return this._http.get(url,this.createHeaders())
+    return this._http.get(url,this.createHeaders());
   }
 
   post(url:string, data:any) {

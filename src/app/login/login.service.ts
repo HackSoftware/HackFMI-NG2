@@ -2,10 +2,12 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { environment } from '../../environments/environment';
+
 
 @Injectable()
 export class LoginService {
-  private _loginUrl = 'https://staging.hackbulgaria.com/hackfmi/api/jwt-login/';
+  private _loginUrl = environment.apiUrl + 'jwt-login/';
 
   constructor(private _http: Http) { }
 
