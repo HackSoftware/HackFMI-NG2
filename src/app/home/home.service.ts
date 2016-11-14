@@ -1,11 +1,12 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 
 import { ApiUrlsService } from '../core/apiUrls.service';
 
 import { Season } from './home.models';
+
+import 'rxjs/add/operator/map'
 
 
 @Injectable()
