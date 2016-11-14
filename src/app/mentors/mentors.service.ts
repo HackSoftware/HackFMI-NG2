@@ -20,6 +20,6 @@ export class MentorsService {
   getMentorsListInfo():Observable<Mentor[]> {
     return this._http.get(this._apiUrlsService.membersPublicListUrl)
                           .map(res => res.json())
-                          .catch(err => this._handleHttp.handleError (err))
+                          .catch(err => this._handleHttp.handleError(err))
   }
 }

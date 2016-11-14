@@ -20,6 +20,6 @@ export class TeamsService {
   getPublicTeams():Observable<PublicTeam> {
     return this._http.get(this._apiUrlsService.teamsPublicListUrl)
                      .map(res => res.json())
-                     .catch(err => this._handleHttp.handleError (err))
+                     .catch(err => this._handleHttp.handleError(err))
   }
 }

@@ -20,6 +20,6 @@ export class HomeService {
   getSeasonInfo():Observable<Season> {
     return this._http.get(this._apiUrlsService.currentSeasonDetailUrl)
                      .map(res => res.json())
-                     .catch(err => this._handleHttp.handleError (err))
+                     .catch(err => this._handleHttp.handleError(err))
   }
 }
