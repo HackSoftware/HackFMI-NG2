@@ -1,4 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
+import { PublicTeam } from '../../teams.models';
 
 
 @Component({
@@ -7,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./public-list.component.css']
 })
 export class PublicListComponent implements OnInit {
+  publicTeams: PublicTeam[];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.publicTeams = this.route.snapshot.data['publicTeams'];
   }
 
 }

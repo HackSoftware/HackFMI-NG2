@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 import { HomeService } from './home.service';
 
 
-@Injectable() 
+@Injectable()
 export class SeasonDetailsResolver implements Resolve<any> {
     constructor(private _homeService:HomeService) {}
 

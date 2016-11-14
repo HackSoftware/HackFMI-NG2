@@ -2,7 +2,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Season } from './home.models';
-import { HomeService } from './home.service';
 
 
 @Component({
@@ -13,7 +12,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
   season: Season;
 
-  constructor(private _homeService: HomeService, private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.season = this.route.snapshot.data['season'];

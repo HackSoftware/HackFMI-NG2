@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+
 import { TeamsComponent } from './teams.component';
-import { PrivateListComponent } from './list/private-list/private-list.component';
-import { PublicListComponent } from './list/public-list/public-list.component';
+import { PublicTeamsListResolver } from './teams.resolver';
 import { DetailComponent } from './detail/detail.component';
+import { PublicListComponent } from './list/public-list/public-list.component';
+import { PrivateListComponent } from './list/private-list/private-list.component';
 
 
 @NgModule({
@@ -16,7 +18,10 @@ import { DetailComponent } from './detail/detail.component';
       children: [
         {
           path: '',
-          component: PublicListComponent
+          component: PublicListComponent,
+          resolve: {
+            publicTeams: PublicTeamsListResolver
+          }
         },
         {
           path: 'private',
