@@ -11,7 +11,6 @@ import { MentorsComponent } from './mentors.component';
     {
       path: 'mentors',
       component: MentorsComponent,
-      canActivate: [AuthService],
       resolve: {
         mentors: MentorsListResolver
       }
