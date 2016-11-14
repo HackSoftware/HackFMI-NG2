@@ -1,3 +1,12 @@
-<p>
-  home works!
-</p>
+<h1>Информация за настоящия сезон!</h1>
+
+<p >Име: {{season.name}}</p>
+<p>Тема: {{season.topic}}</p>
+<p>Описание за сезончето:</p>
+<div [innerHTML]="season.front_page">
+</div>
+<p>Минимален брой хора в отбор: {{season.min_team_members_count}}</p>
+<p>Максимален брой хора в отбор: {{season.max_team_members_count}}</p>
+<p>Краен срок за записване: {{season.sign_up_deadline}}</p>
+<p>Краен срок за създаване на отбор: {{season.make_team_dead_line}}</p>
+<p>Можеш да избираш ментори от: {{season.mentor_pick_start_date}} до {{season.mentor_pick_end_date}}</p>

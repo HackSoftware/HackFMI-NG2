@@ -5,8 +5,9 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ApiUrlsService {
-  loginUrl = environment.apiUrl + 'jwt-login/';
-  membersPublicListUrl = environment.apiUrl + 'me/';
+  loginUrl = environment.apiUrl + 'jwt-login/';             // Public
+  currentSeasonDetailUrl = environment.apiUrl + 'season/';  // Public
+  membersPublicListUrl = environment.apiUrl + 'me/';        // Public
 
   constructor() { }
 }

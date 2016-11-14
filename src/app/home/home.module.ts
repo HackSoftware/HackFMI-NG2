@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
+import { HomeService } from './home.service';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
+import { SeasonDetailsResolver } from './home.resolver';
 
 
 @NgModule({
@@ -9,9 +12,11 @@ import { HomeRoutingModule } from './home.routing';
     HomeComponent,
   ],
   imports: [
+    CommonModule,
+
     HomeRoutingModule
   ],
   exports: [HomeRoutingModule],
-  providers: [],
+  providers: [HomeService, SeasonDetailsResolver],
 })
 export class HomeModule { }
