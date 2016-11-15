@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MentorsComponent } from './mentors.component';
 import { MentorsRoutingModule } from './mentors.routing';
 import { MentorsService } from './mentors.service';
+import { MentorsListResolver } from './mentors.resolver';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { MentorsService } from './mentors.service';
     MentorsRoutingModule
   ],
   exports: [MentorsRoutingModule],
-  providers: [MentorsService],
+  providers: [MentorsService, MentorsListResolver],
 })
 export class MentorsModule { }

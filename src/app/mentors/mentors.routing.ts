@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { MentorsListResolver } from './mentors.resolver';
 import { MentorsComponent } from './mentors.component';
 
 
@@ -10,7 +11,9 @@ import { MentorsComponent } from './mentors.component';
     {
       path: 'mentors',
       component: MentorsComponent,
-      canActivate: [AuthService]
+      resolve: {
+        mentors: MentorsListResolver
+      }
     },
   ])],
   exports: [RouterModule]
