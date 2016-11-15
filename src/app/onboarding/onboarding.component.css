@@ -1,7 +1,36 @@
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
+h1 {
+	text-align: center;
 }
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
+form {
+	width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:20px;
+}
+
+.checkbox {
+	padding:15px 0;
+}
+
+form textarea {
+	display:block;
+	width:390px;
+	margin:10px 0;
+	padding:4px;
+}
+
+form input {
+	float:left;
+}
+
+form select {
+	display:block;
+	width:100px;
+}
+
+button[type="submit"] {
+	width:100%;
+	padding:10px 0;
+	font-style: 20px;
 }

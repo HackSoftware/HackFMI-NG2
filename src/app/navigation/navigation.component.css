@@ -3,7 +3,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    font-style: 200px;
 }
 
 li {
@@ -14,10 +14,41 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px;
     text-decoration: none;
+    line-height: 40px;
 }
 
 li a:hover {
-    background-color: #111;
+    color: #F88C00;
+    transition: 1s;
+}
+
+.navbar {
+    background-color:rgba(0, 0, 0, 0.7);
+    padding:30px 0;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+}
+
+.navbar:after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.navbar .navbar-header {
+    float:left;
+}
+
+.navbar .main-navigation {
+    float: right;
+}
+
+.header-image {
+    background-image: url(http://hackfmi.com/wp-content/uploads/2016/11/cropped-12365925_884184641702269_7995251198643790264_o.jpg);
+    height:300px;
+    background-size:cover;
 }
