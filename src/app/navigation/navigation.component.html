@@ -11,7 +11,7 @@
 			  <li><a routerLink="/mentors" routerLinkActive="active">Mentors</a></li>
 			  <li><a target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
 			  <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Login</a></li>
-			  <li><button *ngIf="isLogged()" (click)="logout()">Logout</button></li>
+			  <li><a *ngIf="isLogged()" (click)="logout($event)">Logout</a></li>
 			</ul>
 		</div>
 	</div>

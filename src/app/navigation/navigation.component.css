@@ -17,6 +17,7 @@ li a {
     padding: 15px;
     text-decoration: none;
     line-height: 40px;
+    cursor:pointer;
 }
 
 li a:hover {

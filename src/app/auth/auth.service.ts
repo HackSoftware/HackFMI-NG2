@@ -42,7 +42,8 @@ export class AuthService implements CanActivate {
     localStorage.setItem('user-data', JSON.stringify(userData));
   }
 
-  clearCurrentUser = () => {
+  clearCurrentUser = (event:any) => {
+    event.preventDefault();
     this._currentUser = null;
     this._redirectUrl = null;
     localStorage.removeItem('user-data');
