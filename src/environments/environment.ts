@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  domain: 'https://staging.hackbulgaria.com/',
   apiUrl: 'https://staging.hackbulgaria.com/hackfmi/api/'
 };
