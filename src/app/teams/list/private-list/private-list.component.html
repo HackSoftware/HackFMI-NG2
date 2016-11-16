@@ -1,1 +1,16 @@
-<p>Private teams list here! This list view contains even more info about the teams!</p>
+<h1>НЕ-публични тимове!</h1>
+
+<div class="container">
+  <div *ngFor="let team of privateTeams">
+    <h2>Инфо за отбора:</h2>
+    <p >Име: {{team.name}}</p>
+    <p>Идея: {{team.idea_description}}</p>
+    <p>Репо: {{team.repository}}</p>
+    <ul>Технологии:
+      <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
+    </ul>
+    <p>Има нужда от още хора: {{team.need_more_members}}</p>
+    <p *ngIf="team.need_more_members">Защо трябват още хора: {{team.members_needed_desc}}</p>
+    <p *ngIf="team.room">Стая: {{team.room}}</p>
+  </div>
+</div>

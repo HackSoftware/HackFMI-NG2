@@ -7,20 +7,27 @@ import { MeService } from '../core/me.service';
 
 @Injectable()
 export class OnboardingGuardService implements CanActivate {
+  private _redirectUrl:string = null;
+
   constructor(private _router: Router, private _meService: MeService) { }
+
+  get redirectUrl() {
+    return this._redirectUrl;
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this._meService.getSeasonMeInfo()
                           .map(
-                            data => this._handleOnboarding(data.is_competitor),
+                            data => this._handleOnboarding(data.is_competitor, state),
                             err => console.log(err))
   }
 
-  private _handleOnboarding(is_competitor: boolean) {
+  private _handleOnboarding(is_competitor: boolean, state: RouterStateSnapshot) {
     if (!is_competitor) {
-      this._router.navigate['onboarding'];
+      this._router.navigate(['onboarding']);
     }
 
+    this._redirectUrl = state.url;
     return is_competitor;
   }
 }

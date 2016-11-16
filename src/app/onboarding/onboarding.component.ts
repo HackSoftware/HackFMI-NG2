@@ -14,6 +14,12 @@ import 'rxjs/add/operator/map'
 })
 export class OnboardingComponent implements OnInit {
   skills: Skill[];
+  shirtSizeMap = {
+    "S": 1,
+    "M": 2,
+    "L": 3,
+    "XL": 4
+  }
   shirtSizes = ['S', 'M', 'L', 'XL'];
 
   onboardingInfo = {
@@ -31,6 +37,7 @@ export class OnboardingComponent implements OnInit {
   }
 
   onboardCompetitor(): void {
+    this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
     this._onboardingService.onboardCompetitor(this.onboardingInfo);
   }
 

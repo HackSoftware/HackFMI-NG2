@@ -3,12 +3,13 @@ import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';
+import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { TeamsComponent } from './teams.component';
-import { PublicTeamsListResolver } from './teams.resolver';
 import { DetailComponent } from './detail/detail.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
+import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resolver';
 
 
 @NgModule({
@@ -20,7 +21,10 @@ import { PrivateListComponent } from './list/private-list/private-list.component
         {
           path: '',
           component: PrivateListComponent,
-          canActivate: [TeamsGuardService]
+          canActivate: [TeamsGuardService, OnboardingGuardService],
+          resolve: {
+            privateTeams: PrivateTeamsListResolver
+          }
         },
         {
           path: 'public',

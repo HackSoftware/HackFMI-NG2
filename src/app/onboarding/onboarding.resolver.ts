@@ -6,9 +6,9 @@ import { OnboardingService } from './onboarding.service';
 
 @Injectable()
 export class SkillsResolver implements Resolve<any> {
-    constructor(private _onboardingService:OnboardingService) {}
+  constructor(private _onboardingService:OnboardingService) {}
 
-    resolve(route: ActivatedRouteSnapshot) {
-        return this._onboardingService.getSkills();
-    }
+  resolve(route: ActivatedRouteSnapshot) {
+      return this._onboardingService.getSkills();
+  }
 }

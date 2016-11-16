@@ -13,6 +13,7 @@ export class TeamsGuardService implements CanActivate {
 
     if (!result) {
       this._router.navigate(['teams/public']);
+
     }
 
     return result;
