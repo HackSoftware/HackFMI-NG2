@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeService } from './home.service';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { SeasonDetailsResolver } from './home.resolver';
@@ -17,6 +16,6 @@ import { SeasonDetailsResolver } from './home.resolver';
     HomeRoutingModule
   ],
   exports: [HomeRoutingModule],
-  providers: [HomeService, SeasonDetailsResolver],
+  providers: [SeasonDetailsResolver],
 })
 export class HomeModule { }

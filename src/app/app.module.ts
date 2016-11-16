@@ -20,7 +20,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
 import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
-
+import { GuardModule } from './guard/guard.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { MentorsModule } from './mentors/mentors.module';
 
     appRoutes,
     CoreModule,
+    GuardModule,
     LoginModule,
     HomeModule,
     OnBoardingModule,

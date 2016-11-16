@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 
-import { HomeService } from './home.service';
+import { SeasonService } from '../core/season.service';
 
 
 @Injectable()
 export class SeasonDetailsResolver implements Resolve<any> {
-    constructor(private _homeService:HomeService) {}
+    constructor(private _seasonService:SeasonService) {}
 
     resolve(route: ActivatedRouteSnapshot) {
-        return this._homeService.getSeasonInfo();
+        return this._seasonService.getSeasonInfo();
     }
 }

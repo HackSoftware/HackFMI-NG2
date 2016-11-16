@@ -17,7 +17,14 @@ import { LoginService } from './login.service';
 
     LoginRoutingModule
   ],
-  exports: [LoginRoutingModule],
-  providers: [LoginService],
+  exports: [
+    LoginRoutingModule],
+  providers: [,
+    LoginService,
+    {
+      provide: 'Window',
+      useValue: window
+    },
+  ],
 })
 export class LoginModule { }

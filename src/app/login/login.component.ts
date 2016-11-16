@@ -1,8 +1,9 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+
+import { AuthService } from '../auth/auth.service';
 
 import { LoginService } from './login.service';
-import { AuthService } from '../auth/auth.service';
 
 import 'rxjs/add/operator/map'
 
@@ -19,9 +20,13 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private _router: Router, private _loginService: LoginService, private _authService:AuthService) { }
+  constructor(private _router: Router,
+              private _loginService: LoginService,
+              private _authService:AuthService) { }
 
   ngOnInit() { }
+
+  register () { this._loginService.register(); }
 
   login():void {
     this._loginService.login(this.account.email, this.account.password)

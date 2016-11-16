@@ -1,17 +1,17 @@
 <div *ngIf="error">Something went wrong. Check console!</div>
 
 <div class="login-container">
-	<div class="form-container">
-		<form>
-		  <div class="form-control">
-		    <label>Email:</label>
-		    <input type="email" name="email" [(ngModel)]="account.email">
-		  </div>
-		  <div class="form-control">
-		    <label>Passsword:</label>
-		    <input type="password" name="password" [(ngModel)]="account.password">
-		  </div>
-		  <button (click)="login()">Login</button>
-		</form>
-	</div>
+  <div class="form-container">
+    <form>
+      <div class="form-control">
+        <label>Email:</label>
+        <input type="email" name="email" [(ngModel)]="account.email">
+      </div>
+      <div class="form-control">
+        <label>Passsword:</label>
+        <input type="password" name="password" [(ngModel)]="account.password">
+      </div>
+      <button (click)="login()">Login</button> or <button (click)="register()">Register</button>
+    </form>
+  </div>
 </div>

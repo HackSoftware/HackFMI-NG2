@@ -1,20 +1,20 @@
 <div class="navbar" >
-	<div class="container">
-		<div class="navbar-header">
-			<img src="http://i1.wp.com/hackfmi.com/wp-content/uploads/2016/11/cropped-cropped-cropped-cropped-cropped-hackfmi_logo-1-2.png?fit=290%2C51">
-		</div>
-		<div class="main-navigation">
-			<ul>
-			  <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-			  <li><a routerLink="/onboarding" routerLinkActive="active">Onboarding</a></li>
-			  <li><a routerLink="/teams" routerLinkActive="active">Teams</a></li>
-			  <li><a routerLink="/mentors" routerLinkActive="active">Mentors</a></li>
-			  <li><a target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
-			  <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Login</a></li>
-			  <li><a *ngIf="isLogged()" (click)="logout($event)">Logout</a></li>
-			</ul>
-		</div>
-	</div>
+    <div class="container">
+        <div class="navbar-header">
+            <img src="http://i1.wp.com/hackfmi.com/wp-content/uploads/2016/11/cropped-cropped-cropped-cropped-cropped-hackfmi_logo-1-2.png?fit=290%2C51">
+        </div>
+        <div class="main-navigation">
+            <ul>
+              <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+              <li><a routerLink="/onboarding" routerLinkActive="active">Onboarding</a></li>
+              <li><a routerLink="/teams" routerLinkActive="active">Teams</a></li>
+              <li><a routerLink="/mentors" routerLinkActive="active">Mentors</a></li>
+              <li><a target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
+              <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Login</a></li>
+              <li><a *ngIf="isLogged()" (click)="logout($event)">Logout</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div class="header-image"></div>

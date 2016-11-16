@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Skill } from './onboarding.models';
 import { OnboardingService } from './onboarding.service';
@@ -23,18 +24,14 @@ export class OnboardingComponent implements OnInit {
     known_skills: []
   }
 
-  constructor(private _onboardingService: OnboardingService) {
-    this._onboardingService.getSkills()
-      .subscribe((data:any) => {
-        this.skills = data;
-      }, (err) => {
-        console.log(err);
-      })
+  constructor(private _route: ActivatedRoute, private _onboardingService: OnboardingService) { }
+
+  ngOnInit() {
+    this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);
   }
 
-  onBoardCompetitor(): void {
-    // TODO: Send request for onboarding! Authenticate yourself!
-    console.log(this.onboardingInfo);
+  onboardCompetitor(): void {
+    this._onboardingService.onboardCompetitor(this.onboardingInfo);
   }
 
   addOrRemoveSkill(id:number): void {
@@ -47,8 +44,4 @@ export class OnboardingComponent implements OnInit {
   setShirtSize(size:string):void {
     this.onboardingInfo.shirt_size = size;
   }
-
-  ngOnInit() {
-  }
-
 }
