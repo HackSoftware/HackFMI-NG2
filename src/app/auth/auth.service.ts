@@ -19,6 +19,10 @@ export class AuthService implements CanActivate {
     return this._redirectUrl;
   }
 
+  get currentUser() {
+    return this._currentUser;
+  }
+
   get token() {
     return this._currentUser.token;
   }

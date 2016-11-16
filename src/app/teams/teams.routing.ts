@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { TeamsGuardService } from '../guard/teams-guard.service';
 
 import { TeamsComponent } from './teams.component';
 import { PublicTeamsListResolver } from './teams.resolver';
@@ -18,15 +19,15 @@ import { PrivateListComponent } from './list/private-list/private-list.component
       children: [
         {
           path: '',
+          component: PrivateListComponent,
+          canActivate: [TeamsGuardService]
+        },
+        {
+          path: 'public',
           component: PublicListComponent,
           resolve: {
             publicTeams: PublicTeamsListResolver
           }
-        },
-        {
-          path: 'private',
-          component: PrivateListComponent,
-          canActivate: [AuthService]
         },
         {
           path: ':id',
