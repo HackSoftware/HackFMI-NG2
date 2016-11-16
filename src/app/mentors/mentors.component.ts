@@ -16,6 +16,6 @@ export class MentorsComponent implements OnInit {
   constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mentors = this._route.snapshot.data['mentors'];
+    this._route.data.subscribe((data: {mentors:Mentor[]}) => this.mentors = data.mentors);
   }
 }

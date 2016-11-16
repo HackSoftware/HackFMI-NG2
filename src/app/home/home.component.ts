@@ -12,9 +12,9 @@ import { Season } from './home.models';
 export class HomeComponent implements OnInit {
   season: Season;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.season = this.route.snapshot.data['season'];
+    this._route.data.subscribe((data: {season:Season}) => this.season = data.season);
   }
 }

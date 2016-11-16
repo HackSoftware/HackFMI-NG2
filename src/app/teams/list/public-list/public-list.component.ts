@@ -12,10 +12,10 @@ import { PublicTeam } from '../../teams.models';
 export class PublicListComponent implements OnInit {
   publicTeams: PublicTeam[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.publicTeams = this.route.snapshot.data['publicTeams'];
+    this._route.data.subscribe((data: {publicTeams:PublicTeam[]}) => this.publicTeams = data.publicTeams);
   }
 
 }
