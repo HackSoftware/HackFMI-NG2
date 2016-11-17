@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { TeamsService } from './teams.service';
 import { TeamsRoutingModule } from './teams.routing';
 import { TeamsComponent } from './teams.component';
+import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
-import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resolver';
+import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver } from './teams.resolver';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resol
     PublicListComponent,
     PrivateListComponent,
     DetailComponent,
+    CreateComponent,
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,11 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resol
     TeamsRoutingModule
   ],
   exports: [TeamsRoutingModule],
-  providers: [TeamsService, PublicTeamsListResolver, PrivateTeamsListResolver],
+  providers: [
+    TeamsService,
+    PublicTeamsListResolver,
+    PrivateTeamsListResolver,
+    TeamDetailsResolver
+  ],
 })
 export class TeamsModule { }

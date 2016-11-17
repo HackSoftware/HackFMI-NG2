@@ -1,1 +1,14 @@
 <p>Team specific details here!</p>
+
+<div class="container">
+  <h2>Инфо за отбора:</h2>
+  <p >Име: {{teamDetails.name}}</p>
+  <p>Идея: {{teamDetails.idea_description}}</p>
+  <p>Репо: {{teamDetails.repository}}</p>
+  <ul>Технологии:
+    <li *ngFor="let technology of teamDetails.technologies_full">{{technology.name}}</li>
+  </ul>
+  <p>Има нужда от още хора: {{teamDetails.need_more_members}}</p>
+  <p *ngIf="teamDetails.need_more_members">Защо трябват още хора: {{teamDetails.members_needed_desc}}</p>
+  <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p>
+</div>

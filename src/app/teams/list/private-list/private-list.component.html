@@ -12,5 +12,6 @@
     <p>Има нужда от още хора: {{team.need_more_members}}</p>
     <p *ngIf="team.need_more_members">Защо трябват още хора: {{team.members_needed_desc}}</p>
     <p *ngIf="team.room">Стая: {{team.room}}</p>
+    <button (click)="teamDetails(team)">Виж повече инфо за отбора</button>
   </div>
 </div>

@@ -9,7 +9,8 @@ import { TeamsComponent } from './teams.component';
 import { DetailComponent } from './detail/detail.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
-import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resolver';
+import { PublicTeamsListResolver, PrivateTeamsListResolver,
+         TeamDetailsResolver } from './teams.resolver';
 
 
 @NgModule({
@@ -36,7 +37,10 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver } from './teams.resol
         {
           path: ':id',
           component: DetailComponent,
-          canActivate: [AuthService]
+          canActivate: [AuthService],
+          resolve: {
+            teamDetails: TeamDetailsResolver
+          }
         },
       ]
     }

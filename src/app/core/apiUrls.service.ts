@@ -15,7 +15,7 @@ export class ApiUrlsService {
   teamsPublicListUrl = environment.apiUrl + 'public-teams/';  // Public
   meUrl = environment.apiUrl + 'me/';                         // Authorization: JWT
   onboardUrl = environment.apiUrl + 'onboard-competitor/';    // Authorization: JWT
-  teamsPrivateUrl = environment.apiUrl + 'teams/';            // Authorization: JWT
+  teamsUrl = environment.apiUrl + 'teams/';                   // Authorization: JWT
 
   constructor() { }
 }

@@ -13,11 +13,24 @@ export class PublicTeamsListResolver implements Resolve<any> {
   }
 }
 
+
 @Injectable()
 export class PrivateTeamsListResolver implements Resolve<any> {
   constructor(private _teamsService:TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this._teamsService.getPrivateTeams();
+  }
+}
+
+
+@Injectable()
+export class TeamDetailsResolver implements Resolve<any> {
+  constructor(private _teamsService:TeamsService) {}
+
+  resolve(route: ActivatedRouteSnapshot) {
+    var id = route.params['id'];
+
+    return this._teamsService.getTeamDetails(id);
   }
 }

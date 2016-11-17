@@ -6,7 +6,7 @@ import { ApiUrlsService } from '../core/apiUrls.service';
 import { AuthHttp } from '../auth/authHttp.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 
-import { PublicTeam } from './teams.models';
+import { PublicTeam, PrivateTeam } from './teams.models';
 
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
@@ -19,14 +19,22 @@ export class TeamsService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  getPublicTeams():Observable<PublicTeam> {
+  getPublicTeams():Observable<PublicTeam[]> {
     return this._http.get(this._apiUrlsService.teamsPublicListUrl)
                      .map(res => res.json())
                      .catch(err => this._handleHttp.handleError(err))
   }
 
-  getPrivateTeams():Observable<PublicTeam> {
-    return this._authHttp.get(this._apiUrlsService.teamsPrivateUrl)
+  getPrivateTeams():Observable<PrivateTeam[]> {
+    return this._authHttp.get(this._apiUrlsService.teamsUrl)
+                         .map(res => res.json())
+                         .catch(err => this._handleHttp.handleError(err))
+  }
+
+  getTeamDetails(id:number):Observable<PrivateTeam> {
+    var teamDetailsUrl = this._apiUrlsService.teamsUrl + id + "/";
+
+    return this._authHttp.get(teamDetailsUrl)
                          .map(res => res.json())
                          .catch(err => this._handleHttp.handleError(err))
   }

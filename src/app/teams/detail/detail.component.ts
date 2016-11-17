@@ -1,5 +1,7 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { PrivateTeam } from '../teams.models';
 
 @Component({
   selector: 'app-detail',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  constructor() { }
+  teamDetails: PrivateTeam;
 
-  ngOnInit() { }
+  constructor(private _route: ActivatedRoute) { }
+
+  ngOnInit() {this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);}
 }
