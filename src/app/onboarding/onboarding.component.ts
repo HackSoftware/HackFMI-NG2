@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { Skill } from './onboarding.models';
 import { OnboardingService } from './onboarding.service';
@@ -30,25 +32,41 @@ export class OnboardingComponent implements OnInit {
     known_skills: []
   }
 
-  constructor(private _route: ActivatedRoute, private _onboardingService: OnboardingService) { }
+  constructor(private _router: Router,
+              private _route: ActivatedRoute,
+              private _onboardingService: OnboardingService,
+              private _onboardingGuardService: OnboardingGuardService) { }
 
   ngOnInit() {
     this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);
   }
 
-  onboardCompetitor(): void {
-    this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
-    this._onboardingService.onboardCompetitor(this.onboardingInfo);
-  }
-
   addOrRemoveSkill(id:number): void {
     var index = this.onboardingInfo.known_skills.indexOf(id);
+
     if (index > -1) {
       this.onboardingInfo.known_skills.splice(index, 1);
-    } else this.onboardingInfo.known_skills.push(id);
+    } else {
+      this.onboardingInfo.known_skills.push(id);
+    }
   }
 
   setShirtSize(size:string):void {
     this.onboardingInfo.shirt_size = size;
+  }
+
+  onboardCompetitor(): void {
+    this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
+    this._onboardingService.onboardCompetitor(this.onboardingInfo)
+                           .subscribe(
+                             data => this._handleSuccessfulOnboarding());
+  }
+
+  private _handleSuccessfulOnboarding() {
+    if (this._onboardingGuardService.redirectUrl) {
+      this._router.navigate([this._onboardingGuardService.redirectUrl]);
+    } else {
+      this._router.navigate(['home']);
+    }
   }
 }

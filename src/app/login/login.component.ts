@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
+
+import { AuthService } from '../auth/auth.service';
 
 import { LoginService } from './login.service';
 
@@ -16,10 +19,28 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private _loginService: LoginService) { }
+  constructor(private _router: Router,
+              private _authService:AuthService,
+              private _loginService: LoginService,) { }
 
   ngOnInit() { }
 
   register () {this._loginService.register();}
-  login():void {this._loginService.login(this.account.email, this.account.password);}
+  login():void {
+    this._loginService.login(this.account.email, this.account.password)
+                      .subscribe(
+                        data => this._handleSuccessfulLogin(data),
+                        err => console.log(err));
+  }
+
+  private _handleSuccessfulLogin(data:any) {
+    this._authService.setCurrentUser(data);
+
+    /* Redirect to pre-requested page */
+    if (this._authService.redirectUrl) {
+      this._router.navigate([this._authService.redirectUrl]);
+    } else {
+      this._router.navigate(['home']);
+    }
+  }
 }
