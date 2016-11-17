@@ -1,5 +1,9 @@
 <h1>НЕ-публични тимове!</h1>
 
+<div class=container>
+  <button (click)="createTeam()">Създай отбор</button>
+</div>
+
 <div class="container">
   <div *ngFor="let team of privateTeams">
     <h2>Инфо за отбора:</h2>
@@ -12,6 +16,6 @@
     <p>Има нужда от още хора: {{team.need_more_members}}</p>
     <p *ngIf="team.need_more_members">Защо трябват още хора: {{team.members_needed_desc}}</p>
     <p *ngIf="team.room">Стая: {{team.room}}</p>
-    <button (click)="teamDetails(team)">Виж повече инфо за отбора</button>
+    <button (click)="showTeamDetails(team)">Виж повече инфо за отбора</button>
   </div>
 </div>

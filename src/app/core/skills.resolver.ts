@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 
-import { OnboardingService } from './onboarding.service';
+import { SkillsService } from './skills.service';
 
 
 @Injectable()
 export class SkillsResolver implements Resolve<any> {
-  constructor(private _onboardingService:OnboardingService) {}
+  constructor(private _skillsService:SkillsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-      return this._onboardingService.getSkills();
+      return this._skillsService.getSkills();
   }
 }

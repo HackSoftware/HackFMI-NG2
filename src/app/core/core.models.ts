@@ -1,3 +1,8 @@
+export class Skill {
+  id: number;
+  name: string;
+}
+
 export class Season {
   id: number;
   name: string;

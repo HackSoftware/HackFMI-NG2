@@ -38,4 +38,9 @@ export class TeamsService {
                          .map(res => res.json())
                          .catch(err => this._handleHttp.handleError(err))
   }
+
+  createTeam(teamData:any): Observable<any> {
+    return this._authHttp.post(this._apiUrlsService.teamsUrl, teamData)
+                         .map(res => res.json());
+  }
 }

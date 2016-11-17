@@ -16,7 +16,11 @@ export class PrivateListComponent implements OnInit {
 
   ngOnInit() {this._route.data.subscribe((data: {privateTeams:PrivateTeam[]}) => this.privateTeams = data.privateTeams);}
 
-  teamDetails(team:PrivateTeam):void {
-    this._router.navigate(['/teams', team.id]);
+  showTeamDetails(team:PrivateTeam):void {
+    this._router.navigate(['teams', team.id]);
+  }
+
+  createTeam():void {
+    this._router.navigate(['teams/create']);
   }
 }

@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
-import { Skill } from './onboarding.models';
+import { Skill } from '../core/core.models';
 import { OnboardingService } from './onboarding.service';
 
 import 'rxjs/add/operator/map'
@@ -37,9 +37,7 @@ export class OnboardingComponent implements OnInit {
               private _onboardingService: OnboardingService,
               private _onboardingGuardService: OnboardingGuardService) { }
 
-  ngOnInit() {
-    this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);
-  }
+  ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
 
   addOrRemoveSkill(id:number): void {
     var index = this.onboardingInfo.known_skills.indexOf(id);

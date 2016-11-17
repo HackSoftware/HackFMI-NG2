@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 import { OnboardingComponent } from './onboarding.component';
 import { OnboardingService } from './onboarding.service';
-import { SkillsResolver } from './onboarding.resolver';
 import { OnBoardingRoutingModule } from './onboarding.routing';
 
 
@@ -19,6 +18,6 @@ import { OnBoardingRoutingModule } from './onboarding.routing';
     OnBoardingRoutingModule
   ],
   exports: [OnBoardingRoutingModule],
-  providers: [OnboardingService, SkillsResolver],
+  providers: [OnboardingService],
 })
 export class OnBoardingModule { }

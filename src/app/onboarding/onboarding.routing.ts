@@ -5,7 +5,7 @@ import { AuthService } from '../auth/auth.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { OnboardingComponent } from './onboarding.component';
-import { SkillsResolver } from './onboarding.resolver';
+import { SkillsResolver } from '../core/skills.resolver';
 
 
 @NgModule({

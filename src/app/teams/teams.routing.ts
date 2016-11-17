@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { SkillsResolver } from '../core/skills.resolver';
 import { TeamsGuardService } from '../guard/teams-guard.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { TeamsComponent } from './teams.component';
+import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
@@ -32,6 +34,14 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           component: PublicListComponent,
           resolve: {
             publicTeams: PublicTeamsListResolver
+          }
+        },
+        {
+          path: 'create',
+          component: CreateComponent,
+          canActivate: [AuthService],
+          resolve: {
+            skills: SkillsResolver
           }
         },
         {

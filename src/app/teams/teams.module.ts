@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { TeamsService } from './teams.service';
 import { TeamsRoutingModule } from './teams.routing';
@@ -20,6 +21,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver 
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
     TeamsRoutingModule
   ],
@@ -29,6 +31,6 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver 
     PublicTeamsListResolver,
     PrivateTeamsListResolver,
     TeamDetailsResolver
-  ],
+  ]
 })
 export class TeamsModule { }
