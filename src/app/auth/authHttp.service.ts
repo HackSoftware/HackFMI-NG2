@@ -27,4 +27,12 @@ export class AuthHttp {
   post(url:string, data:any) {
     return this._http.post(url, data, this.createHeaders());
   }
+
+  patch(url:string, data:any) {
+    return this._http.patch(url, data, this.createHeaders());
+  }
+
+  delete(url:string) {
+    return this._http.delete(url, this.createHeaders());
+  }
 }
