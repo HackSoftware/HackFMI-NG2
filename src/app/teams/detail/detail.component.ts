@@ -13,16 +13,16 @@ import { TeamsService } from '../teams.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  teamDetails: PrivateTeam;
   meDetails: Me;
+  teamDetails: PrivateTeam;
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
               private _teamService: TeamsService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
+    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
   }
 
   competitorInTeam():boolean {
@@ -33,7 +33,7 @@ export class DetailComponent implements OnInit {
 
   leaveTeam(): void {
     if (this.competitorInTeam()) {
-      this._teamService.leaveTeam()
+      this._teamService.leaveTeam(this.meDetails)
                        .subscribe(
                          data => this._handleSuccessfulTeamLeaving(),
                          err => console.log(err));

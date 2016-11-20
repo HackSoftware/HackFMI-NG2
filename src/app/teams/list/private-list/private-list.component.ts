@@ -12,14 +12,14 @@ import { PrivateTeam } from '../../teams.models';
   styleUrls: ['./private-list.component.css']
 })
 export class PrivateListComponent implements OnInit {
-  privateTeams: PrivateTeam[];
   meDetails: Me;
+  privateTeams: PrivateTeam[];
 
   constructor(private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {privateTeams:PrivateTeam[]}) => this.privateTeams = data.privateTeams);
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
+    this._route.data.subscribe((data: {privateTeams:PrivateTeam[]}) => this.privateTeams = data.privateTeams);
   }
 
   showTeamDetails(team:PrivateTeam):void {
