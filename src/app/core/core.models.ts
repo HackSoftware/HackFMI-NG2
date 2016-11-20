@@ -19,9 +19,16 @@ export class Season {
   make_team_dead_line: string;
 }
 
+class CompetitorInfo {
+  id: number;
+  email: string;
+  first_name: string;
+  last_name: string;
+}
 
 export class Me {
   is_competitor: boolean;
   team_membership_id: number;
+  competitor_info: CompetitorInfo;
   team: PrivateTeam;
 }

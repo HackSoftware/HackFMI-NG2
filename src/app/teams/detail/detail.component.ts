@@ -31,6 +31,18 @@ export class DetailComponent implements OnInit {
     return this.meDetails.team.id == this.teamDetails.id;
   }
 
+  isTeamLeader():boolean {
+    return this.meDetails.competitor_info.id == this.teamDetails.leader_id;
+  }
+
+  inviteMembers():void {
+    console.log('Invite members called!')
+  }
+
+  updateTeam():void {
+    this._router.navigate(['teams', this.teamDetails.id, 'edit']);
+  }
+
   leaveTeam(): void {
     if (this.competitorInTeam()) {
       this._teamService.leaveTeam(this.meDetails)

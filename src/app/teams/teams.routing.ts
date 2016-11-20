@@ -10,6 +10,7 @@ import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 import { TeamsComponent } from './teams.component';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
+import { UpdateComponent } from './update/update.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
 import { PublicTeamsListResolver, PrivateTeamsListResolver,
@@ -45,6 +46,11 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           resolve: {
             skills: SkillsResolver
           }
+        },
+        {
+          path: ':id/edit',
+          component: UpdateComponent,
+          canActivate: [AuthService]
         },
         {
           path: ':id',

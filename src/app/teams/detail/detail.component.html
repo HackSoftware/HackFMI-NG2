@@ -4,6 +4,11 @@
   <button (click)="leaveTeam()">Напусни отбора</button>
 </div>
 
+<div *ngIf="isTeamLeader()">
+  <button (click)="updateTeam()">Обнови отбора</button>
+  <button (click)="inviteMembers()">Покани хора</button>
+</div>
+
 <div class="container">
   <h2>Инфо за отбора:</h2>
   <p >Име: {{teamDetails.name}}</p>

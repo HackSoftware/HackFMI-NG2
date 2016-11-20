@@ -10,6 +10,7 @@ import { DetailComponent } from './detail/detail.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
 import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver } from './teams.resolver';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver 
     PrivateListComponent,
     DetailComponent,
     CreateComponent,
+    UpdateComponent,
   ],
   imports: [
     CommonModule,
