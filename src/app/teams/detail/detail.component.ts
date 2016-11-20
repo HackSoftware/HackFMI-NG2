@@ -45,7 +45,9 @@ export class DetailComponent implements OnInit {
 
   leaveTeam(): void {
     if (this.competitorInTeam()) {
-      this._teamService.leaveTeam(this.meDetails)
+      var teamMembershipId = this.meDetails.team_membership_id;
+
+      this._teamService.leaveTeam(teamMembershipId)
                        .subscribe(
                          data => this._handleSuccessfulTeamLeaving(),
                          err => console.log(err));

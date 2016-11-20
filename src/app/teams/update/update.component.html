@@ -1,3 +1,35 @@
-<p>
-  update works!
-</p>
+<div class="container">
+  <h1>Edit Team Form</h1>
+  <form (ngSubmit)="updateTeam()" #editTeamForm="ngForm">
+    <div class="form-group">
+      <label for="name">Име на отбора</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="teamDetails.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="idea-description">Описание на идеята</label>
+      <input type="text" class="form-control" id="idea-description" required [(ngModel)]="teamDetails.idea_description" name="idea_description">
+    </div>
+
+    <div class="form-group">
+      <label for="repository">Репозитори</label>
+      <input type="url" class="form-control" id="repository" [(ngModel)]="teamDetails.repository" name="repository">
+    </div>
+
+    <div class="checkbox">
+      <label><input type="checkbox" name="need_more_members" [(ngModel)]="teamDetails.need_more_members">Имаш ли нужда от още хора?</label>
+    </div>
+
+    <div class="form-group">
+      <label for="members-needed-desc">Защо имаш нужда от още хора?:</label>
+      <textarea class="form-control" rows="5" id="members-needed-desc" name="members_needed_desc" [(ngModel)]="teamDetails.members_needed_desc"></textarea>
+    </div>
+
+    <p>Какви технологии ще използваш?</p>
+    <div *ngFor="let skill of skills" class="checkbox">
+      <label><input type="checkbox" [checked]="isSkillChosen(skill.id)" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!editTeamForm.form.valid">Submit</button>
+  </form>
+</div>

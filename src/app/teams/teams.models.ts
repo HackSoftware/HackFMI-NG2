@@ -27,6 +27,7 @@ export class PrivateTeam {
   name: string;
   idea_description: string;
   repository: string;
+  technologies: number[];
   technologies_full: Technology[];
   need_more_members: boolean;
   members_needed_desc: string;

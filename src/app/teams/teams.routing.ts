@@ -50,7 +50,11 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: ':id/edit',
           component: UpdateComponent,
-          canActivate: [AuthService]
+          canActivate: [AuthService],
+          resolve: {
+            skills: SkillsResolver,
+            teamDetails: TeamDetailsResolver
+          }
         },
         {
           path: ':id',

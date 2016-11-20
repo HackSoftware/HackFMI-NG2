@@ -47,8 +47,15 @@ export class TeamsService {
                          .map(res => res.json());
   }
 
-  leaveTeam(meData: Me): Observable<any> {
-    var teamLeaveUrl = this._apiUrlsService.teamMembershipUrl + meData['team_membership_id'] + "/";
+  editTeam(teamId:number, teamData:PrivateTeam): Observable<PrivateTeam> {
+    var teamEditUrl = this._apiUrlsService.teamsUrl + teamId + "/";
+
+    return this._authHttp.patch(teamEditUrl, teamData)
+                         .map(res => res.json());
+  }
+
+  leaveTeam(teamMembershipId: number): Observable<any> {
+    var teamLeaveUrl = this._apiUrlsService.teamMembershipUrl + teamMembershipId + "/";
 
     return this._authHttp.delete(teamLeaveUrl);
   }
