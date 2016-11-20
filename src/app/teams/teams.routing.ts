@@ -27,7 +27,8 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           component: PrivateListComponent,
           canActivate: [TeamsGuardService, OnboardingGuardService],
           resolve: {
-            privateTeams: PrivateTeamsListResolver
+            privateTeams: PrivateTeamsListResolver,
+            meDetails: MeSeasonResolver
           }
         },
         {
@@ -51,7 +52,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           canActivate: [AuthService],
           resolve: {
             teamDetails: TeamDetailsResolver,
-            meSeasonDetails: MeSeasonResolver
+            meDetails: MeSeasonResolver
           }
         },
       ]

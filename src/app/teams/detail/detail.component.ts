@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { Me } from '../../core/core.models';
+
 import { PrivateTeam } from '../teams.models';
 import { TeamsService } from '../teams.service';
 
@@ -12,7 +14,7 @@ import { TeamsService } from '../teams.service';
 })
 export class DetailComponent implements OnInit {
   teamDetails: PrivateTeam;
-  meSeasonDetails: any;
+  meDetails: Me;
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
@@ -20,13 +22,13 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
-    this._route.data.subscribe((data: {meSeasonDetails:PrivateTeam}) => this.meSeasonDetails = data.meSeasonDetails);
+    this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
   }
 
   competitorInTeam():boolean {
-    if (!this.meSeasonDetails.team) return false;
+    if (!this.meDetails.team) return false;
 
-    return this.meSeasonDetails.teams.filter((team) => team.id == this.teamDetails.id).length > 0;
+    return this.meDetails.team.id == this.teamDetails.id;
   }
 
   leaveTeam(): void {

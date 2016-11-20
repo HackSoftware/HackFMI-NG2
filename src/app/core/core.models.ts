@@ -1,3 +1,6 @@
+import { PrivateTeam } from '../teams/teams.models';
+
+
 export class Skill {
   id: number;
   name: string;
@@ -14,4 +17,11 @@ export class Season {
   mentor_pick_start_date: string;
   mentor_pick_end_date: string;
   make_team_dead_line: string;
+}
+
+
+export class Me {
+  is_competitor: boolean;
+  team_membership_id: number;
+  team: PrivateTeam;
 }

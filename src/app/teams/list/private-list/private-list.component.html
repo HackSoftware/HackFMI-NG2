@@ -1,8 +1,12 @@
 <h1>НЕ-публични тимове!</h1>
 
-<div class=container>
+<div *ngIf="!meDetails.team" class=container>
   <button (click)="createTeam()">Създай отбор</button>
 </div>
+<div *ngIf="meDetails.team" class=container>
+  <button (click)="showTeamDetails(meDetails.team)">Моят отбор</button>
+</div>
+
 
 <div class="container">
   <div *ngFor="let team of privateTeams">
