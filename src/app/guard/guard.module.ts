@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { TeamsGuardService } from './teams-guard.service';
+import { LeaderGuardService } from './leader-guard.service';
 import { OnboardingGuardService } from './onboarding-guard.service';
 
 
@@ -8,6 +9,10 @@ import { OnboardingGuardService } from './onboarding-guard.service';
   declarations: [],
   imports: [],
   exports: [],
-  providers: [OnboardingGuardService, TeamsGuardService],
+  providers: [
+    TeamsGuardService,
+    LeaderGuardService,
+    OnboardingGuardService,
+  ],
 })
 export class GuardModule { }

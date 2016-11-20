@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
+import { SkillsResolver } from '../core/skills.resolver';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { OnboardingComponent } from './onboarding.component';
-import { SkillsResolver } from '../core/skills.resolver';
 
 
 @NgModule({

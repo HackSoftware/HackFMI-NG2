@@ -5,6 +5,7 @@ import { AuthService } from '../auth/auth.service';
 import { MeSeasonResolver } from '../core/me.resolver';
 import { SkillsResolver } from '../core/skills.resolver';
 import { TeamsGuardService } from '../guard/teams-guard.service';
+import { LeaderGuardService } from '../guard/leader-guard.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { TeamsComponent } from './teams.component';
@@ -50,7 +51,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: ':id/edit',
           component: UpdateComponent,
-          canActivate: [AuthService],
+          canActivate: [AuthService, LeaderGuardService],
           resolve: {
             skills: SkillsResolver,
             teamDetails: TeamDetailsResolver
