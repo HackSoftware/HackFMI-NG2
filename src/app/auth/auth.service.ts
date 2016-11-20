@@ -5,9 +5,12 @@ import { LoginData } from '../login/login.models';
 
 import { UserData } from './auth.models';
 
-import 'jwt-decode/build/jwt-decode'
+/* TODO: Resolve this patch. */
+declare var require: any;
+var jwt_decode = require('jwt-decode');
 
 
+/* TODO: Rename AuthService to AuthGuardService */
 @Injectable()
 export class AuthService implements CanActivate {
   private _currentUser: UserData = null;
