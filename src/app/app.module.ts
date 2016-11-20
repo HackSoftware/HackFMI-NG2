@@ -22,6 +22,7 @@ import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
 import { GuardModule } from './guard/guard.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,7 @@ import { GuardModule } from './guard/guard.module';
     HomeModule,
     OnBoardingModule,
     TeamsModule,
-    MentorsModule
+    MentorsModule,
   ],
   providers: [AuthService, AuthHttp],
   bootstrap: [AppComponent]

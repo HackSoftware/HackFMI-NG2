@@ -1,6 +1,6 @@
 <p>Team specific details here!</p>
 
-<div>
+<div *ngIf="competitorInTeam()">
   <button (click)="leaveTeam()">Напусни отбора</button>
 </div>
 

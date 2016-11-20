@@ -12,18 +12,30 @@ import { TeamsService } from '../teams.service';
 })
 export class DetailComponent implements OnInit {
   teamDetails: PrivateTeam;
+  meSeasonDetails: any;
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
               private _teamService: TeamsService) { }
 
-  ngOnInit() {this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);}
+  ngOnInit() {
+    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
+    this._route.data.subscribe((data: {meSeasonDetails:PrivateTeam}) => this.meSeasonDetails = data.meSeasonDetails);
+  }
+
+  competitorInTeam():boolean {
+    if (!this.meSeasonDetails.team) return false;
+
+    return this.meSeasonDetails.teams.filter((team) => team.id == this.teamDetails.id).length > 0;
+  }
 
   leaveTeam(): void {
-    this._teamService.leaveTeam()
-                     .subscribe(
-                       data => this._handleSuccessfulTeamLeaving(),
-                       err => console.log(err));
+    if (this.competitorInTeam()) {
+      this._teamService.leaveTeam()
+                       .subscribe(
+                         data => this._handleSuccessfulTeamLeaving(),
+                         err => console.log(err));
+      }
   }
 
   private _handleSuccessfulTeamLeaving() {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { MeService } from './me.service';
+import { MeSeasonResolver } from './me.resolver';
 import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
@@ -19,6 +20,7 @@ import { HandleHttpService } from './handleHttp.service';
     ApiUrlsService,
     HandleHttpService,
 
+    MeSeasonResolver,
     SkillsResolver,
   ]
 })
