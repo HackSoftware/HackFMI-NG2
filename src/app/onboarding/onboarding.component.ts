@@ -16,6 +16,7 @@ import 'rxjs/add/operator/map'
 })
 export class OnboardingComponent implements OnInit {
   skills: Skill[];
+  /* TODO: Fix this in the backend - field should't be SmallInteger, but Char */
   shirtSizeMap = {
     "S": 1,
     "M": 2,

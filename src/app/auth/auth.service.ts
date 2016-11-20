@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
-import { IUserData, ILoginData } from './auth.interface';
+import { LoginData } from '../login/login.models';
+
+import { UserData } from './auth.models';
 
 import 'jwt-decode/build/jwt-decode'
 
 
 @Injectable()
 export class AuthService implements CanActivate {
-  private _currentUser: IUserData = null;
+  private _currentUser: UserData = null;
   private _redirectUrl:string = null;
 
   constructor(private _router: Router) {
@@ -38,7 +40,7 @@ export class AuthService implements CanActivate {
     return result;
   }
 
-  setCurrentUser(data:ILoginData):void {
+  setCurrentUser(data:LoginData):void {
     var token = data.token;
     var userData = jwt_decode(token);
     userData.token = token;
@@ -46,7 +48,7 @@ export class AuthService implements CanActivate {
     localStorage.setItem('user-data', JSON.stringify(userData));
   }
 
-  clearCurrentUser = (event:any) => {
+  clearCurrentUser = (event:MouseEvent) => {
     event.preventDefault();
     this._currentUser = null;
     this._redirectUrl = null;

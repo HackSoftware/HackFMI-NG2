@@ -17,7 +17,7 @@ export class SkillsService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  getSkills(): Observable<any> {
+  getSkills(): Observable<Skill[]> {
     return this._http.get(this._apiUrlsService.skillsUrl)
                      .map(response => <Skill[]>response.json())
                      .catch(err => this._handleHttp.handleError(err));

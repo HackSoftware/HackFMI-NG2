@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
 
+import { LoginData } from './login.models';
 import { LoginService } from './login.service';
 
 import 'rxjs/add/operator/map'
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
 
   register () {this._loginService.register();}
+
   login():void {
     this._loginService.login(this.account.email, this.account.password)
                       .subscribe(
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
                         err => console.log(err));
   }
 
-  private _handleSuccessfulLogin(data:any) {
+  private _handleSuccessfulLogin(data:LoginData) {
     this._authService.setCurrentUser(data);
 
     /* Redirect to pre-requested page */

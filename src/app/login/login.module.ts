@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
+import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login.routing';
-import { LoginService } from './login.service';
 
 
 @NgModule({
@@ -18,7 +18,8 @@ import { LoginService } from './login.service';
     LoginRoutingModule
   ],
   exports: [
-    LoginRoutingModule],
+    LoginRoutingModule
+  ],
   providers: [,
     LoginService,
     {

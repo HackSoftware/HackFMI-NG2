@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 
 import { TeamsService } from './teams.service';
+import { PublicTeam, PrivateTeam,  } from './teams.models';
 
 
 @Injectable()
-export class PublicTeamsListResolver implements Resolve<any> {
+export class PublicTeamsListResolver implements Resolve<PublicTeam[]> {
   constructor(private _teamsService:TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
@@ -15,7 +16,7 @@ export class PublicTeamsListResolver implements Resolve<any> {
 
 
 @Injectable()
-export class PrivateTeamsListResolver implements Resolve<any> {
+export class PrivateTeamsListResolver implements Resolve<PrivateTeam[]> {
   constructor(private _teamsService:TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
@@ -25,7 +26,7 @@ export class PrivateTeamsListResolver implements Resolve<any> {
 
 
 @Injectable()
-export class TeamDetailsResolver implements Resolve<any> {
+export class TeamDetailsResolver implements Resolve<PrivateTeam> {
   constructor(private _teamsService:TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {

@@ -2,6 +2,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, Inject } from '@angular/core';
 
+import { LoginData } from './login.models';
 import { ApiUrlsService } from '../core/apiUrls.service';
 
 
@@ -11,7 +12,7 @@ export class LoginService {
               private _apiUrlsService: ApiUrlsService,
               @Inject('Window') private _window: Window) { }
 
-  login(email:string, password:string):Observable<any> {
+  login(email:string, password:string):Observable<LoginData> {
     return this._http.post(this._apiUrlsService.loginUrl, {"email": email, "password": password })
                      .map(res => res.json());
   }
