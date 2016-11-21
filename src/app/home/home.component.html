@@ -1,14 +1,10 @@
 <div class="container">
-  <h1>Информация за настоящия сезон!</h1>
-
-  <p >Име: {{season.name}}</p>
-  <p>Тема: {{season.topic}}</p>
-  <p>Описание за сезончето:</p>
-  <div [innerHTML]="season.front_page">
+  <h1>{{season.name}} - {{season.topic}}</h1>
+  
+  <div [innerHTML]="season.front_page" class="season-description"></div>
+  <div>
+    <p><b>Краен срок за регистрация: {{season.sign_up_deadline}}</b></p>
+    <p><b>Краен срок за създаване на отбор: {{season.make_team_dead_line}}</b></p>
+    <p><b>Ментори се избират от: {{season.mentor_pick_start_date}} до {{season.mentor_pick_end_date}}</b></p>
   </div>
-  <p>Минимален брой хора в отбор: {{season.min_team_members_count}}</p>
-  <p>Максимален брой хора в отбор: {{season.max_team_members_count}}</p>
-  <p>Краен срок за записване: {{season.sign_up_deadline}}</p>
-  <p>Краен срок за създаване на отбор: {{season.make_team_dead_line}}</p>
-  <p>Можеш да избираш ментори от: {{season.mentor_pick_start_date}} до {{season.mentor_pick_end_date}}</p>
 </div>
