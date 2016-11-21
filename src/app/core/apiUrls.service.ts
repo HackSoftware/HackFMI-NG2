@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ApiUrlsService {
   // TODO: Refactor this.
-  resiterUrl = environment.domain + "register/?origin=http://register.hackfmi.com/"
+  resiterUrl = environment.domain + "register/?origin=hackfmi"
 
   loginUrl = environment.apiUrl + 'jwt-login/';                // Public
   currentSeasonDetailUrl = environment.apiUrl + 'season/';     // Public
