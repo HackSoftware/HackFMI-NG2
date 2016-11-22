@@ -1,9 +1,9 @@
 <div *ngIf="!meDetails.team" class="container create-team-container">
-  <button (click)="createTeam()" class="create-team">Създай отбор</button>
+  <button hack-orange (click)="createTeam()" class="create-team">Създай отбор</button>
 </div>
 
 <div *ngIf="meDetails.team" class="container create-team-container">
-  <button (click)="showTeamDetails(meDetails.team)" class="create-team">Моят отбор</button>
+  <button hack-orange (click)="showTeamDetails(meDetails.team)" class="create-team">Моят отбор</button>
 </div>
 
 

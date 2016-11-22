@@ -10,7 +10,7 @@
     position:absolute;
     left:0;
     width:100%;
-    top:50%;
+    top:20%;
     margin-top:-100px;
 }
 
@@ -24,8 +24,12 @@
 
 .login-container .form-control label {
     display:inline-block;
-    width: 100px;
-    font-style: 20px;
+    width: 120px;
+    font-size: 20px;
     text-align: left;
     font-weight: bold;
+}
+
+.buttons-container {
+    margin-top:20px;
 }

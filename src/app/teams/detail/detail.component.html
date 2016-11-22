@@ -1,35 +1,36 @@
-<p>Детайлна информация за отбора!</p>
-
-<div *ngIf="competitorInTeam()">
-  <button (click)="leaveTeam()">Напусни отбора</button>
+<h1>Детайлна информация за отбора!</h1>
+<div class="centered-container">
+  <span *ngIf="competitorInTeam()">
+    <button hack-orange (click)="leaveTeam()">Напусни отбора</button>
+  </span>
+  <span *ngIf="isTeamLeader()">
+    <button hack-orange (click)="updateTeam()">Обнови отбора</button>
+    <div>
+      <form (ngSubmit)="inviteMember()" #inviteMemberForm="ngForm">
+        <div class="form-group">
+          <label for="competitor-email">Email на човека</label>
+          <input type="email" class="form-control" id="competitor-email" required [(ngModel)]="inviteInfo.competitor_email" name="competitor_email">
+        </div>
+        <div class="submit-container">
+          <button type="submit" [disabled]="!inviteMemberForm.form.valid">Изпрати покана</button>
+        </div>
+      </form>
+    </div>
+  </span>
 </div>
 
-<div *ngIf="isTeamLeader()">
-  <div>
-    <button (click)="updateTeam()">Обнови отбора</button>
-  </div>
-  <div>
-    <form (ngSubmit)="inviteMember()" #inviteMemberForm="ngForm">
-      <div class="form-group">
-        <label for="competitor-email">Email на човека</label>
-        <input type="email" class="form-control" id="competitor-email" required [(ngModel)]="inviteInfo.competitor_email" name="competitor_email">
-      </div>
-      <div class="submit-container">
-        <button type="submit" [disabled]="!inviteMemberForm.form.valid">Изпрати покана</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="container">
-  <h2>Инфо за отбора:</h2>
-  <p >Име: {{teamDetails.name}}</p>
-  <p>Идея: {{teamDetails.idea_description}}</p>
+<div class="container centered-container">
+  <p><b>Отбор: {{teamDetails.name}}</b></p>
+  <p><b>Идея:</b> {{teamDetails.idea_description}}</p>
   <p>Github repo: {{teamDetails.repository}}</p>
   <ul>Технологии:
     <li *ngFor="let technology of teamDetails.technologies_full">{{technology.name}}</li>
   </ul>
-  <p>Има нужда от още хора: {{teamDetails.need_more_members}}</p>
-  <p *ngIf="teamDetails.need_more_members">Защо трябват още хора: {{teamDetails.members_needed_desc}}</p>
+  <p>
+    <span>Има ли нужда от още хора:</span>
+    <span *ngIf=teamDetails.need_more_members>Да</span>
+    <span *ngIf=!teamDetails.need_more_members>Не</span>
+  </p>
+  <p *ngIf="teamDetails.need_more_members">Какви хора търсим: {{teamDetails.members_needed_desc}}</p>
   <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p>
 </div>

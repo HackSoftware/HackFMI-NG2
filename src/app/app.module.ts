@@ -23,7 +23,6 @@ import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
