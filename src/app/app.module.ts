@@ -23,6 +23,7 @@ import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
   imports: [
     HttpModule,
     BrowserModule,
+    ToastModule,
 
     appRoutes,
     CoreModule,
