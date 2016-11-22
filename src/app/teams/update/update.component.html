@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Edit Team Form</h1>
+  <h1>Промени отбора</h1>
   <form (ngSubmit)="updateTeam()" #editTeamForm="ngForm">
     <div class="form-group">
       <label for="name">Име на отбора</label>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="form-group">
-      <label for="repository">Репозитори</label>
+      <label for="repository">Github repo</label>
       <input type="url" class="form-control" id="repository" [(ngModel)]="teamDetails.repository" name="repository">
     </div>
 
@@ -30,6 +30,6 @@
       <label><input type="checkbox" [checked]="isSkillChosen(skill.id)" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
     </div>
 
-    <button type="submit" class="btn btn-default" [disabled]="!editTeamForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-default" [disabled]="!editTeamForm.form.valid">Промени отбор!</button>
   </form>
 </div>

@@ -1,4 +1,4 @@
-<p>Team specific details here!</p>
+<p>Детайлна информация за отбора!</p>
 
 <div *ngIf="competitorInTeam()">
   <button (click)="leaveTeam()">Напусни отбора</button>
@@ -13,7 +13,7 @@
   <h2>Инфо за отбора:</h2>
   <p >Име: {{teamDetails.name}}</p>
   <p>Идея: {{teamDetails.idea_description}}</p>
-  <p>Репо: {{teamDetails.repository}}</p>
+  <p>Github repo: {{teamDetails.repository}}</p>
   <ul>Технологии:
     <li *ngFor="let technology of teamDetails.technologies_full">{{technology.name}}</li>
   </ul>

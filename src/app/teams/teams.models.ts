@@ -35,4 +35,5 @@ export class PrivateTeam {
   picture: string;
   member: Member[];
   leader_id: number;
+  leader_email: string;
 }

@@ -10,6 +10,7 @@
 <div class="container">
   <div *ngFor="let team of privateTeams" class="team-container">
     <a [href]="team.repository"><h2>Отбор: {{team.name}}</h2></a>
+    <p><b>Имейл на лидера: {{team.leader_email}}</b></p>
     <p><b>Описание на идеята:</b> {{team.idea_description}}</p>
     <ul>Технологии:
       <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
