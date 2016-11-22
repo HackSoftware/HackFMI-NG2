@@ -1,23 +1,26 @@
-<p>Team specific details here!</p>
+<div class="centered-container">
+  <span *ngIf="competitorInTeam()">
+    <button hack-orange (click)="leaveTeam()">Напусни отбора</button>
+  </span>
 
-<div *ngIf="competitorInTeam()">
-  <button (click)="leaveTeam()">Напусни отбора</button>
+  <span *ngIf="isTeamLeader()">
+    <button hack-orange (click)="updateTeam()">Обнови отбора</button>
+    <button hack-orange (click)="inviteMembers()">Покани хора</button>
+  </span>
 </div>
 
-<div *ngIf="isTeamLeader()">
-  <button (click)="updateTeam()">Обнови отбора</button>
-  <button (click)="inviteMembers()">Покани хора</button>
-</div>
-
-<div class="container">
-  <h2>Инфо за отбора:</h2>
-  <p >Име: {{teamDetails.name}}</p>
-  <p>Идея: {{teamDetails.idea_description}}</p>
-  <p>Репо: {{teamDetails.repository}}</p>
+<div class="container centered-container">
+  <p><b>Отбор: {{teamDetails.name}}</b></p>
+  <p><b>Идея:</b> {{teamDetails.idea_description}}</p>
+  <p>Github repo: {{teamDetails.repository}}</p>
   <ul>Технологии:
     <li *ngFor="let technology of teamDetails.technologies_full">{{technology.name}}</li>
   </ul>
-  <p>Има нужда от още хора: {{teamDetails.need_more_members}}</p>
-  <p *ngIf="teamDetails.need_more_members">Защо трябват още хора: {{teamDetails.members_needed_desc}}</p>
+  <p>
+    <span>Има ли нужда от още хора:</span>
+    <span *ngIf=teamDetails.need_more_members>Да</span>
+    <span *ngIf=!teamDetails.need_more_members>Не</span>
+  </p>
+  <p *ngIf="teamDetails.need_more_members">Какви хора търсим: {{teamDetails.members_needed_desc}}</p>
   <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p>
 </div>

@@ -22,12 +22,11 @@ import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
 import { GuardModule } from './guard/guard.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

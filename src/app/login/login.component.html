@@ -3,13 +3,15 @@
     <form>
       <div class="form-control">
         <label>Email:</label>
-        <input type="email" name="email" [(ngModel)]="account.email">
+        <input hack-orange type="email" name="email" [(ngModel)]="account.email">
       </div>
       <div class="form-control">
         <label>Passsword:</label>
-        <input type="password" name="password" [(ngModel)]="account.password">
+        <input hack-orange type="password" name="password" [(ngModel)]="account.password">
       </div>
-      <button (click)="login()">Login</button> or <button (click)="register()">Register</button>
+      <div class="buttons-container" >
+        <button hack-orange (click)="login()">Login</button> or <button hack-orange (click)="register()">Register</button>
+      </div>
     </form>
   </div>
 </div>
