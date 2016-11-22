@@ -9,7 +9,6 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class OnboardingService {
-
   constructor(private _authHttp: AuthHttp,
               private _apiUrlsService: ApiUrlsService) { }
 

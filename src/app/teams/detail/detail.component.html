@@ -5,8 +5,20 @@
 </div>
 
 <div *ngIf="isTeamLeader()">
-  <button (click)="updateTeam()">Обнови отбора</button>
-  <button (click)="inviteMembers()">Покани хора</button>
+  <div>
+    <button (click)="updateTeam()">Обнови отбора</button>
+  </div>
+  <div>
+    <form (ngSubmit)="inviteMember()" #inviteMemberForm="ngForm">
+      <div class="form-group">
+        <label for="competitor-email">Email на човека</label>
+        <input type="email" class="form-control" id="competitor-email" required [(ngModel)]="inviteInfo.competitor_email" name="competitor_email">
+      </div>
+      <div class="submit-container">
+        <button type="submit" [disabled]="!inviteMemberForm.form.valid">Изпрати покана</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <div class="container">
