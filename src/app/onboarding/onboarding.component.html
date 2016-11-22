@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Няколко бързи въпроса</h1>
   <form>
-    <label>С какви технологии предпочиташ да работиш?</label>
+    <label>С какви технологии можеш да работиш?</label>
     <div *ngFor="let skill of skills" class="checkbox">
       <label><input type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
     </div>
