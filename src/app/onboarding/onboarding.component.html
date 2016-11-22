@@ -6,6 +6,10 @@
       <label><input type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
     </div>
 
+    <div>
+      <label><input type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills"></label>
+    </div> 
+
     <div class="checkbox">
       <label><input type="checkbox" name="needs_work" [(ngModel)]="onboardingInfo.needs_work">Търсиш ли си работа?</label>
     </div>
