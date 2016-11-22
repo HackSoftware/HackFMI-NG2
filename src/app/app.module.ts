@@ -15,31 +15,33 @@ import { appRoutes } from './app.routing';
 
 /* Feature Modules */
 import { CoreModule } from './core/core.module';
-import { LoginModule } from './login/login.module';
-import { OnBoardingModule } from './onboarding/onboarding.module';
 import { HomeModule } from './home/home.module';
+import { GuardModule } from './guard/guard.module';
+import { LoginModule } from './login/login.module';
 import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
-import { GuardModule } from './guard/guard.module';
+import { InvitesModule } from './invites/invites.module';
+import { OnBoardingModule } from './onboarding/onboarding.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
     NavigationComponent,
-    FooterComponent
   ],
   imports: [
-    BrowserModule,
     HttpModule,
+    BrowserModule,
 
     appRoutes,
     CoreModule,
+    HomeModule,
     GuardModule,
     LoginModule,
-    HomeModule,
-    OnBoardingModule,
     TeamsModule,
     MentorsModule,
+    InvitesModule,
+    OnBoardingModule,
   ],
   providers: [AuthService, AuthHttp],
   bootstrap: [AppComponent]

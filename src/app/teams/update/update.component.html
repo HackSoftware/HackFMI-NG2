@@ -1,5 +1,5 @@
 <div class="container centered-container">
-  <h1>Edit Team Form</h1>
+  <h1>Промени отбора</h1>
   <form (ngSubmit)="updateTeam()" #editTeamForm="ngForm">
     <div class="form-group">
       <label for="idea-description">Описание на идеята</label>
@@ -7,7 +7,7 @@
     </div>
 
     <div class="form-group">
-      <label for="repository">Репозитори</label>
+      <label for="repository">Github repo</label>
       <input hack-orange type="url" class="form-control" id="repository" [(ngModel)]="teamDetails.repository" name="repository">
     </div>
 
@@ -26,7 +26,7 @@
     </div>
  
     <div class="submit-container" >
-      <button hack-orange type="submit" class="btn btn-default" [disabled]="!editTeamForm.form.valid">Submit</button>
+      <button hack-orange type="submit" [disabled]="!editTeamForm.form.valid">Промени отбор!</button>
     </div>
   </form>
 </div>

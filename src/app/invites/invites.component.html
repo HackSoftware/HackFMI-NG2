@@ -1,0 +1,9 @@
+<h1>Покани!</h1>
+
+<div class="container">
+  <div *ngFor="let invitation of invites">
+    <p >Имаш покана от: {{invitation.competitor.first_name}} {{invitation.competitor.last_name}}</p>
+    <button (click)="acceptInvitation(invitation)">Приеми</button>
+    <button (click)="rejectInvitation(invitation)">Откажи</button>
+  </div>
+</div>

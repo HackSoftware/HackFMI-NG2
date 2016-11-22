@@ -15,6 +15,7 @@ import { TeamsService } from '../teams.service';
 export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
+  inviteInfo = {competitor_email: ''}
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
@@ -35,8 +36,16 @@ export class DetailComponent implements OnInit {
     return this.meDetails.competitor_info.id == this.teamDetails.leader_id;
   }
 
-  inviteMembers():void {
-    console.log('Invite members called!')
+  inviteMember():void {
+    this._teamService.inviteMember(this.inviteInfo)
+                     .subscribe(
+                       data => this._handleSuccessfulInvitation(data),
+                       err => console.log(err));
+  }
+
+  private _handleSuccessfulInvitation(invitationData: any) {
+    this.inviteInfo.competitor_email = '';
+    /* TODO: Show success toastr */
   }
 
   updateTeam():void {

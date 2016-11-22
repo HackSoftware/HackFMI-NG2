@@ -30,7 +30,8 @@ export class OnboardingComponent implements OnInit {
     needs_work: false,
     shirt_size: this.shirtSizes[0],
     social_links: '',
-    known_skills: []
+    known_skills: [],
+    other_skills: ''
   }
 
   constructor(private _router: Router,

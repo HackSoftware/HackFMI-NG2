@@ -5,8 +5,6 @@ import { LoginData } from '../login/login.models';
 
 import { UserData } from './auth.models';
 
-/* TODO: Resolve this patch. */
-declare var require: any;
 var jwt_decode = require('jwt-decode');
 
 
