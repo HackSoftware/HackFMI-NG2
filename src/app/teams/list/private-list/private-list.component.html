@@ -1,25 +1,24 @@
-<h1>НЕ-публични тимове!</h1>
-
-<div *ngIf="!meDetails.team" class=container>
-  <button (click)="createTeam()">Създай отбор</button>
+<div *ngIf="!meDetails.team" class="container create-team-container">
+  <button (click)="createTeam()" class="create-team">Създай отбор</button>
 </div>
-<div *ngIf="meDetails.team" class=container>
-  <button (click)="showTeamDetails(meDetails.team)">Моят отбор</button>
+
+<div *ngIf="meDetails.team" class="container create-team-container">
+  <button (click)="showTeamDetails(meDetails.team)" class="create-team">Моят отбор</button>
 </div>
 
 
 <div class="container">
-  <div *ngFor="let team of privateTeams">
-    <h2>Инфо за отбора:</h2>
-    <p >Име: {{team.name}}</p>
-    <p>Идея: {{team.idea_description}}</p>
-    <p>Репо: {{team.repository}}</p>
+  <div *ngFor="let team of privateTeams" class="team-container">
+    <a [href]="team.repository"><h2>Отбор: {{team.name}}</h2></a>
+    <p><b>Описание на идеята:</b> {{team.idea_description}}</p>
     <ul>Технологии:
       <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
     </ul>
-    <p>Има нужда от още хора: {{team.need_more_members}}</p>
-    <p *ngIf="team.need_more_members">Защо трябват още хора: {{team.members_needed_desc}}</p>
+    <p>
+      <b>Има ли свободни места в отбора?</b>
+      <span *ngIf="team.need_more_members">Да! {{team.members_needed_desc}}</span>
+      <span *ngIf="!team.need_more_members">Не.</span>
+    </p>
     <p *ngIf="team.room">Стая: {{team.room}}</p>
-    <button (click)="showTeamDetails(team)">Виж повече инфо за отбора</button>
   </div>
 </div>
