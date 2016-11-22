@@ -2,11 +2,6 @@
   <h1>Edit Team Form</h1>
   <form (ngSubmit)="updateTeam()" #editTeamForm="ngForm">
     <div class="form-group">
-      <label for="name">Име на отбора</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="teamDetails.name" name="name">
-    </div>
-
-    <div class="form-group">
       <label for="idea-description">Описание на идеята</label>
       <input type="text" class="form-control" id="idea-description" required [(ngModel)]="teamDetails.idea_description" name="idea_description">
     </div>
