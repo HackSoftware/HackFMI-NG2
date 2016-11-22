@@ -4,7 +4,13 @@
 // The list of which env maps to which file can be found in `angular-cli.json`.
 
 export const environment = {
+  /* TODO: Discuss this */
   production: false,
+
   domain: 'https://staging.hackbulgaria.com/',
-  apiUrl: 'https://staging.hackbulgaria.com/hackfmi/api/'
+  apiUrl: 'https://staging.hackbulgaria.com/hackfmi/api/',
+
+  defaultUrlQueryParams: {
+    "format": "json"
+  }
 };

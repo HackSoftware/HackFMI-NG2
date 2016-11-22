@@ -1,38 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Headers, RequestOptions, Response } from '@angular/http';
+
+import { DefaultHttpService } from '../core/defaultHttp.service';
+
 import { AuthService } from './auth.service';
-import { Headers, RequestOptions, Http, Response } from '@angular/http';
+
 
 @Injectable()
 export class AuthHttp {
+  constructor(private _authService:AuthService,
+              private _defaultHttpService: DefaultHttpService) { }
 
-  constructor(private _authService:AuthService, private _http:Http) {
-    // TODO: Request new token if the current one has expired.
-    // let originalPost = _http.post;
-    // _http.post = function(url:string, body:any, options:RequestOptions):Observable<Response> {
-    //   if(_authService.isLogged) options.headers.append('Authorization', 'JWT ' + this._authService.token);
-    //   return originalPost(url, body, options);
-    // }
-  }
-
-  private createHeaders() {
+  private _createAuthorizationHeaders(requestOptions: RequestOptions) {
+    let options = requestOptions ? requestOptions : new RequestOptions();
     let headers = new Headers({ 'Authorization': 'JWT ' + this._authService.token });
-    return new RequestOptions({ headers: headers });
+    options.headers = headers;
+
+    return options;
   }
 
-  get(url:string):Observable<Response> {
-    return this._http.get(url,this.createHeaders());
+  get(url:string, options?: RequestOptions):Observable<Response> {
+    return this._defaultHttpService.get(url, this._createAuthorizationHeaders(options));
   }
 
-  post(url:string, data:any) {
-    return this._http.post(url, data, this.createHeaders());
+  post(url:string, body:any, options?: RequestOptions):Observable<Response> {
+    return this._defaultHttpService.post(url, body, this._createAuthorizationHeaders(options));
   }
 
-  patch(url:string, data:any) {
-    return this._http.patch(url, data, this.createHeaders());
+  patch(url:string, body:any, options?: RequestOptions):Observable<Response> {
+    return this._defaultHttpService.patch(url, body, this._createAuthorizationHeaders(options));
   }
 
-  delete(url:string) {
-    return this._http.delete(url, this.createHeaders());
+  delete(url:string, options?: RequestOptions):Observable<Response> {
+    return this._defaultHttpService.delete(url, this._createAuthorizationHeaders(options));
   }
 }

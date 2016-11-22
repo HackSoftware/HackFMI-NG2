@@ -1,20 +1,21 @@
-import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Injectable, Inject } from '@angular/core';
 
-import { LoginData } from './login.models';
 import { ApiUrlsService } from '../core/apiUrls.service';
+import { DefaultHttpService } from '../core/defaultHttp.service';
+
+import { LoginData } from './login.models';
 
 
 @Injectable()
 export class LoginService {
-  constructor(private _http: Http,
-              private _apiUrlsService: ApiUrlsService,
+  constructor(private _apiUrlsService: ApiUrlsService,
+              private _defaultHttpService: DefaultHttpService,
               @Inject('Window') private _window: Window) { }
 
   login(email:string, password:string):Observable<LoginData> {
-    return this._http.post(this._apiUrlsService.loginUrl, {"email": email, "password": password })
-                     .map(res => res.json());
+    return this._defaultHttpService.post(this._apiUrlsService.loginUrl, {"email": email, "password": password })
+                                   .map(res => res.json());
   }
 
   register():void {

@@ -1,4 +1,3 @@
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -13,8 +12,7 @@ import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class MeService {
-  constructor(private _http: Http,
-              private _authHttp: AuthHttp,
+  constructor(private _authHttp: AuthHttp,
               private _seasonService: SeasonService,
               private _apiUrlsService: ApiUrlsService) { }
 

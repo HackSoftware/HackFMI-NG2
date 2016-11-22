@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Me } from '../core/core.models';
 import { MeService } from '../core/me.service';

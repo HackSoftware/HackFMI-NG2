@@ -1,12 +1,10 @@
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Me } from '../core/core.models';
-import { MeService } from '../core/me.service';
 import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
+import { DefaultHttpService } from '../core/defaultHttp.service';
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 
@@ -16,16 +14,15 @@ import 'rxjs/add/operator/catch'
 
 @Injectable()
 export class TeamsService {
-  constructor(private _http:Http,
-              private _authHttp: AuthHttp,
-              private _meService: MeService,
+  constructor(private _authHttp: AuthHttp,
               private _handleHttp: HandleHttpService,
-              private _apiUrlsService: ApiUrlsService) { }
+              private _apiUrlsService: ApiUrlsService,
+              private _defaultHttpService: DefaultHttpService) { }
 
   getPublicTeams():Observable<PublicTeam[]> {
-    return this._http.get(this._apiUrlsService.teamsPublicListUrl)
-                     .map(res => res.json())
-                     .catch(err => this._handleHttp.handleError(err))
+    return this._defaultHttpService.get(this._apiUrlsService.teamsPublicListUrl)
+                                   .map(res => res.json())
+                                   .catch(err => this._handleHttp.handleError(err))
   }
 
   getPrivateTeams():Observable<PrivateTeam[]> {

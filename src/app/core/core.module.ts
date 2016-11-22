@@ -6,7 +6,9 @@ import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
 import { ApiUrlsService } from './apiUrls.service';
+import { UrlParamsService } from './urlParams.service';
 import { HandleHttpService } from './handleHttp.service';
+import { DefaultHttpService } from './defaultHttp.service';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { HandleHttpService } from './handleHttp.service';
     SkillsService,
     SeasonService,
     ApiUrlsService,
+    UrlParamsService,
     HandleHttpService,
+    DefaultHttpService,
 
     MeSeasonResolver,
     SkillsResolver,

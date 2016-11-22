@@ -9,6 +9,7 @@ export class HandleHttpService {
   constructor() { }
 
   handleError(err){
+    /* TODO: Show toasts with the errors */
     console.log(err);
     return Observable.throw(err);
   }
