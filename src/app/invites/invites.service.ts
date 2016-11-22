@@ -21,4 +21,16 @@ export class InvitesService {
                          .map(response => <Invite[]>response.json())
                          .catch(err => this._handleHttp.handleError(err));
   }
+
+  acceptInvitation(invitationId: number): Observable<any> {
+    var acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/accept/";
+
+    return this._authHttp.post(acceptInvitationUrl, {});
+  }
+
+  rejectInvitation(invitationId: number): Observable<any> {
+    var rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/";
+
+    return this._authHttp.delete(rejectInvitationUrl);
+  }
 }

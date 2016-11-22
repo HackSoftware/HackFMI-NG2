@@ -8,7 +8,8 @@
               <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
               <li><a routerLink="/teams" routerLinkActive="active">Teams</a></li>
               <li><a routerLink="/mentors" routerLinkActive="active">Mentors</a></li>
-              <li><a target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
+              <li><a *ngIf="isLogged()" routerLink="/invites" routerLinkActive="active">Invites</a></li>
+              <li><a *ngIf="isLogged()" target="_blank" href="https://hackbulgaria.com/profile/">Profile</a></li>
               <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Login</a></li>
               <li><a *ngIf="isLogged()" (click)="logout($event)">Logout</a></li>
             </ul>
