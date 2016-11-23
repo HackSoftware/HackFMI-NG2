@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~ng2-toastr/bundles/ng2-toastr.min.css';
+@import '/css/font-awesome.css';
 
 html {
     height:100%;
