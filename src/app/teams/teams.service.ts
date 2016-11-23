@@ -21,44 +21,47 @@ export class TeamsService {
 
   getPublicTeams():Observable<PublicTeam[]> {
     return this._defaultHttpService.get(this._apiUrlsService.teamsPublicListUrl)
-                                   .map(res => res.json())
-                                   .catch(err => this._handleHttp.handleError(err))
+                                   .map(res => <PublicTeam[]>res.json())
+                                   .catch(err => this._handleHttp.handleError(err));
   }
 
   getPrivateTeams():Observable<PrivateTeam[]> {
     return this._authHttp.get(this._apiUrlsService.teamsUrl)
-                         .map(res => res.json())
-                         .catch(err => this._handleHttp.handleError(err))
+                         .map(res => <PrivateTeam[]>res.json())
+                         .catch(err => this._handleHttp.handleError(err));
   }
 
   getTeamDetails(teamId:number):Observable<PrivateTeam> {
     var teamDetailsUrl = this._apiUrlsService.teamsUrl + teamId + "/";
 
     return this._authHttp.get(teamDetailsUrl)
-                         .map(res => res.json())
-                         .catch(err => this._handleHttp.handleError(err))
+                         .map(res => <PrivateTeam>res.json())
+                         .catch(err => this._handleHttp.handleError(err));
   }
-
-  inviteMember(inviteData:any): Observable<any> {
-    return this._authHttp.post(this._apiUrlsService.invitationUrl, inviteData);
-  }
-
 
   createTeam(teamData:any): Observable<PrivateTeam> {
     return this._authHttp.post(this._apiUrlsService.teamsUrl, teamData)
-                         .map(res => res.json());
+                         .map(res => <PrivateTeam>res.json())
+                         .catch(err => this._handleHttp.handleError(err));
   }
 
   editTeam(teamId:number, teamData:PrivateTeam): Observable<PrivateTeam> {
     var teamEditUrl = this._apiUrlsService.teamsUrl + teamId + "/";
 
     return this._authHttp.patch(teamEditUrl, teamData)
-                         .map(res => res.json());
+                         .map(res => <PrivateTeam>res.json())
+                         .catch(err => this._handleHttp.handleError(err));
   }
 
   leaveTeam(teamMembershipId: number): Observable<any> {
     var teamLeaveUrl = this._apiUrlsService.teamMembershipUrl + teamMembershipId + "/";
 
-    return this._authHttp.delete(teamLeaveUrl);
+    return this._authHttp.delete(teamLeaveUrl)
+                         .catch(err => this._handleHttp.handleError(err));
+  }
+
+  inviteMember(inviteData:any): Observable<any> {
+    return this._authHttp.post(this._apiUrlsService.invitationUrl, inviteData)
+                         .catch(err => this._handleHttp.handleError(err));
   }
 }

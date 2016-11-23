@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+
 import { Me } from '../../core/core.models';
 
 import { PrivateTeam } from '../teams.models';
@@ -19,7 +21,8 @@ export class DetailComponent implements OnInit {
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
-              private _teamService: TeamsService) { }
+              private _teamsService: TeamsService,
+              private _toastService: ToastsManager) { }
 
   ngOnInit() {
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
@@ -32,35 +35,28 @@ export class DetailComponent implements OnInit {
     return this.meDetails.team.id == this.teamDetails.id;
   }
 
-  isTeamLeader():boolean {
-    return this.meDetails.competitor_info.id == this.teamDetails.leader_id;
-  }
+  isTeamLeader():boolean {return this.meDetails.competitor_info.id == this.teamDetails.leader_id;}
 
-  inviteMember():void {
-    this._teamService.inviteMember(this.inviteInfo)
-                     .subscribe(
-                       data => this._handleSuccessfulInvitation(data),
-                       err => console.log(err));
-  }
-
-  private _handleSuccessfulInvitation(invitationData: any) {
-    this.inviteInfo.competitor_email = '';
-    /* TODO: Show success toastr */
-  }
-
-  updateTeam():void {
-    this._router.navigate(['teams', this.teamDetails.id, 'edit']);
-  }
+  updateTeam():void {this._router.navigate(['teams', this.teamDetails.id, 'edit']);}
 
   leaveTeam(): void {
     if (this.competitorInTeam()) {
       var teamMembershipId = this.meDetails.team_membership_id;
 
-      this._teamService.leaveTeam(teamMembershipId)
-                       .subscribe(
-                         data => this._handleSuccessfulTeamLeaving(),
-                         err => console.log(err));
+      this._teamsService.leaveTeam(teamMembershipId)
+                        .subscribe(data => this._handleSuccessfulTeamLeaving());
       }
+  }
+
+  inviteMember():void {
+    this._teamsService.inviteMember(this.inviteInfo)
+                      .subscribe(data => this._handleSuccessfulInvitation(data));
+  }
+
+  private _handleSuccessfulInvitation(invitationData: any) {
+    var email = this.inviteInfo.competitor_email;
+    this.inviteInfo.competitor_email = '';
+    this._toastService.success('Invitation email was sent to ' + email);
   }
 
   private _handleSuccessfulTeamLeaving() {

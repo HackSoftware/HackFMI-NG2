@@ -9,7 +9,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class HandleHttpService {
-  constructor(public toastr: ToastsManager) { }
+  constructor(private _toastService: ToastsManager) { }
 
   handleError(err:Response | any){
     var errorsDict = err.json();  // Example: {"custom_errors": ["User is already competitor!"]}
@@ -24,6 +24,6 @@ export class HandleHttpService {
   }
 
   private _displayError(err:string):void {
-    this.toastr.error(err);
+    this._toastService.error(err);
   };
 }
