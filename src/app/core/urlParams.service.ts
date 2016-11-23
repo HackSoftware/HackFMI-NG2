@@ -10,9 +10,7 @@ export class UrlParamsService {
 
   constructor() { }
 
-  get params(): URLSearchParams {
-    return this._params;
-  }
+  get params(): URLSearchParams {return this._params;}
 
   setDefaultParams(params?: URLSearchParams):void {
     /* Use provided params if any */
