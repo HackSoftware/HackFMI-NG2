@@ -14,30 +14,6 @@ label {
     font-weight: bold;
 }
 
-input {
-    padding:10px;
-    font-size: 18px;
-    border:0;
-    border-bottom:1px solid #003cff;
-}
-
-textarea {
-    display:block;
-    padding:20px;
-    width:500px;
-    min-height:30px;
-    border:1px solid #003cff;
-}
-
-button[type="submit"] {
-    padding:15px 20px;
-    background-color: #fdcb4e;
-    font-size: 20px;
-    font-weight: bold;
-    border:0;
-    color: black;
-}
-
 form {
     width:550px;
     margin-left:auto;

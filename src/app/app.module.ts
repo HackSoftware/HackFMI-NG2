@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 /* App Root */
 import { AppComponent } from './app.component';
@@ -23,7 +24,6 @@ import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   declarations: [
