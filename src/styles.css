@@ -16,8 +16,8 @@ body {
 }
 
 *:invalid {
-	outline:none;
-	box-shadow:none;
+    outline:none;
+    box-shadow:none;
 }
 
 a, a:visited, a:hover{
@@ -26,7 +26,7 @@ a, a:visited, a:hover{
 }
 
 input ~ label {
-	color:red;
+    color:red;
 }
 
 
@@ -46,16 +46,16 @@ button[hack-orange]:hover {
 }
 
 button[hack-orange]:focus {
-	outline:none;
+    outline:none;
 }
 
 button[hack-orange][disabled] {
-	cursor:default;
+    cursor:default;
 }
 
 button[hack-orange][disabled]:hover {
-	background-color:#fdcb4e;
-	box-shadow:none;
+    background-color:#fdcb4e;
+    box-shadow:none;
 }
 
 input[hack-orange] {
@@ -66,8 +66,8 @@ input[hack-orange] {
 }
 
 input[hack-orange]:focus {
-	outline:none;
-	border-bottom-color:#4ea0fd;
+    outline:none;
+    border-bottom-color:#4ea0fd;
 }
 
 textarea[hack-orange] {
@@ -79,8 +79,8 @@ textarea[hack-orange] {
 }
 
 textarea[hack-orange]:focus {
-	outline: none;
-	border-color:#4ea0fd;
+    outline: none;
+    border-color:#4ea0fd;
 }
 
 @media (min-width:1200px) {
