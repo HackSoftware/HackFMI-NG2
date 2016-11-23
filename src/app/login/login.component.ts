@@ -30,14 +30,11 @@ export class LoginComponent implements OnInit {
 
   login():void {
     this._loginService.login(this.account.email, this.account.password)
-                      .subscribe(
-                        data => this._handleSuccessfulLogin(data),
-                        err => console.log(err));
+                      .subscribe(data => this._handleSuccessfulLogin(data));
   }
 
   private _handleSuccessfulLogin(data:LoginData) {
     this._authService.setCurrentUser(data);
-
     /* Redirect to pre-requested page */
     if (this._authService.redirectUrl) {
       this._router.navigate([this._authService.redirectUrl]);
