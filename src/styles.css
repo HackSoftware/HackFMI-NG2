@@ -83,11 +83,38 @@ textarea[hack-orange]:focus {
     border-color:#4ea0fd;
 }
 
-@media (min-width:1200px) {
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.container:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+@media (min-width: 992px) {
     .container {
-        width:1180px;
-        margin-left:auto;
-        margin-right:auto;
+      width: 750px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container{
+        width: 970px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
         margin-top: 20px;
         margin-bottom: 20px;
     }

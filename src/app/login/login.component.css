@@ -1,17 +1,10 @@
 .login-container {
     text-align: center;
-    position:absolute;
-    height:100%;
-    width:100%;
-    left:0;
+    padding-top:100px;
+    padding-bottom:100px;
 }
 
 .form-container {
-    position:absolute;
-    left:0;
-    width:100%;
-    top:20%;
-    margin-top:-100px;
 }
 
 .form-container form {

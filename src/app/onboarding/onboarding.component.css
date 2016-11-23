@@ -9,8 +9,10 @@ form {
     font-size:20px;
 }
 
-.checkbox {
-    padding:15px 0;
+.form-group {
+  display:block;
+  margin-top:20px;
+  margin-bottom:20px;
 }
 
 form textarea {
@@ -18,10 +20,6 @@ form textarea {
     width:390px;
     margin:10px 0;
     padding:4px;
-}
-
-form input {
-    float:left;
 }
 
 form select {
