@@ -25,12 +25,14 @@ export class InvitesService {
   acceptInvitation(invitationId: number): Observable<any> {
     var acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/accept/";
 
-    return this._authHttp.post(acceptInvitationUrl, {});
+    return this._authHttp.post(acceptInvitationUrl, {})
+                         .catch(err => this._handleHttp.handleError(err));
   }
 
   rejectInvitation(invitationId: number): Observable<any> {
     var rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/";
 
-    return this._authHttp.delete(rejectInvitationUrl);
+    return this._authHttp.delete(rejectInvitationUrl)
+                         .catch(err => this._handleHttp.handleError(err));
   }
 }
