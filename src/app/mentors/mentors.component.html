@@ -1,10 +1,11 @@
-<h1>Информация за прекрасните ни ментори!</h1>
+<h1>Очаквайте скоро информация за менторите!</h1>
 
-<div class="container">
-  <div *ngFor="let mentor of mentors">
-    <h2>Информация за ментора:</h2>
-    <p>Име: {{mentor.name}}</p>
-    <p>Описание:</p>
-    <div [innerHTML]="mentor.description"></div>
+<div class="container" *ngIf=false>
+  <div *ngFor="let mentor of mentors" class="mentor-container">
+    <h2>{{mentor.name}}</h2>
+    <p>
+      <span>Описание:</span>
+      <span [innerHTML]="mentor.description"></span>
+    </p>
   </div>
 </div>

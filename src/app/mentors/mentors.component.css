@@ -1,0 +1,18 @@
+.mentor-container {
+	border:0;
+	padding:20px 20px 40px 20px;
+	box-shadow: 5px 5px 20px #888888;
+	margin-top:40px;
+	position:relative;
+}
+
+.mentor-container:after {
+	height:20px;
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background-color: #eaeaea;
+	display:block;
+	content:"";
+}

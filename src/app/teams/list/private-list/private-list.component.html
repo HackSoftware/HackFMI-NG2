@@ -9,17 +9,21 @@
 
 <div class="container">
   <div *ngFor="let team of privateTeams" class="team-container">
-    <a [href]="team.repository"><h2>Отбор: {{team.name}}</h2></a>
-    <p><b>Имейл на лидера: {{team.leader_email}}</b></p>
+    <a [href]="team.repository" *ngIf=team.repository ><h2>Отбор: {{team.name}}</h2></a>
+    <h2 *ngIf=!team.repository>Отбор: {{team.name}}</h2>
+    <p><b>Имейл на лидера:</b> {{team.leader_email}}</p>
     <p><b>Описание на идеята:</b> {{team.idea_description}}</p>
-    <ul>Технологии:
+    <ul *ngIf=team.technologies_full.length >Технологии:
       <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
     </ul>
     <p>
       <b>Има ли свободни места в отбора?</b>
-      <span *ngIf="team.need_more_members">Да! {{team.members_needed_desc}}</span>
+      <span *ngIf="team.need_more_members">
+        <span>Да!</span>
+        <div>{{team.members_needed_desc}}</div>
+      </span>
       <span *ngIf="!team.need_more_members">Не.</span>
     </p>
-    <p *ngIf="team.room">Стая: {{team.room}}</p>
+    <p *ngIf="team.room"><b>Стая: {{team.room}}</b></p>
   </div>
 </div>
