@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
-/* App Root */
-import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AuthService } from './auth/auth.service';
-import { AuthHttp } from './auth/authHttp.service';
-
 /* Routing Module */
 import { appRoutes } from './app.routing';
+
+/* App Root */
+import { AppComponent } from './app.component';
+import { AuthService } from './auth/auth.service';
+import { AuthHttp } from './auth/authHttp.service';
+import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 /* Feature Modules */
 import { CoreModule } from './core/core.module';
