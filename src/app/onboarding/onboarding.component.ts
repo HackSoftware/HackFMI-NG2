@@ -58,8 +58,7 @@ export class OnboardingComponent implements OnInit {
   onboardCompetitor(): void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
     this._onboardingService.onboardCompetitor(this.onboardingInfo)
-                           .subscribe(
-                             data => this._handleSuccessfulOnboarding());
+                           .subscribe(data => this._handleSuccessfulOnboarding());
   }
 
   private _handleSuccessfulOnboarding() {
