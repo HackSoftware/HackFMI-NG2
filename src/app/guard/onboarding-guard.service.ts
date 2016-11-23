@@ -11,15 +11,11 @@ export class OnboardingGuardService implements CanActivate {
 
   constructor(private _router: Router, private _meService: MeService) { }
 
-  get redirectUrl() {
-    return this._redirectUrl;
-  }
+  get redirectUrl() {return this._redirectUrl;}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this._meService.getSeasonMeInfo()
-                          .map(
-                            data => this._handleOnboarding(data.is_competitor, state),
-                            err => console.log(err))
+                          .map(data => this._handleOnboarding(data.is_competitor, state));
   }
 
   private _handleOnboarding(is_competitor: boolean, state: RouterStateSnapshot) {
@@ -28,6 +24,7 @@ export class OnboardingGuardService implements CanActivate {
     }
 
     this._redirectUrl = state.url;
+
     return is_competitor;
   }
 }
