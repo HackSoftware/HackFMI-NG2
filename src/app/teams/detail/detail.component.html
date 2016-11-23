@@ -37,6 +37,6 @@
     <span *ngIf=teamDetails.need_more_members>Да</span>
     <span *ngIf=!teamDetails.need_more_members>Не</span>
   </div>
-  <p *ngIf="teamDetails.need_more_members"><b>Какви хора търсим:</b> {{teamDetails.members_needed_desc}}</p>
+  <p *ngIf="teamDetails.need_more_members && teamDetails.members_needed_desc"><b>Какви хора търсим:</b> {{teamDetails.members_needed_desc}}</p>
   <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p>
 </div>
