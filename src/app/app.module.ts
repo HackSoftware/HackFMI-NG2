@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 /* Routing Module */
 import { appRoutes } from './app.routing';
@@ -35,6 +37,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
     HttpModule,
     BrowserModule,
     ToastModule,
+    Angular2FontawesomeModule,
 
     appRoutes,
     CoreModule,
