@@ -7,8 +7,11 @@
     </div>
 
     <div>
-      <label><input type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills"></label>
+      <label><input type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills">Други умения: </label>
     </div> 
+    <div class="checkbox">
+      <label><input type="checkbox" name="looking_for_team" [(ngModel)]="looking_for_team">Търсиш ли си отбор?</label>
+    </div>
 
     <div class="checkbox">
       <label><input type="checkbox" name="needs_work" [(ngModel)]="onboardingInfo.needs_work">Търсиш ли си работа?</label>

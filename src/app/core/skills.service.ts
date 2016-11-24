@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Skill } from '../core/core.models';
-import { ApiUrlsService } from '../core/apiUrls.service';
-import { HandleHttpService } from '../core/handleHttp.service';
+import { Skill } from './core.models';
+import { ApiUrlsService } from './apiUrls.service';
+import { HandleHttpService } from './handleHttp.service';
 
 import { DefaultHttpService } from './defaultHttp.service';
 

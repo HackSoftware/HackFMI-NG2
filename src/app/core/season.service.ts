@@ -7,8 +7,9 @@ import { DefaultHttpService } from '../core/defaultHttp.service';
 
 import { Season } from './core.models';
 
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/mergeMap';
 
 
 @Injectable()
@@ -22,4 +23,4 @@ export class SeasonService {
                             .map(res => res.json())
                             .catch(err => this._handleHttp.handleError(err))
   }
-}
+ }

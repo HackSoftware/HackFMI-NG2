@@ -9,6 +9,7 @@ import { ApiUrlsService } from './apiUrls.service';
 import { UrlParamsService } from './urlParams.service';
 import { HandleHttpService } from './handleHttp.service';
 import { DefaultHttpService } from './defaultHttp.service';
+import { SeasonCompetitorInfoService } from './seasonCompetitorInfo.service';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DefaultHttpService } from './defaultHttp.service';
     UrlParamsService,
     HandleHttpService,
     DefaultHttpService,
+    SeasonCompetitorInfoService,
 
     MeSeasonResolver,
     SkillsResolver,

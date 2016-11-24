@@ -32,3 +32,9 @@ export class Me {
   competitor_info: CompetitorInfo;
   team: PrivateTeam;
 }
+
+export class SeasonCompetitorInfo {
+  competitor: number;
+  season: number;
+  looking_for_team: boolean;
+}
