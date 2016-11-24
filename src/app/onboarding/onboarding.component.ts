@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+
 import { Observable } from 'rxjs/Observable';
 
+import { Skill } from '../core/core.models';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
-import { Skill } from '../core/core.models';
-import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
 import { OnboardingService } from './onboarding.service';
 
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
 
 
 @Component({
@@ -40,7 +39,6 @@ export class OnboardingComponent implements OnInit {
   constructor(private _router: Router,
               private _route: ActivatedRoute,
               private _onboardingService: OnboardingService,
-              private _seasonCompetitorInfoService: SeasonCompetitorInfoService,
               private _onboardingGuardService: OnboardingGuardService) { }
 
   ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
@@ -59,15 +57,11 @@ export class OnboardingComponent implements OnInit {
     this.onboardingInfo.shirt_size = size;
   }
 
-  onboardCompetitor():Observable<any> {
+  onboardCompetitor():void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
-    return this._onboardingService.onboardCompetitor(this.onboardingInfo)
-                           .flatMap(
-                             data => {
-                               this._handleSuccessfulOnboarding()
-                               var seasonCompetitorInfoData = { 'looking_for_team': this.looking_for_team }
-                               return this._seasonCompetitorInfoService.postSeasonCompetitorInfo(seasonCompetitorInfoData)
-                             });
+    var seasonOnboardData = { 'looking_for_team': this.looking_for_team };
+    this._onboardingService.onboardSeasonCompetitor(this.onboardingInfo, seasonOnboardData)
+                           .subscribe(data => this._handleSuccessfulOnboarding());
   }
 
   private _handleSuccessfulOnboarding() {

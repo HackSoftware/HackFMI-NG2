@@ -24,11 +24,11 @@ export class SeasonCompetitorInfoService {
   postSeasonCompetitorInfo(seasonInfoData):Observable<SeasonCompetitorInfo> {
     return this._seasonService.getSeasonInfo().flatMap( 
       seasonInfo => {
-        seasonInfoData['season_id'] = seasonInfo.id;
+        seasonInfoData['season'] = seasonInfo.id;
         return this._meService.getSeasonMeInfo()
     }).flatMap(
       meInfo => {
-        seasonInfoData['competitor_id'] = meInfo.competitor_info.id;
+        seasonInfoData['competitor'] = meInfo.competitor_info.id;
         return this._authHttp.post(this._apiUrlsService.seasonInfoUrl, seasonInfoData)
                              .catch(err => this._handleHttp.handleError(err));
       })

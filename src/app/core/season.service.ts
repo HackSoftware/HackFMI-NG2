@@ -23,4 +23,4 @@ export class SeasonService {
                             .map(res => <Season>res.json())
                             .catch(err => this._handleHttp.handleError(err));
   }
- }
+}
