@@ -41,8 +41,7 @@ export class AuthService {
     localStorage.setItem('user-data', JSON.stringify(userData));
   }
 
-  clearCurrentUser = (event:MouseEvent) => {
-    event.preventDefault();
+  clearCurrentUser():void {
     this._currentUser = null;
     this._redirectUrl = null;
     localStorage.removeItem('user-data');

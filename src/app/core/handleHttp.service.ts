@@ -5,16 +5,22 @@ import { Observable } from 'rxjs/Observable';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
+import { AuthService } from '../auth/auth.service';
+
 import 'rxjs/add/observable/throw';
 
 
 @Injectable()
 export class HandleHttpService {
   constructor(private _router: Router,
+              private _authService:AuthService,
               private _toastService: ToastsManager) { }
 
   handleError(response:Response | any){
-    if (response.status == 401) this._router.navigate(['login']);
+    if (response.status == 401) {
+      this._authService.clearCurrentUser();
+      this._router.navigate(['login']);
+   }
 
     var errorsDict = response.json();  // Example: {"custom_errors": ["User is already competitor!"]}
     Object.keys(errorsDict).forEach((error) => this._showError(errorsDict[error]))
