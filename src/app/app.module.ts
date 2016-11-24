@@ -3,15 +3,18 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
-/* App Root */
-import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { AuthService } from './auth/auth.service';
-import { AuthHttp } from './auth/authHttp.service';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 /* Routing Module */
 import { appRoutes } from './app.routing';
+
+/* App Root */
+import { AppComponent } from './app.component';
+import { AuthService } from './auth/auth.service';
+import { AuthHttp } from './auth/authHttp.service';
+import { FooterComponent } from './footer/footer.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 /* Feature Modules */
 import { CoreModule } from './core/core.module';
@@ -33,6 +36,8 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
   imports: [
     HttpModule,
     BrowserModule,
+    ToastModule,
+    Angular2FontawesomeModule,
 
     appRoutes,
     CoreModule,

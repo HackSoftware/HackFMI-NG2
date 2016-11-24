@@ -1,9 +1,14 @@
-<h1>Покани!</h1>
+<div *ngIf="invites.length">
+  <h1>Покани!</h1>
 
-<div class="container">
-  <div *ngFor="let invitation of invites">
-    <p >Имаш покана от: {{invitation.competitor.first_name}} {{invitation.competitor.last_name}}</p>
-    <button (click)="acceptInvitation(invitation)">Приеми</button>
-    <button (click)="rejectInvitation(invitation)">Откажи</button>
+  <div class="container invitations-container">
+    <div *ngFor="let invitation of invites" class="invitation-container">
+      <span><b>Имаш покана от: {{invitation.competitor.first_name}} {{invitation.competitor.last_name}}</b></span>
+      <button hack-orange (click)="acceptInvitation(invitation)">Приеми</button>
+      <button hack-orange (click)="rejectInvitation(invitation)">Откажи</button>
+    </div>
   </div>
+</div>
+<div align="center" *ngIf="invites.length==0">
+  <h1>В момента нямате покани за присъединяване към отбор.</h1>
 </div>

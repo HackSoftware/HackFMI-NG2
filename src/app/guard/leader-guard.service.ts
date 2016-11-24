@@ -12,9 +12,7 @@ export class LeaderGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this._meService.getSeasonMeInfo()
-                          .map(
-                            data => this._handleIsLeader(data),
-                            err => console.log(err))
+                          .map(data => this._handleIsLeader(data));
   }
 
   private _handleIsLeader(meData:Me):boolean {

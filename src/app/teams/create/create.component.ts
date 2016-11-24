@@ -26,7 +26,7 @@ export class CreateComponent implements OnInit {
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
-              private _teamService: TeamsService) { }
+              private _teamsService: TeamsService) { }
 
   ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
 
@@ -41,10 +41,8 @@ export class CreateComponent implements OnInit {
   }
 
   createTeam(): void {
-    this._teamService.createTeam(this.teamInfo)
-                     .subscribe(
-                       data => this._handleSuccessfulTeamCreation(data),
-                       err => console.log(err));
+    this._teamsService.createTeam(this.teamInfo)
+                      .subscribe(data => this._handleSuccessfulTeamCreation(data));
   }
 
   private _handleSuccessfulTeamCreation(team: PrivateTeam) {

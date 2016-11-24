@@ -1,25 +1,27 @@
 <div *ngIf="!meDetails.team" class="container create-team-container">
-  <button (click)="createTeam()" class="create-team">Създай отбор</button>
+  <button hack-orange (click)="createTeam()" class="create-team">Създай отбор</button>
 </div>
 
 <div *ngIf="meDetails.team" class="container create-team-container">
-  <button (click)="showTeamDetails(meDetails.team)" class="create-team">Моят отбор</button>
+  <button hack-orange (click)="showTeamDetails(meDetails.team)" class="create-team">Моят отбор</button>
 </div>
 
 
 <div class="container">
   <div *ngFor="let team of privateTeams" class="team-container">
-    <a [href]="team.repository"><h2>Отбор: {{team.name}}</h2></a>
-    <p><b>Имейл на лидера: {{team.leader_email}}</b></p>
+    <a [href]="team.repository" *ngIf=team.repository ><h2>Отбор: {{team.name}}</h2></a>
+    <h2 *ngIf=!team.repository>Отбор: {{team.name}}</h2>
+    <p><b>Имейл на лидера:</b> {{team.leader_email}}</p>
     <p><b>Описание на идеята:</b> {{team.idea_description}}</p>
-    <ul>Технологии:
+    <ul *ngIf=team.technologies_full.length >Технологии:
       <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
     </ul>
-    <p>
-      <b>Има ли свободни места в отбора?</b>
-      <span *ngIf="team.need_more_members">Да! {{team.members_needed_desc}}</span>
+    <div>
+      <span><b>Има ли свободни места в отбора?</b></span>
+      <span *ngIf="team.need_more_members">Да!</span>
       <span *ngIf="!team.need_more_members">Не.</span>
-    </p>
-    <p *ngIf="team.room">Стая: {{team.room}}</p>
+    </div>
+    <p *ngIf="team.need_more_members && team.members_needed_desc"><b>Какви хора търсим:</b> {{team.members_needed_desc}}</p>
+    <p *ngIf="team.room"><b>Стая: {{team.room}}</b></p>
   </div>
 </div>

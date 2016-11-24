@@ -20,7 +20,7 @@ export class SeasonService {
 
   getSeasonInfo():Observable<Season> {
     return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
-                            .map(res => res.json())
-                            .catch(err => this._handleHttp.handleError(err))
+                            .map(res => <Season>res.json())
+                            .catch(err => this._handleHttp.handleError(err));
   }
  }

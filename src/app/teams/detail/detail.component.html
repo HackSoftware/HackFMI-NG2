@@ -1,35 +1,42 @@
-<p>Детайлна информация за отбора!</p>
-
-<div *ngIf="competitorInTeam()">
-  <button (click)="leaveTeam()">Напусни отбора</button>
-</div>
-
-<div *ngIf="isTeamLeader()">
-  <div>
-    <button (click)="updateTeam()">Обнови отбора</button>
-  </div>
-  <div>
+<div>
+  <h1>Детайлна информация за отбора!</h1>
+  <span *ngIf=competitorInTeam()>
+    <button hack-orange (click)="leaveTeam()">Напусни отбора</button>
+    <button hack-orange (click)="updateTeam()" *ngIf="isTeamLeader()">Обнови отбора</button>
+  </span>
+  <div *ngIf="isTeamLeader()">
+    <h2>Покани хора:</h2>
     <form (ngSubmit)="inviteMember()" #inviteMemberForm="ngForm">
       <div class="form-group">
-        <label for="competitor-email">Email на човека</label>
-        <input type="email" class="form-control" id="competitor-email" required [(ngModel)]="inviteInfo.competitor_email" name="competitor_email">
+        <label for="competitor-email"><b>Email на участника</b></label>
+        <input hack-orange type="email" class="form-control" id="competitor-email" required [(ngModel)]="inviteInfo.competitor_email" name="competitor_email">
       </div>
       <div class="submit-container">
-        <button type="submit" [disabled]="!inviteMemberForm.form.valid">Изпрати покана</button>
+        <button hack-orange type="submit" [disabled]="!inviteMemberForm.form.valid">Изпрати покана</button>
       </div>
     </form>
   </div>
 </div>
 
-<div class="container">
-  <h2>Инфо за отбора:</h2>
-  <p >Име: {{teamDetails.name}}</p>
-  <p>Идея: {{teamDetails.idea_description}}</p>
-  <p>Github repo: {{teamDetails.repository}}</p>
-  <ul>Технологии:
+<div class="container team-container">
+  <p><b>Отбор: {{teamDetails.name}}</b></p>
+  <p><b>Идея:</b> {{teamDetails.idea_description}}</p>
+  <p><b>Github repo:</b> {{teamDetails.repository}}</p>
+  <ul>
+    <b>Членове на отбора:</b>
+    <li *ngFor="let member of teamDetails.members">
+      <b>{{member.first_name}} {{member.last_name}}</b> - {{member.email}}
+    </li>
+  </ul>
+  <ul *ngIf=teamDetails.technologies_full.length >
+    <b>Технологии:</b>
     <li *ngFor="let technology of teamDetails.technologies_full">{{technology.name}}</li>
   </ul>
-  <p>Има нужда от още хора: {{teamDetails.need_more_members}}</p>
-  <p *ngIf="teamDetails.need_more_members">Защо трябват още хора: {{teamDetails.members_needed_desc}}</p>
+  <div>
+    <span><b>Има ли нужда от още хора:</b></span>
+    <span *ngIf=teamDetails.need_more_members>Да</span>
+    <span *ngIf=!teamDetails.need_more_members>Не</span>
+  </div>
+  <p *ngIf="teamDetails.need_more_members && teamDetails.members_needed_desc"><b>Какви хора търсим:</b> {{teamDetails.members_needed_desc}}</p>
   <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p>
 </div>

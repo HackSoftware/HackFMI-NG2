@@ -2,7 +2,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Mentor } from './mentors.models';
-import { MentorsService } from './mentors.service';
 
 
 @Component({

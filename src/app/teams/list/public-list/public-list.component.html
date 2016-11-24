@@ -1,16 +1,19 @@
-<h1>Публични тимове!</h1>
-
 <div class="container">
-  <div *ngFor="let team of publicTeams">
-    <h2>Информация за отбора:</h2>
-    <p >Име: {{team.name}}</p>
-    <p>Идея: {{team.idea_description}}</p>
-    <p>Репо: {{team.repository}}</p>
-    <ul>Технологии:
+  <div *ngFor="let team of publicTeams" class="team-container">
+    <a [href]="team.repository" *ngIf=team.repository >
+      <h2>Отбор: {{team.name}}</h2>
+    </a>
+    <h2 *ngIf=!team.repository >Отбор: {{team.name}}</h2>
+    <p><b>Описание на идеята:</b> {{team.idea_description}}</p>
+    <ul *ngIf=team.technologies_full.length >Технологии:
       <li *ngFor="let technology of team.technologies_full">{{technology.name}}</li>
     </ul>
-    <p>Има нужда от още хора: {{team.need_more_members}}</p>
-    <p *ngIf="team.need_more_members">Защо трябват още хора: {{team.members_needed_desc}}</p>
+    <div>
+      <span><b>Има ли свободни места в отбора?</b></span>
+      <span *ngIf="team.need_more_members">Да!</span>
+      <span *ngIf="!team.need_more_members">Не.</span>
+    </div>
+    <p *ngIf="team.need_more_members && team.members_needed_desc"><b>Какви хора търсим:</b> {{team.members_needed_desc}}</p>
     <p *ngIf="team.room">Стая: {{team.room}}</p>
   </div>
 </div>

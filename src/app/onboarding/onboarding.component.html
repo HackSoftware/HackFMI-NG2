@@ -1,20 +1,23 @@
 <div class="container">
   <h1>Няколко бързи въпроса</h1>
   <form>
-    <label>С какви технологии можеш да работиш?</label>
-    <div *ngFor="let skill of skills" class="checkbox">
-      <label><input type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
+    <div class="form-group">
+      <label>С какви технологии можеш да работиш?</label>
+      <div *ngFor="let skill of skills">
+        <label><input hack-orange type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
+      </div>
     </div>
 
-    <div>
-      <label><input type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills">Други умения: </label>
-    </div> 
-    <div class="checkbox">
-      <label><input type="checkbox" name="looking_for_team" [(ngModel)]="looking_for_team">Търсиш ли си отбор?</label>
+    <div class="form-group">
+      <label><input hack-orange type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills"></label>
     </div>
 
     <div class="checkbox">
-      <label><input type="checkbox" name="needs_work" [(ngModel)]="onboardingInfo.needs_work">Търсиш ли си работа?</label>
+      <label><input hack-orange type="checkbox" name="looking_for_team" [(ngModel)]="looking_for_team">Търсиш ли си отбор?</label>
+    </div>
+
+    <div class="form-group">
+      <label><input hack-orange type="checkbox" name="needs_work" [(ngModel)]="onboardingInfo.needs_work">Търсиш ли си работа?</label>
     </div>
 
     <div class="form-group">
@@ -24,10 +27,10 @@
       </select>
     </div>
 
-    <div class="checkbox">
-      <label><input type="checkbox" name="is_vegetarian" [(ngModel)]="onboardingInfo.is_vegetarian">Вегетарианец ли си?</label>
+    <div class="form-group">
+      <label><input hack-orange type="checkbox" name="is_vegetarian" [(ngModel)]="onboardingInfo.is_vegetarian">Вегетарианец ли си?</label>
     </div>
 
-    <button type="submit" class="btn btn-default" (click)="onboardCompetitor()">Изпрати</button>
+    <button hack-orange type="submit" (click)="onboardCompetitor()">Изпрати</button>
   </form>
 </div>

@@ -1,30 +1,32 @@
-<div class="container">
+<div class="container centered-container">
   <h1>Промени отбора</h1>
   <form (ngSubmit)="updateTeam()" #editTeamForm="ngForm">
     <div class="form-group">
       <label for="idea-description">Описание на идеята</label>
-      <input type="text" class="form-control" id="idea-description" required [(ngModel)]="teamDetails.idea_description" name="idea_description">
+      <input hack-orange type="text" class="form-control" id="idea-description" required [(ngModel)]="teamDetails.idea_description" name="idea_description">
     </div>
 
     <div class="form-group">
       <label for="repository">Github repo</label>
-      <input type="url" class="form-control" id="repository" [(ngModel)]="teamDetails.repository" name="repository">
+      <input hack-orange type="url" class="form-control" id="repository" [(ngModel)]="teamDetails.repository" name="repository">
     </div>
 
-    <div class="checkbox">
-      <label><input type="checkbox" name="need_more_members" [(ngModel)]="teamDetails.need_more_members">Имаш ли нужда от още хора?</label>
+    <div class="checkbox form-group">
+      <label><input hack-orange type="checkbox" name="need_more_members" [(ngModel)]="teamDetails.need_more_members">Има ли свободни места в отбора?</label>
     </div>
 
     <div class="form-group">
-      <label for="members-needed-desc">Защо имаш нужда от още хора?:</label>
-      <textarea class="form-control" rows="5" id="members-needed-desc" name="members_needed_desc" [(ngModel)]="teamDetails.members_needed_desc"></textarea>
+      <label for="members-needed-desc">От какви умения се нуждаете?</label>
+      <textarea hack-orange class="form-control" rows="5" id="members-needed-desc" name="members_needed_desc" [(ngModel)]="teamDetails.members_needed_desc"></textarea>
     </div>
 
-    <p>Какви технологии ще използваш?</p>
+    <p>Какви технологии ще използвате?</p>
     <div *ngFor="let skill of skills" class="checkbox">
-      <label><input type="checkbox" [checked]="isSkillChosen(skill.id)" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
+      <label><input hack-orange type="checkbox" [checked]="isSkillChosen(skill.id)" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
     </div>
-
-    <button type="submit" class="btn btn-default" [disabled]="!editTeamForm.form.valid">Промени отбор!</button>
+ 
+    <div class="submit-container" >
+      <button hack-orange type="submit" [disabled]="!editTeamForm.form.valid">Промени отбор!</button>
+    </div>
   </form>
 </div>
