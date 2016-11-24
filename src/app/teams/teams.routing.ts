@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthGuardService } from '../guard/auth-guard.service';
 import { MeSeasonResolver } from '../core/me.resolver';
 import { SkillsResolver } from '../core/skills.resolver';
 import { TeamsGuardService } from '../guard/teams-guard.service';
@@ -14,8 +14,7 @@ import { DetailComponent } from './detail/detail.component';
 import { UpdateComponent } from './update/update.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
-import { PublicTeamsListResolver, PrivateTeamsListResolver,
-         TeamDetailsResolver } from './teams.resolver';
+import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver } from './teams.resolver';
 
 
 @NgModule({
@@ -47,7 +46,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           path: 'create',
           component: CreateComponent,
           canActivate: [
-            AuthService,
+            AuthGuardService,
             OnboardingGuardService
           ],
           resolve: {
@@ -58,7 +57,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           path: ':id/edit',
           component: UpdateComponent,
           canActivate: [
-            AuthService,
+            AuthGuardService,
             OnboardingGuardService,
             LeaderGuardService
           ],
@@ -71,7 +70,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
           path: ':id',
           component: DetailComponent,
           canActivate: [
-            AuthService,
+            AuthGuardService,
             OnboardingGuardService
           ],
           resolve: {
@@ -84,5 +83,4 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
   ])],
   exports: [RouterModule]
 })
-
-export class TeamsRoutingModule {}
+export class TeamsRoutingModule { }

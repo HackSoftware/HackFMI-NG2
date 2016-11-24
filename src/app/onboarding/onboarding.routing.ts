@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthGuardService } from '../guard/auth-guard.service';
 import { SkillsResolver } from '../core/skills.resolver';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
@@ -13,7 +13,7 @@ import { OnboardingComponent } from './onboarding.component';
     {
       path: 'onboarding',
       component: OnboardingComponent,
-      canActivate: [AuthService],
+      canActivate: [AuthGuardService],
       resolve: {
         skills: SkillsResolver
       }

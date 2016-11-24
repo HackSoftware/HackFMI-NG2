@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthGuardService } from '../guard/auth-guard.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { InvitesComponent } from './invites.component';
@@ -14,7 +14,7 @@ import { InvitesListResolver } from './invites.resolver';
       path: 'invites',
       component: InvitesComponent,
       canActivate: [
-        AuthService,
+        AuthGuardService,
         OnboardingGuardService
       ],
       resolve: {
