@@ -27,7 +27,10 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: '',
           component: PrivateListComponent,
-          canActivate: [TeamsGuardService, OnboardingGuardService],
+          canActivate: [
+            TeamsGuardService,
+            OnboardingGuardService
+          ],
           resolve: {
             meDetails: MeSeasonResolver,
             privateTeams: PrivateTeamsListResolver
@@ -43,7 +46,10 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: 'create',
           component: CreateComponent,
-          canActivate: [AuthService],
+          canActivate: [
+            AuthService,
+            OnboardingGuardService
+          ],
           resolve: {
             skills: SkillsResolver
           }
@@ -51,7 +57,11 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: ':id/edit',
           component: UpdateComponent,
-          canActivate: [AuthService, LeaderGuardService],
+          canActivate: [
+            AuthService,
+            OnboardingGuardService,
+            LeaderGuardService
+          ],
           resolve: {
             skills: SkillsResolver,
             teamDetails: TeamDetailsResolver
@@ -60,7 +70,10 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver,
         {
           path: ':id',
           component: DetailComponent,
-          canActivate: [AuthService],
+          canActivate: [
+            AuthService,
+            OnboardingGuardService
+          ],
           resolve: {
             meDetails: MeSeasonResolver,
             teamDetails: TeamDetailsResolver
