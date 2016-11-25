@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 
 import { AuthGuardService } from '../guard/auth-guard.service';
 import { SkillsResolver } from '../core/skills.resolver';
-import { OnboardingGuardService } from '../guard/onboarding-guard.service';
+import { CompetitorGuardService } from '../guard/competitor-guard.service';
 
 import { OnboardingComponent } from './onboarding.component';
 
@@ -13,7 +13,9 @@ import { OnboardingComponent } from './onboarding.component';
     {
       path: 'onboarding',
       component: OnboardingComponent,
-      canActivate: [AuthGuardService],
+      canActivate: [
+        AuthGuardService,
+        CompetitorGuardService],
       resolve: {
         skills: SkillsResolver
       }

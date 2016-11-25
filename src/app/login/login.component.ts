@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
+import { MeService } from '../core/me.service';
 
 import { LoginData } from './login.models';
 import { LoginService } from './login.service';
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _authService:AuthService,
               private _loginService: LoginService,) { }
 
@@ -35,11 +37,19 @@ export class LoginComponent implements OnInit {
 
   private _handleSuccessfulLogin(data:LoginData) {
     this._authService.setCurrentUser(data);
-    /* Redirect to pre-requested page */
-    if (this._authService.redirectUrl) {
-      this._router.navigate([this._authService.redirectUrl]);
-    } else {
-      this._router.navigate(['home']);
-    }
+    this._meService.getSeasonMeInfo().subscribe(
+      data => {
+        if (!data.is_competitor) {
+          /* Always onboard new users after login */
+          this._router.navigate(['onboarding']);
+        } else {
+          /* Redirect to pre-requested page */
+          if (this._authService.redirectUrl) {
+            this._router.navigate([this._authService.redirectUrl]);
+          } else {
+            this._router.navigate(['home']);
+          }
+        }
+      });
   }
 }
