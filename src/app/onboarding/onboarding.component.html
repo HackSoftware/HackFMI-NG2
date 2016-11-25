@@ -2,7 +2,7 @@
   <h1>Няколко бързи въпроса</h1>
   <form>
     <div class="form-group">
-      <label>С какви технологии можеш да работиш?</label>
+      <label>С какви технологии можеш да работиш?*</label>
       <div *ngFor="let skill of skills">
         <label><input hack-orange type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
       </div>
