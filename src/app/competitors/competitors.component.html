@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Състезатели</h2>
+  <p>Избери нещо за доебване</p>
+  <div class="table-responsive">            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Състезател</th>
+          <th>Имейл</th>
+          <th>Умения</th>
+        </tr>
+      </thead>
+      <tbody>
+        <div *ngFor="let competitor of competitors">
+          <tr>
+            <td>{{competitor.first_name}} {{competitor.last_name}}</td>
+            <td>{{competitor.email}}</td>
+            <td>{{competitor.known_skills}}, {{competitor.other_skills}}</td>
+          </tr>
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

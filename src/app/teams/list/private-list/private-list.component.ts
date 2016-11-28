@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Me } from '../../../core/core.models';
 
 import { PrivateTeam } from '../../teams.models';
+import { SeasonCompetitorInfoService } from '../../../core/seasonCompetitorInfo.service';
 
 
 @Component({
@@ -15,7 +16,11 @@ export class PrivateListComponent implements OnInit {
   meDetails: Me;
   privateTeams: PrivateTeam[];
 
-  constructor(private _route: ActivatedRoute, private _router: Router) { }
+  constructor(private _route: ActivatedRoute,
+              private _router: Router,
+              private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
+
+  lookingForTeamValue = false;
 
   ngOnInit() {
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
@@ -28,5 +33,12 @@ export class PrivateListComponent implements OnInit {
 
   createTeam():void {
     this._router.navigate(['teams/create']);
+  }
+
+  lookingForTeam(): void {
+    var seasonInfoData = {'looking_for_team': this.lookingForTeamValue}
+    this._seasonCompetitorInfoService.postSeasonCompetitorInfo(seasonInfoData)
+                                     .subscribe();
+    this.lookingForTeamValue = !this.lookingForTeamValue
   }
 }

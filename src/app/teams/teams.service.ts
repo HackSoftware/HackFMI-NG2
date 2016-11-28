@@ -5,6 +5,7 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 import { DefaultHttpService } from '../core/defaultHttp.service';
+import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 
@@ -17,7 +18,8 @@ export class TeamsService {
   constructor(private _authHttp: AuthHttp,
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService,
-              private _defaultHttpService: DefaultHttpService) { }
+              private _defaultHttpService: DefaultHttpService,
+              private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
 
   getPublicTeams():Observable<PublicTeam[]> {
     return this._defaultHttpService.get(this._apiUrlsService.teamsPublicListUrl)
@@ -64,4 +66,5 @@ export class TeamsService {
     return this._authHttp.post(this._apiUrlsService.invitationUrl, inviteData)
                          .catch(err => this._handleHttp.handleError(err));
   }
+
 }
