@@ -2,7 +2,7 @@
   <button hack-orange (click)="createTeam()" class="create-team">Създай отбор</button>
 </div>
 
-<div *ngIf="meDetails.is_competitor" class="container create-team-container">
+<div *ngIf="!!meDetails.looking_for_team && !!!meDetails.team_membership_id" class="container create-team-container">
   <div class="search-team">Търсиш ли си отбор?
     <a (click)="lookingForTeam()" [class]="lookingForTeamValue ? 'fa fa-check':'fa fa-times'" >{{buttonText}}</a>
   </div>
