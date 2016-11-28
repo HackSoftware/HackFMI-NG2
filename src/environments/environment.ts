@@ -7,8 +7,8 @@ export const environment = {
   /* TODO: Discuss this */
   production: false,
 
-  domain: 'https://staging.hackbulgaria.com/',
-  apiUrl: 'https://staging.hackbulgaria.com/hackfmi/api/',
+  domain: 'http://localhost:8000/',
+  apiUrl: 'http://localhost:8000/hackfmi/api/',
 
   defaultUrlQueryParams: {
     "format": "json"
