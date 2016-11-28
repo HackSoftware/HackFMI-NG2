@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { CompetitorsComponent } from './competitors.component';
+import { AuthGuardService} from '../guard/auth-guard.service';
+import { LeaderGuardService } from '../guard/leader-guard.service';
+
 import { CompetitorsResolver } from './competitors.resolver';
-import { AuthService } from '../auth/auth.service';
-import {LeaderGuardService } from '../guard/leader-guard.service';
+import { CompetitorsComponent } from './competitors.component';
 
 
 @NgModule({
@@ -12,7 +13,10 @@ import {LeaderGuardService } from '../guard/leader-guard.service';
     {
       path: 'competitors',
       component: CompetitorsComponent,
-      canActivate: [AuthService, LeaderGuardService],
+      canActivate: [
+        AuthGuardService,
+        LeaderGuardService
+      ],
       resolve: {
         competitors: CompetitorsResolver
       }
