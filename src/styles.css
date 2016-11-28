@@ -136,8 +136,3 @@ textarea[hack-orange]:focus {
     position:relative;
     padding-bottom: 200px;
 }
-
-.loading-gif {
-  display: block;
-  margin: auto;
-}
