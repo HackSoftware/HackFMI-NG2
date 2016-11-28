@@ -1,1 +1,1 @@
-ng build && scp -r dist/* root@register.hackfmi.com:/usr/share/nginx/html/
+ng build && scp -r dist/* root@staging.register.hackfmi.com:/usr/share/nginx/html/
