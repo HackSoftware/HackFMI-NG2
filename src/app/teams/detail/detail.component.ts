@@ -40,7 +40,9 @@ export class DetailComponent implements OnInit {
   updateTeam():void {this._router.navigate(['teams', this.teamDetails.id, 'edit']);}
 
   leaveTeam(): void {
-    if (this.competitorInTeam()) {
+    var leave:boolean = confirm("Сигурен ли си, че искаш да напуснеш отбора?");
+
+    if (this.competitorInTeam() && leave) {
       var teamMembershipId = this.meDetails.team_membership_id;
 
       this._teamsService.leaveTeam(teamMembershipId)

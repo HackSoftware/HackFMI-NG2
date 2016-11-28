@@ -2,14 +2,14 @@
   <h1>Няколко бързи въпроса</h1>
   <form>
     <div class="form-group">
-      <label>С какви технологии можеш да работиш?</label>
+      <label>С какви технологии можеш да работиш?*</label>
       <div *ngFor="let skill of skills">
         <label><input hack-orange type="checkbox" (change)="addOrRemoveSkill(skill.id)">{{skill.name}}</label>
       </div>
     </div>
 
     <div class="form-group">
-      <label><input hack-orange type="text" placeholder="Друго" name="other_skills" [(ngModel)]="onboardingInfo.other_skills"></label>
+      <label>Какви други знаеш, но не са изброени?<input hack-orange type="text" placeholder="" name="other_skills" [(ngModel)]="onboardingInfo.other_skills"></label>
     </div>
 
     <div class="checkbox">

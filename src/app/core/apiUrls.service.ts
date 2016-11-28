@@ -13,6 +13,7 @@ export class ApiUrlsService {
   skillsUrl = environment.apiUrl + 'skills/';                  // Public
   membersPublicListUrl = environment.apiUrl + 'mentors/';      // Public
   teamsPublicListUrl = environment.apiUrl + 'public-teams/';   // Public
+  logoutUrl = environment.apiUrl + 'jwt-logout/';              // Authorization: JWT
   meUrl = environment.apiUrl + 'me/';                          // Authorization: JWT
   onboardUrl = environment.apiUrl + 'onboard-competitor/';     // Authorization: JWT
   teamsUrl = environment.apiUrl + 'teams/';                    // Authorization: JWT

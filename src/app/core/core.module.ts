@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { MeService } from './me.service';
+import { LogoutService } from './logout.service';
 import { MeSeasonResolver } from './me.resolver';
 import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
@@ -18,6 +19,7 @@ import { SeasonCompetitorInfoService } from './seasonCompetitorInfo.service';
   exports: [],
   providers: [
     MeService,
+    LogoutService,
     SkillsService,
     SeasonService,
     ApiUrlsService,

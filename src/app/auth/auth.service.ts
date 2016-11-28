@@ -1,5 +1,5 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { LoginData } from '../login/login.models';
 
@@ -8,9 +8,8 @@ import { UserData } from './auth.models';
 var jwt_decode = require('jwt-decode');
 
 
-/* TODO: Rename AuthService to AuthGuardService */
 @Injectable()
-export class AuthService implements CanActivate {
+export class AuthService {
   private _currentUser: UserData = null;
   private _redirectUrl:string = null;
 
@@ -22,23 +21,16 @@ export class AuthService implements CanActivate {
     return this._redirectUrl;
   }
 
+  set redirectUrl(url:string){
+    this._redirectUrl = url;
+  }
+
   get currentUser() {
     return this._currentUser;
   }
 
   get token() {
     return this._currentUser.token;
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): boolean {
-    var result: boolean = !!this._currentUser;
-
-    if (!result) {
-      this._router.navigate(['login']);
-    }
-
-    this._redirectUrl = state.url;
-    return result;
   }
 
   setCurrentUser(data:LoginData):void {
@@ -49,8 +41,7 @@ export class AuthService implements CanActivate {
     localStorage.setItem('user-data', JSON.stringify(userData));
   }
 
-  clearCurrentUser = (event:MouseEvent) => {
-    event.preventDefault();
+  clearCurrentUser():void {
     this._currentUser = null;
     this._redirectUrl = null;
     localStorage.removeItem('user-data');

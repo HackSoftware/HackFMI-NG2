@@ -2,12 +2,12 @@
   <h1>Създай отбор</h1>
   <form (ngSubmit)="createTeam()" #createTeamForm="ngForm">
     <div class="form-group">
-      <label for="name">Име на отбора</label>
+      <label for="name">Име на отбора*</label>
       <input hack-orange type="text" class="form-control" id="name" required [(ngModel)]="teamInfo.name" name="name">
     </div>
 
     <div class="form-group">
-      <label for="idea-description">Описание на идеята</label>
+      <label for="idea-description">Описание на идеята*</label>
       <input hack-orange type="text" class="form-control" id="idea-description" required [(ngModel)]="teamInfo.idea_description" name="idea_description">
     </div>
 

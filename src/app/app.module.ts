@@ -11,12 +11,11 @@ import { appRoutes } from './app.routing';
 
 /* App Root */
 import { AppComponent } from './app.component';
-import { AuthService } from './auth/auth.service';
-import { AuthHttp } from './auth/authHttp.service';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
 /* Feature Modules */
+import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { GuardModule } from './guard/guard.module';
@@ -41,6 +40,8 @@ import { CompetitorsModule } from './competitors/competitors.module';
     Angular2FontawesomeModule,
 
     appRoutes,
+
+    AuthModule,
     CoreModule,
     HomeModule,
     GuardModule,
@@ -51,7 +52,7 @@ import { CompetitorsModule } from './competitors/competitors.module';
     OnBoardingModule,
     CompetitorsModule,
   ],
-  providers: [AuthService, AuthHttp],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

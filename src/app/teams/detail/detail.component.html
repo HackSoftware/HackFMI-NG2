@@ -1,5 +1,5 @@
 <div>
-  <h1>Детайлна информация за отбора!</h1>
+  <h1 align="center">Детайлна информация за отбор {{teamDetails.name}}</h1>
   <span *ngIf=competitorInTeam()>
     <button hack-orange (click)="leaveTeam()">Напусни отбора</button>
     <button hack-orange (click)="updateTeam()" *ngIf="isTeamLeader()">Обнови отбора</button>
