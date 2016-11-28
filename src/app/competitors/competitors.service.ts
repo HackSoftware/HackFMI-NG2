@@ -9,7 +9,6 @@ import { CompetitorInfoForList } from '../core/core.models';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/mergeMap';
 
 
 @Injectable()
@@ -18,8 +17,8 @@ export class CompetitorsService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  getAllCompetitorsInfo():Observable<CompetitorInfoForList[]> {
-    return this._authHttp.get(this._apiUrlsService.competitorsInfoUrl)
+  getCompetitorsList():Observable<CompetitorInfoForList[]> {
+    return this._authHttp.get(this._apiUrlsService.competitorsUrl)
                          .map(res => <CompetitorInfoForList[]>res.json())
                          .catch(err => this._handleHttp.handleError(err));
   }

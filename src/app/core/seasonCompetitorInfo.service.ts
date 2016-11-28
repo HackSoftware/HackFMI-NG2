@@ -29,7 +29,7 @@ export class SeasonCompetitorInfoService {
     }).flatMap(
       meInfo => {
         seasonInfoData['competitor'] = meInfo.competitor_info.id;
-        return this._authHttp.post(this._apiUrlsService.seasonInfoUrl, seasonInfoData)
+        return this._authHttp.post(this._apiUrlsService.seasonCompetitorInfoUrl, seasonInfoData)
                              .catch(err => this._handleHttp.handleError(err));
       })
    }

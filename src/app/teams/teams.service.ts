@@ -5,7 +5,6 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 import { DefaultHttpService } from '../core/defaultHttp.service';
-import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 
@@ -17,9 +16,7 @@ import 'rxjs/add/operator/catch'
 export class TeamsService {
   constructor(private _authHttp: AuthHttp,
               private _handleHttp: HandleHttpService,
-              private _apiUrlsService: ApiUrlsService,
-              private _defaultHttpService: DefaultHttpService,
-              private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
+              private _apiUrlsService: ApiUrlsService) { }
 
   getPublicTeams():Observable<PublicTeam[]> {
     return this._defaultHttpService.get(this._apiUrlsService.teamsPublicListUrl)
