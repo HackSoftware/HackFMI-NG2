@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
-import { SeasonDetailsResolver } from './home.resolver';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { SeasonDetailsResolver } from './home.resolver';
 
     HomeRoutingModule
   ],
-  exports: [HomeRoutingModule],
-  providers: [SeasonDetailsResolver],
+  exports: [HomeRoutingModule]
 })
 export class HomeModule { }

@@ -4,6 +4,7 @@ import { MeService } from './me.service';
 import { LogoutService } from './logout.service';
 import { MeSeasonResolver } from './me.resolver';
 import { SeasonService } from './season.service';
+import { SeasonResolver } from './season.resolver';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
 import { ApiUrlsService } from './apiUrls.service';
@@ -27,6 +28,7 @@ import { DefaultHttpService } from './defaultHttp.service';
     DefaultHttpService,
 
     MeSeasonResolver,
+    SeasonResolver,
     SkillsResolver,
   ]
 })

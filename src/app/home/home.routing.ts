@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { SeasonDetailsResolver } from './home.resolver';
+import { SeasonResolver } from '../core/season.resolver';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { SeasonDetailsResolver } from './home.resolver';
       path: 'home',
       component: HomeComponent,
       resolve: {
-        season: SeasonDetailsResolver
+        season: SeasonResolver
       }
     },
   ])],
