@@ -10,7 +10,7 @@ import { HandleHttpService } from '../core/http/handle-http.service';
 
 import { Invite } from './invites.models';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -37,14 +37,14 @@ export class InvitesService {
   }
 
   acceptInvitation(invitationId: number): Observable<any> {
-    var acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/accept/";
+    let acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + '/accept/';
 
     return this._authHttp.post(acceptInvitationUrl, {})
                          .catch(err => this._handleHttp.handleError(err));
   }
 
   rejectInvitation(invitationId: number): Observable<any> {
-    var rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/";
+    let rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + '/';
 
     return this._authHttp.delete(rejectInvitationUrl)
                          .catch(err => this._handleHttp.handleError(err));

@@ -11,6 +11,6 @@ export const environment = {
   apiUrl: 'http://localhost:8000/hackfmi/api/',
 
   defaultUrlQueryParams: {
-    "format": "json"
+    'format': 'json'
   }
 };

@@ -19,7 +19,7 @@ import { TeamsService } from '../teams.service';
 export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
-  inviteInfo = {competitor_email: ''}
+  inviteInfo = {competitor_email: ''};
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -34,20 +34,22 @@ export class DetailComponent implements OnInit {
   }
 
   competitorInTeam():boolean {
-    if (!this.meDetails.team) return false;
+    if (!this.meDetails.team) {
+      return false;
+    }
 
-    return this.meDetails.team.id == this.teamDetails.id;
+    return this.meDetails.team.id === this.teamDetails.id;
   }
 
-  isTeamLeader():boolean {return this.meDetails.competitor_info.id == this.teamDetails.leader_id;}
+  isTeamLeader():boolean {return this.meDetails.competitor_info.id === this.teamDetails.leader_id;}
 
   updateTeam():void {this._router.navigate(['teams', this.teamDetails.id, 'edit']);}
 
   leaveTeam(): void {
-    var leave:boolean = confirm("Сигурен ли си, че искаш да напуснеш отбора?");
+    let leave:boolean = confirm('Сигурен ли си, че искаш да напуснеш отбора?');
 
     if (this.competitorInTeam() && leave) {
-      var teamMembershipId = this.meDetails.team_membership_id;
+      let teamMembershipId = this.meDetails.team_membership_id;
 
       this._teamsService.leaveTeam(teamMembershipId)
                         .subscribe(data => this._handleSuccessfulTeamLeaving());

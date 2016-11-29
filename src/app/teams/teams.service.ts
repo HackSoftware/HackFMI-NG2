@@ -9,8 +9,8 @@ import { SeasonCompetitorInfoService } from '../core/season/season-competitor-in
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -33,7 +33,7 @@ export class TeamsService {
   }
 
   getTeamDetails(teamId:number):Observable<PrivateTeam> {
-    var teamDetailsUrl = this._apiUrlsService.teamsUrl + teamId + "/";
+    let teamDetailsUrl = this._apiUrlsService.teamsUrl + teamId + '/';
 
     return this._authHttp.get(teamDetailsUrl)
                          .map(res => <PrivateTeam>res.json())
@@ -47,7 +47,7 @@ export class TeamsService {
   }
 
   editTeam(teamId:number, teamData:PrivateTeam): Observable<PrivateTeam> {
-    var teamEditUrl = this._apiUrlsService.teamsUrl + teamId + "/";
+    let teamEditUrl = this._apiUrlsService.teamsUrl + teamId + '/';
 
     return this._authHttp.patch(teamEditUrl, teamData)
                          .map(res => <PrivateTeam>res.json())
@@ -55,7 +55,7 @@ export class TeamsService {
   }
 
   leaveTeam(teamMembershipId: number): Observable<any> {
-    var teamLeaveUrl = this._apiUrlsService.teamMembershipUrl + teamMembershipId + "/";
+    let teamLeaveUrl = this._apiUrlsService.teamMembershipUrl + teamMembershipId + '/';
 
     return this._authHttp.delete(teamLeaveUrl)
                          .catch(err => this._handleHttp.handleError(err));

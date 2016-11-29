@@ -7,7 +7,7 @@ import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/http/handle-http.service';
 import { SeasonCompetitorInfoService } from '../core/season/season-competitor-info.service';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
 

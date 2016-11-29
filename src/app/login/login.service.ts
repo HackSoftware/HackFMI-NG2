@@ -19,7 +19,7 @@ export class LoginService {
   register():void {this._window.open(this._apiUrlsService.resiterUrl, '_blank');}
 
   login(email:string, password:string):Observable<LoginData> {
-    var data = {"email": email, "password": password };
+    let data = {'email': email, 'password': password };
 
     return this._defaultHttpService.post(this._apiUrlsService.loginUrl, data)
                                    .map(res => <LoginData>res.json())

@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ApiUrlsService {
   // TODO: Refactor this.
-  resiterUrl = environment.domain + "register/?origin=hackfmi"
+  resiterUrl = environment.domain + 'register/?origin=hackfmi';
 
   loginUrl = environment.apiUrl + 'jwt-login/';                // Public
   currentSeasonDetailUrl = environment.apiUrl + 'season/';     // Public
@@ -17,12 +17,12 @@ export class ApiUrlsService {
   meUrl = environment.apiUrl + 'me/';                          // Authorization: JWT
   onboardUrl = environment.apiUrl + 'onboard-competitor/';     // Authorization: JWT
   teamsUrl = environment.apiUrl + 'teams/';                    // Authorization: JWT
-  teamMembershipUrl = environment.apiUrl + 'team-membership/'  // Authorization: JWT
-  teamMentorshipUrl = environment.apiUrl + 'team-mentorship/'  // Authorization: JWT
-  teamMentorsUrl = environment.apiUrl + 'team-mentors/'        // Authorization: JWT
-  invitationUrl = environment.apiUrl + 'invitation/'           // Authorization: JWT
-  competitorsUrl = environment.apiUrl + 'competitors/'         // Authorization: JWT
-  seasonCompetitorInfoUrl = environment.apiUrl + 'season-competitor-info/'  // Authorization: JWT
+  teamMembershipUrl = environment.apiUrl + 'team-membership/';  // Authorization: JWT
+  teamMentorshipUrl = environment.apiUrl + 'team-mentorship/';  // Authorization: JWT
+  teamMentorsUrl = environment.apiUrl + 'team-mentors/';        // Authorization: JWT
+  invitationUrl = environment.apiUrl + 'invitation/';           // Authorization: JWT
+  competitorsUrl = environment.apiUrl + 'competitors/';         // Authorization: JWT
+  seasonCompetitorInfoUrl = environment.apiUrl + 'season-competitor-info/';  // Authorization: JWT
 
   invitationWebsocketUrl = 'ws://localhost:8000/invitations';  // Authorization: JWT
 

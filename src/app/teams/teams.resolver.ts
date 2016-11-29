@@ -30,7 +30,7 @@ export class TeamDetailsResolver implements Resolve<PrivateTeam> {
   constructor(private _teamsService:TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    var id = route.params['id'];
+    let id = route.params['id'];
 
     return this._teamsService.getTeamDetails(id);
   }

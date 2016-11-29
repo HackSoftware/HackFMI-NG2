@@ -16,8 +16,10 @@ export class LeaderGuardService implements CanActivate {
   }
 
   private _handleIsLeader(meData:Me):boolean {
-    if (!meData.team) return false;
+    if (!meData.team) {
+      return false;
+    }
 
-    return meData.competitor_info.id == meData.team.leader_id;
+    return meData.competitor_info.id === meData.team.leader_id;
   }
 }

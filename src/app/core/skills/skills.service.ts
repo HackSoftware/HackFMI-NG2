@@ -6,7 +6,7 @@ import { ApiUrlsService } from '../api-urls.service';
 import { HandleHttpService } from '../http/handle-http.service';
 import { DefaultHttpService } from '../http/default-http.service';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Injectable()

@@ -5,6 +5,6 @@ export const environment = {
   apiUrl: 'https://hackbulgaria.com/hackfmi/api/',
 
   defaultUrlQueryParams: {
-    "format": "json"
+    'format': 'json'
   }
 };

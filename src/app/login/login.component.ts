@@ -7,7 +7,7 @@ import { AuthService } from '../auth/auth.service';
 import { LoginData } from './login.models';
 import { LoginService } from './login.service';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Component({

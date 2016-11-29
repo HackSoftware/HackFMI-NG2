@@ -5,7 +5,7 @@ import { LoginData } from '../login/login.models';
 
 import { UserData } from './auth.models';
 
-var jwt_decode = require('jwt-decode');
+const jwt_decode = require('jwt-decode');
 
 
 @Injectable()
@@ -30,8 +30,8 @@ export class AuthService {
   }
 
   setCurrentUser(data:LoginData):void {
-    var token = data.token;
-    var userData = jwt_decode(token);
+    let token = data.token;
+    let userData = jwt_decode(token);
     userData.token = token;
     this._currentUser = userData;
     localStorage.setItem('user-data', JSON.stringify(userData));

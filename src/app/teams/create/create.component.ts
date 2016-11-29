@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
     need_more_members: true,
     members_needed_desc: '',
     technologies: [],
-  }
+  };
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -33,7 +33,7 @@ export class CreateComponent implements OnInit {
   ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
 
   addOrRemoveSkill(id:number): void {
-    var index = this.teamInfo.technologies.indexOf(id);
+    let index = this.teamInfo.technologies.indexOf(id);
 
     if (index > -1) {
       this.teamInfo.technologies.splice(index, 1);

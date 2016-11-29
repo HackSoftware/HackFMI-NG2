@@ -28,7 +28,7 @@ export class UpdateComponent implements OnInit {
   isSkillChosen(skillId:number):boolean {return this.teamDetails.technologies.indexOf(skillId) > -1;}
 
   addOrRemoveSkill(id:number): void {
-    var index = this.teamDetails.technologies.indexOf(id);
+    let index = this.teamDetails.technologies.indexOf(id);
 
     if (index > -1) {
       this.teamDetails.technologies.splice(index, 1);
@@ -38,7 +38,7 @@ export class UpdateComponent implements OnInit {
   }
 
   updateTeam(): void {
-    var teamId = this.teamDetails.id;
+    let teamId = this.teamDetails.id;
 
     this._teamsService.editTeam(teamId, this.teamDetails)
                       .subscribe(data => this._handleSuccessfulTeamEdit(data));

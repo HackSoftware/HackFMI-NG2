@@ -17,20 +17,22 @@ export class HandleHttpService {
               private _toastService: ToastsManager) { }
 
   handleError(response:Response | any){
-    if (response.status == 401) {
+    if (response.status === 401) {
       this._authService.clearCurrentUser();
       this._router.navigate(['login']);
    }
 
-    var errorsDict = response.json();  // Example: {"custom_errors": ["User is already competitor!"]}
-    Object.keys(errorsDict).forEach((error) => this._showError(errorsDict[error]))
+    let errorsDict = response.json();  // Example: {"custom_errors": ["User is already competitor!"]}
+    Object.keys(errorsDict).forEach((error) => this._showError(errorsDict[error]));
     return Observable.throw(response);
   }
 
   private _showError(error:string|string[]):void {
     if (error instanceof Array){
       error.forEach((err) => this._displayError(err));
-    } else this._displayError(error);
+    } else {
+      this._displayError(error);
+    }
   }
 
   private _displayError(err:string):void {

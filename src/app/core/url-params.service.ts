@@ -15,7 +15,7 @@ export class UrlParamsService {
   setDefaultParams(params?: URLSearchParams):void {
     /* Use provided params if any */
     this._params = params ? params : this._params;
-    var defaultParams = environment.defaultUrlQueryParams;
+    let defaultParams = environment.defaultUrlQueryParams;
     /* This overrides any existing keys in `params` */
     Object.keys(defaultParams).forEach((key) => this._setParam(key, defaultParams[key]));
   }

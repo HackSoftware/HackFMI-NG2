@@ -44,4 +44,4 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
   ])],
   exports: [RouterModule]
 })
-export class MentorsRoutingModule {}
+export class MentorsRoutingModule { }

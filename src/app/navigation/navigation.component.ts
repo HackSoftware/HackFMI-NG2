@@ -20,6 +20,9 @@ export class NavigationComponent implements OnInit {
   socket = null;
   invitesCounter:number = 0;
 
+  isLeader = this._meService.isLeader;
+  isLogged = this._authService.isLogged;
+
   constructor(private _meService: MeService,
               private _authService:AuthService,
               private _cdRef: ChangeDetectorRef,
@@ -66,7 +69,4 @@ export class NavigationComponent implements OnInit {
     this._navigationService.clearSocket();
     this._seasonService.clearCurrentSeasonInfo();
   }
-
-  isLeader = this._meService.isLeader;
-  isLogged = this._authService.isLogged;
 }

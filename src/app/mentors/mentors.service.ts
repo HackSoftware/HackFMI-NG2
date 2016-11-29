@@ -8,8 +8,8 @@ import { DefaultHttpService } from '../core/http/default-http.service';
 
 import { Mentor } from './mentors.models';
 
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -22,7 +22,7 @@ export class MentorsService {
   getMentorsListInfo():Observable<Mentor[]> {
     return this._defaultHttpService.get(this._apiUrlsService.membersPublicListUrl)
                                    .map(res => <Mentor[]>res.json())
-                                   .catch(err => this._handleHttp.handleError(err))
+                                   .catch(err => this._handleHttp.handleError(err));
   }
 
   getMentorsForTeam():Observable<Mentor[]> {

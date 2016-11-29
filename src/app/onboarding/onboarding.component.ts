@@ -21,11 +21,11 @@ export class OnboardingComponent implements OnInit {
   skills: Skill[];
   /* TODO: Fix this in the backend - field should't be SmallInteger, but Char */
   shirtSizeMap = {
-    "S": 1,
-    "M": 2,
-    "L": 3,
-    "XL": 4
-  }
+    'S': 1,
+    'M': 2,
+    'L': 3,
+    'XL': 4
+  };
   shirtSizes = ['S', 'M', 'L', 'XL'];
   lookingForTeamValue = false;
   onboardingInfo = {
@@ -35,7 +35,7 @@ export class OnboardingComponent implements OnInit {
     social_links: '',
     known_skills: [],
     other_skills: ''
-  }
+  };
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -46,7 +46,7 @@ export class OnboardingComponent implements OnInit {
   ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
 
   addOrRemoveSkill(id:number): void {
-    var index = this.onboardingInfo.known_skills.indexOf(id);
+    let index = this.onboardingInfo.known_skills.indexOf(id);
 
     if (index > -1) {
       this.onboardingInfo.known_skills.splice(index, 1);

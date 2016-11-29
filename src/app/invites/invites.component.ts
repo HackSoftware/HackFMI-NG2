@@ -69,7 +69,7 @@ export class InvitesComponent implements OnInit {
     this._toastService.info('Invitation rejected!');
     this._invitesService.inviteEmitter.emit();
 
-    var index = this.invites.indexOf(invitation);
+    let index = this.invites.indexOf(invitation);
 
     if (index > -1) {
       this.invites.splice(index, 1);
