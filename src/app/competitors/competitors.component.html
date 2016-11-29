@@ -1,24 +1,37 @@
-<div class="container">
-  <h2>Състезатели</h2>
-  <p>Избери нещо за доебване</p>
-  <div class="table-responsive">            
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Състезател</th>
-          <th>Имейл</th>
-          <th>Умения</th>
-        </tr>
+<div align="center" *ngIf="competitors.length">
+  <h1>Състезатели без отбор</h1>
+
+    <table id="competitors-table" class="table table-hover table-striped " cellspacing="0">
+    <thead>
+      <tr>
+        <th>Име</th>
+        <th>Имейл</th>
+        <th>Умения</th>
+      </tr>
       </thead>
       <tbody>
-        <div *ngFor="let competitor of competitors">
-          <tr>
-            <td>{{competitor.first_name}} {{competitor.last_name}}</td>
-            <td>{{competitor.email}}</td>
-            <td>{{competitor.known_skills}}, {{competitor.other_skills}}</td>
-          </tr>
-        </div>
+      <tr *ngFor="let competitor of competitors">
+        <td>{{competitor.first_name}} {{competitor.last_name}}</td>
+        <td>{{competitor.email}}</td>
+        <td>
+          <summary>
+            <div class="summary-div">
+              <div *ngIf=competitor.known_skills_full.length>
+                <span *ngFor="let skill of competitor.known_skills_full">{{skill.name}}, </span>
+                <span *ngIf=competitor.other_skills.length> {{competitor.other_skills}}</span>
+              </div>
+            </div>
+          </summary>
+        <td>
+        <td>
+          <button hack-orange (click)="sendInvitation(competitor.email)">Изпрати покана!</button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
+
+
+<div align="center" *ngIf="competitors.length==0">
+  <h1>В момента няма свободни състезатели.</h1>
 </div>

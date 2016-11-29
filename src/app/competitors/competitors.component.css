@@ -1,0 +1,27 @@
+td {
+    font-size: 1.3em;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    font-size: 1.7em;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+tr:hover {
+    background-color: #f5f5f5
+}
+
+.summary-div{
+    max-height: 60px;
+    width: 190px;
+    overflow-y: scroll;
+    font-size: 16px;
+}
+.summary-div:focus {
+    outline:none;
+}

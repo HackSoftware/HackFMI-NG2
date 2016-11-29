@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { TeamsService } from './teams.service';
 import { TeamsComponent } from './teams.component';
+import { InvitesService } from '../invites/invites.service';
 import { TeamsRoutingModule } from './teams.routing';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
@@ -31,6 +32,7 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver 
   exports: [TeamsRoutingModule],
   providers: [
     TeamsService,
+    InvitesService,
     TeamDetailsResolver,
     PublicTeamsListResolver,
     PrivateTeamsListResolver,
