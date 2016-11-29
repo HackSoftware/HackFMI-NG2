@@ -31,7 +31,7 @@ export class HandleHttpService {
     if (error instanceof Array){
       error.forEach((err) => this._displayError(err));
     } else {
-      this._displayError(error);
+      this._displayError(<string>error);
     }
   }
 
