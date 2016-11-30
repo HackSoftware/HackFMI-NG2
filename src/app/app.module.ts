@@ -12,7 +12,6 @@ import { appRoutes } from './app.routing';
 /* App Root */
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
 
 /* Feature Modules */
 import { AuthModule } from './auth/auth.module';
@@ -23,14 +22,13 @@ import { LoginModule } from './login/login.module';
 import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
+import { NavigationModule } from './navigation/navigation.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavigationComponent,
   ],
   imports: [
     HttpModule,
@@ -48,6 +46,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
     TeamsModule,
     MentorsModule,
     InvitesModule,
+    NavigationModule,
     OnBoardingModule,
   ],
   providers: [],

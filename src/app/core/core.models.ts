@@ -32,3 +32,10 @@ export class Me {
   competitor_info: CompetitorInfo;
   team: PrivateTeam;
 }
+
+
+export class InvitationMessage {
+  message: string;
+  leader: string;
+  competitor_id: number;
+}

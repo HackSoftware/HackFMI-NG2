@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { LogoutService } from '../core/logout.service';
 
+import { NavigationService } from './navigation.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -10,7 +12,12 @@ import { LogoutService } from '../core/logout.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  constructor(private _authService:AuthService, private _logoutService: LogoutService) { }
+  constructor(private _authService:AuthService,
+              private _logoutService: LogoutService,
+              private _navigationService: NavigationService) {
+    /* TODO: Do some action when msg is received */
+    _navigationService.socket.subscribe(msg => console.log(msg));
+  }
 
   ngOnInit() { }
 
