@@ -1,7 +1,30 @@
- .create-team-container {
+.create-team-container {
     text-align: center;
 }
 
+.fa-check {
+    font-size: 32px;
+    color: #2ECC40;
+}
+
+.fa-check:hover {
+    color: #4CAF50;
+}
+
+.fa-times {
+    font-size: 32px;
+    color: #FF4136;
+}
+
+.fa-times:hover {
+    color: #f44336;
+}
+
+.search-team {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
 .team-container {
     border:0;
     padding:20px 20px 40px 20px;

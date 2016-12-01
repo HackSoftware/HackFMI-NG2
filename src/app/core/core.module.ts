@@ -11,6 +11,7 @@ import { UrlParamsService } from './urlParams.service';
 import { WebSocketService } from './websocket.service';
 import { HandleHttpService } from './handleHttp.service';
 import { DefaultHttpService } from './defaultHttp.service';
+import { SeasonCompetitorInfoService } from './seasonCompetitorInfo.service';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { DefaultHttpService } from './defaultHttp.service';
     WebSocketService,
     HandleHttpService,
     DefaultHttpService,
+    SeasonCompetitorInfoService,
 
     MeSeasonResolver,
     SkillsResolver,

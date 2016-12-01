@@ -5,6 +5,7 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 import { DefaultHttpService } from '../core/defaultHttp.service';
+import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 
@@ -60,8 +61,4 @@ export class TeamsService {
                          .catch(err => this._handleHttp.handleError(err));
   }
 
-  inviteMember(inviteData:any): Observable<any> {
-    return this._authHttp.post(this._apiUrlsService.invitationUrl, inviteData)
-                         .catch(err => this._handleHttp.handleError(err));
-  }
 }

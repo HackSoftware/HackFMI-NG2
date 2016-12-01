@@ -7,17 +7,19 @@ import { DefaultHttpService } from '../core/defaultHttp.service';
 
 import { Season } from './core.models';
 
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
 export class SeasonService {
+
   constructor(private _handleHttp: HandleHttpService,
               private _defaultHttp:DefaultHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  getSeasonInfo():Observable<Season> {
+
+  getSeasonInfo(): Observable<Season> {
     return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
                             .map(res => <Season>res.json())
                             .catch(err => this._handleHttp.handleError(err));

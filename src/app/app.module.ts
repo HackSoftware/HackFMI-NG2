@@ -24,6 +24,7 @@ import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
+import { CompetitorsModule } from './competitors/competitors.module';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
     InvitesModule,
     NavigationModule,
     OnBoardingModule,
+    CompetitorsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
