@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
+import { MeService } from '../core/me.service'; 
 import { LogoutService } from '../core/logout.service';
 
 
@@ -10,7 +11,9 @@ import { LogoutService } from '../core/logout.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  constructor(private _authService:AuthService, private _logoutService: LogoutService) { }
+  constructor(private _authService: AuthService,
+              private _meService: MeService,
+              private _logoutService: LogoutService) { }
 
   ngOnInit() { }
 
@@ -21,4 +24,5 @@ export class NavigationComponent implements OnInit {
   }
 
   isLogged = this._authService.isLogged;
+  isLeader = this._meService.isLeader;
 }
