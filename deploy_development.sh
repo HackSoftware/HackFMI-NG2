@@ -3,7 +3,7 @@ read reply
 
 if [ $reply =- ^[yY]$ ]
 then
-	ng build && scp -r dist/* root@staging.register.hackfmi.com:/usr/share/nginx/html/
+    ng build && scp -r dist/* root@staging.register.hackfmi.com:/usr/share/nginx/html/
 else
-	exit 1
+    exit 1
 fi
