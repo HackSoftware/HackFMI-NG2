@@ -39,7 +39,7 @@ export class PrivateListComponent implements OnInit {
 
   changeLookingForTeamValue(): void {
     var seasonInfoData = {'looking_for_team': !this.lookingForTeamValue}
-    this._seasonCompetitorInfoService.patchSeasonCompetitorInfo(this.meDetails.season_competitor_info_id, seasonInfoData)
+    this._seasonCompetitorInfoService.editSeasonCompetitorInfo(this.meDetails.season_competitor_info_id, seasonInfoData)
                                      .subscribe(data => this.lookingForTeamValue = !this.lookingForTeamValue);
   }
 }

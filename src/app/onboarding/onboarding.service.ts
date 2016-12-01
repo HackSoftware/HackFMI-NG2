@@ -25,7 +25,7 @@ export class OnboardingService {
   onboardSeasonCompetitor(onboardData:any, seasonOnboardData:any): Observable<any>{
     return this.onboardCompetitor(onboardData).flatMap(
       data => {
-        return this._seasonCompetitorInfoService.postSeasonCompetitorInfo(seasonOnboardData)
+        return this._seasonCompetitorInfoService.createSeasonCompetitorInfo(seasonOnboardData)
                                                 .catch(err => this._handleHttp.handleError(err));
       })
   }

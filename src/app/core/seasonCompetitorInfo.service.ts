@@ -21,7 +21,7 @@ export class SeasonCompetitorInfoService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  postSeasonCompetitorInfo(seasonInfoData):Observable<SeasonCompetitorInfo> {
+  createSeasonCompetitorInfo(seasonInfoData):Observable<SeasonCompetitorInfo> {
     return this._seasonService.getSeasonInfo().flatMap( 
       seasonInfo => {
         seasonInfoData['season'] = seasonInfo.id;
@@ -34,7 +34,7 @@ export class SeasonCompetitorInfoService {
       })
   }
 
-  patchSeasonCompetitorInfo(season_competitor_info_id:number, seasonInfoData:any):Observable<SeasonCompetitorInfo> {
+  editSeasonCompetitorInfo(season_competitor_info_id:number, seasonInfoData:any):Observable<SeasonCompetitorInfo> {
     let seasonCompetitorInfoEditUrl = this._apiUrlsService.seasonCompetitorInfoUrl + season_competitor_info_id + "/";
     return this._authHttp.patch(seasonCompetitorInfoEditUrl, seasonInfoData)
                          .catch(err => this._handleHttp.handleError(err));
