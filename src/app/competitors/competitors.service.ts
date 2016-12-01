@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
-import { CompetitorInfoForList } from '../core/core.models';
+
+import { CompetitorInfoForList } from './competitors.models';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

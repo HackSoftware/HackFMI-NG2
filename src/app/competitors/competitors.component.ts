@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { CompetitorInfoForList } from '../core/core.models';
 import { InvitesService } from '../invites/invites.service';
 
 import { CompetitorsService } from './competitors.service';
-
+import { CompetitorInfoForList } from './competitors.models';
 
 
 @Component({
@@ -24,7 +23,7 @@ export class CompetitorsComponent implements OnInit {
               private _invitesService: InvitesService) { }
 
   ngOnInit() {
-      this._route.data.subscribe((data:{competitors: CompetitorInfoForList[]}) => this.competitors = data.competitors);
+    this._route.data.subscribe((data:{competitors: CompetitorInfoForList[]}) => this.competitors = data.competitors);
   }
 
   sendInvitation(competitorEmail: string) {

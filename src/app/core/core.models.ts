@@ -19,7 +19,7 @@ export class Season {
   make_team_dead_line: string;
 }
 
-class CompetitorInfo {
+export class CompetitorInfo {
   id: number;
   email: string;
   first_name: string;
@@ -37,9 +37,4 @@ export class SeasonCompetitorInfo {
   competitor: number;
   season: number;
   looking_for_team: boolean;
-}
-
-export class CompetitorInfoForList extends CompetitorInfo{
-  known_skills: string;
-  other_skills: string;
 }
