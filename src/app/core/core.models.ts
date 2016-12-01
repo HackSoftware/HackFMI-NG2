@@ -40,6 +40,7 @@ export class InvitationMessage {
   message: string;
   leader: string;
   competitor_id: number;
+}
 
 
 export class SeasonCompetitorInfo {
