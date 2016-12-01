@@ -18,7 +18,7 @@ export class TeamsService {
   constructor(private _authHttp: AuthHttp,
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService,
-              private _defaultHttpService: DefaultHttpService,) { }
+              private _defaultHttpService: DefaultHttpService) { }
 
   getPublicTeams():Observable<PublicTeam[]> {
     return this._defaultHttpService.get(this._apiUrlsService.teamsPublicListUrl)
