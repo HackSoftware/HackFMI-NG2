@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { OnboardingGuardService } from '../guard/onboarding-guard.service';
+import { Observable } from 'rxjs/Observable';
 
 import { Skill } from '../core/core.models';
+import { OnboardingGuardService } from '../guard/onboarding-guard.service';
+
 import { OnboardingService } from './onboarding.service';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -24,7 +26,7 @@ export class OnboardingComponent implements OnInit {
     "XL": 4
   }
   shirtSizes = ['S', 'M', 'L', 'XL'];
-
+  lookingForTeamValue = false;
   onboardingInfo = {
     is_vegetarian: false,
     needs_work: false,
@@ -55,9 +57,11 @@ export class OnboardingComponent implements OnInit {
     this.onboardingInfo.shirt_size = size;
   }
 
-  onboardCompetitor(): void {
+  onboardCompetitor():void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
-    this._onboardingService.onboardCompetitor(this.onboardingInfo)
+    var seasonOnboardData = { 'looking_for_team': this.lookingForTeamValue };
+
+    this._onboardingService.onboardSeasonCompetitor(this.onboardingInfo, seasonOnboardData)
                            .subscribe(data => this._handleSuccessfulOnboarding());
   }
 

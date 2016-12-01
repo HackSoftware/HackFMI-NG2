@@ -24,6 +24,7 @@ import { TeamsModule } from './teams/teams.module';
 import { MentorsModule } from './mentors/mentors.module';
 import { InvitesModule } from './invites/invites.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
+import { CompetitorsModule } from './competitors/competitors.module';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { OnBoardingModule } from './onboarding/onboarding.module';
     MentorsModule,
     InvitesModule,
     OnBoardingModule,
+    CompetitorsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

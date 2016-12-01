@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { Me } from '../../core/core.models';
+import { InvitesService } from '../../invites/invites.service';
 
 import { PrivateTeam } from '../teams.models';
 import { TeamsService } from '../teams.service';
@@ -22,7 +23,8 @@ export class DetailComponent implements OnInit {
   constructor(private _router: Router,
               private _route: ActivatedRoute,
               private _teamsService: TeamsService,
-              private _toastService: ToastsManager) { }
+              private _toastService: ToastsManager,
+              private _invitesService: InvitesService) { }
 
   ngOnInit() {
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
@@ -51,11 +53,11 @@ export class DetailComponent implements OnInit {
   }
 
   inviteMember():void {
-    this._teamsService.inviteMember(this.inviteInfo)
-                      .subscribe(data => this._handleSuccessfulInvitation(data));
+    this._invitesService.inviteMember(this.inviteInfo)
+                        .subscribe(data => this._handleSuccessfulInvitation());
   }
 
-  private _handleSuccessfulInvitation(invitationData: any) {
+  private _handleSuccessfulInvitation() {
     var email = this.inviteInfo.competitor_email;
     this.inviteInfo.competitor_email = '';
     this._toastService.success('Invitation email was sent to ' + email);

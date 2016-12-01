@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { OnboardingComponent } from './onboarding.component';
 import { OnboardingService } from './onboarding.service';
+import { OnboardingComponent } from './onboarding.component';
 import { OnBoardingRoutingModule } from './onboarding.routing';
 
 
