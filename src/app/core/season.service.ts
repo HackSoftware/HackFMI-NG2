@@ -18,10 +18,17 @@ export class SeasonService {
 			  private _defaultHttp:DefaultHttpService,
 			  private _apiUrlsService: ApiUrlsService) { }
 
+  seasonInfo:Season = null;
 
-  getSeasonInfo(): Observable<Season> {
-	return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
-                            .map(res => <Season>res.json())
-                            .catch(err => this._handleHttp.handleError(err));
+  getSeasonInfo():Observable<Season> {
+    if (!!this.seasonInfo){
+        return Observable.of(this.seasonInfo);
+    } else {
+        return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
+                                .map(res => {
+                                  this.seasonInfo = <Season>res.json();
+                                  return this.seasonInfo})
+                                .catch(err => this._handleHttp.handleError(err));
+    }
   }
 }
