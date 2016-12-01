@@ -1,37 +1,36 @@
 <div align="center" *ngIf="competitors.length">
-  <h1>Състезатели без отбор</h1>
+  <h1>Състезатели, които са заявили, че си търсят отбор:</h1>
 
-    <table id="competitors-table" class="table table-hover table-striped " cellspacing="0">
-    <thead>
-      <tr>
-        <th>Име</th>
-        <th>Имейл</th>
-        <th>Умения</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let competitor of competitors">
-        <td>{{competitor.first_name}} {{competitor.last_name}}</td>
-        <td>{{competitor.email}}</td>
-        <td>
-          <summary>
-            <div class="summary-div">
-              <div *ngIf=competitor.known_skills_full.length>
-                <span *ngFor="let skill of competitor.known_skills_full">{{skill.name}}, </span>
-                <span *ngIf=competitor.other_skills.length> {{competitor.other_skills}}</span>
-              </div>
+  <table id="competitors-table" class="table table-hover table-striped " cellspacing="0">
+  <thead>
+    <tr>
+      <th>Име</th>
+      <th>Имейл</th>
+      <th>Умения</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let competitor of competitors">
+      <td>{{competitor.first_name}} {{competitor.last_name}}</td>
+      <td>{{competitor.email}}</td>
+      <td>
+        <summary>
+          <div class="summary-div">
+            <div *ngIf=competitor.known_skills_full.length>
+              <div align="center" *ngFor="let skill of competitor.known_skills_full">{{skill.name}}</div>
+              <span *ngIf=competitor.other_skills.length> {{competitor.other_skills}}</span>
             </div>
-          </summary>
-        <td>
-        <td>
-          <button hack-orange (click)="sendInvitation(competitor.email)">Изпрати покана!</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
+          </div>
+        </summary>
+      </td>
+      <td>
+        <button hack-orange (click)="sendInvitation(competitor.email)">Изпрати покана!</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 <div align="center" *ngIf="competitors.length==0">
-  <h1>В момента няма свободни състезатели.</h1>
+  <h1>В момента няма състезатели, които си търсят отбор.</h1>
 </div>
