@@ -17,8 +17,14 @@ export class WebSocketService {
   }
 
   private _createSubject(url): Subject<MessageEvent> {
-    // TODO: Add Authorization
     let ws = new WebSocket(url);
+
+    // TODO: Add Authorization here
+    ws.onopen = function() {
+        ws.send("hello server");
+    }
+
+    if (ws.readyState == WebSocket.OPEN) ws.send("hello server");
 
     let observable = Observable.create(
       (obs: Observer<MessageEvent>) => {
