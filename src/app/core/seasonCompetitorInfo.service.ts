@@ -5,8 +5,8 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 
-import { SeasonService } from './season.service';
 import { MeService } from './me.service';
+import { SeasonService } from './season.service';
 import { SeasonCompetitorInfo } from './core.models';
 
 import 'rxjs/add/operator/catch';
@@ -32,5 +32,5 @@ export class SeasonCompetitorInfoService {
         return this._authHttp.post(this._apiUrlsService.seasonCompetitorInfoUrl, seasonInfoData)
                              .catch(err => this._handleHttp.handleError(err));
       })
-   }
- }
+  }
+}

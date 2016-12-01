@@ -15,12 +15,12 @@ import 'rxjs/add/operator/catch';
 export class SeasonService {
 
   constructor(private _handleHttp: HandleHttpService,
-			  private _defaultHttp:DefaultHttpService,
-			  private _apiUrlsService: ApiUrlsService) { }
+              private _defaultHttp:DefaultHttpService,
+              private _apiUrlsService: ApiUrlsService) { }
 
 
   getSeasonInfo(): Observable<Season> {
-	return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
+    return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
                             .map(res => <Season>res.json())
                             .catch(err => this._handleHttp.handleError(err));
   }
