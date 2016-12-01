@@ -33,4 +33,10 @@ export class SeasonCompetitorInfoService {
                              .catch(err => this._handleHttp.handleError(err));
       })
   }
+
+  patchSeasonCompetitorInfo(season_competitor_info_id:number, seasonInfoData:any):Observable<SeasonCompetitorInfo> {
+    let seasonCompetitorInfoEditUrl = this._apiUrlsService.seasonCompetitorInfoUrl + season_competitor_info_id + "/";
+    return this._authHttp.patch(seasonCompetitorInfoEditUrl, seasonInfoData)
+                         .catch(err => this._handleHttp.handleError(err));
+  }
 }

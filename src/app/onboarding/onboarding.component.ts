@@ -26,7 +26,7 @@ export class OnboardingComponent implements OnInit {
     "XL": 4
   }
   shirtSizes = ['S', 'M', 'L', 'XL'];
-  looking_for_team = false;
+  lookingForTeamValue = false;
   onboardingInfo = {
     is_vegetarian: false,
     needs_work: false,
@@ -59,7 +59,8 @@ export class OnboardingComponent implements OnInit {
 
   onboardCompetitor():void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
-    var seasonOnboardData = { 'looking_for_team': this.looking_for_team };
+    var seasonOnboardData = { 'looking_for_team': this.lookingForTeamValue };
+
     this._onboardingService.onboardSeasonCompetitor(this.onboardingInfo, seasonOnboardData)
                            .subscribe(data => this._handleSuccessfulOnboarding());
   }

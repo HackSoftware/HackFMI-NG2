@@ -20,10 +20,12 @@ export class PrivateListComponent implements OnInit {
               private _router: Router,
               private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
 
-  lookingForTeamValue = false;
+  lookingForTeamValue: boolean;
 
   ngOnInit() {
-    this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
+    this._route.data.subscribe((data: {meDetails:Me}) => {
+      this.meDetails = data.meDetails;
+      this.lookingForTeamValue = data.meDetails.looking_for_team});
     this._route.data.subscribe((data: {privateTeams:PrivateTeam[]}) => this.privateTeams = data.privateTeams);
   }
 
@@ -35,10 +37,9 @@ export class PrivateListComponent implements OnInit {
     this._router.navigate(['teams/create']);
   }
 
-  lookingForTeam(): void {
-    var seasonInfoData = {'looking_for_team': this.lookingForTeamValue}
-    this._seasonCompetitorInfoService.postSeasonCompetitorInfo(seasonInfoData)
-                                     .subscribe();
-    this.lookingForTeamValue = !this.lookingForTeamValue
+  changeLookingForTeamValue(): void {
+    var seasonInfoData = {'looking_for_team': !this.lookingForTeamValue}
+    this._seasonCompetitorInfoService.patchSeasonCompetitorInfo(this.meDetails.season_competitor_info_id, seasonInfoData)
+                                     .subscribe(data => this.lookingForTeamValue = !this.lookingForTeamValue);
   }
 }
