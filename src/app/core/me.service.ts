@@ -13,6 +13,8 @@ import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class MeService {
+  private _meInfo: Me = null;
+
   constructor(private _authHttp: AuthHttp,
               private _seasonService: SeasonService,
               private _handleHttp: HandleHttpService,
@@ -26,13 +28,31 @@ export class MeService {
   }
 
   getSeasonMeInfo():Observable<Me> {
-    return this._seasonService.getSeasonInfo().flatMap(
-      season => {
-        var seasonMeUrl = this._apiUrlsService.meUrl + season.id + "/";
-
-        return this._authHttp.get(seasonMeUrl)
-                             .map(res => <Me>res.json())
-                             .catch(err => this._handleHttp.handleError(err));
-      })
+    if (!!this._meInfo){
+      return Observable.of(this._meInfo)
+    } else {
+        return this._seasonService.getSeasonInfo().flatMap(
+          season => {
+            var seasonMeUrl = this._apiUrlsService.meUrl + season.id + "/";
+    
+            return this._authHttp.get(seasonMeUrl)
+                                 .map(res => {
+                                   this._meInfo = <Me>res.json();
+                                   return this._meInfo
+                                 })
+                                 .catch(err => this._handleHttp.handleError(err));
+          })
+      }
   }
+
+  clearCurrentMeInfo(): void {
+    this._meInfo = null;
+  }
+
+  isLeader = ():boolean => {
+    if (!!this._meInfo && !!this._meInfo.team){
+      return this._meInfo.competitor_info.id == this._meInfo.team.leader_id
+    } 
+    return false
+  };
 }

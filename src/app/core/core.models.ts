@@ -40,3 +40,8 @@ export class SeasonCompetitorInfo {
   season: number;
   looking_for_team: boolean;
 }
+
+export class CompetitorInfoForList extends CompetitorInfo{
+  known_skills: string;  
+  other_skills: string;
+} 

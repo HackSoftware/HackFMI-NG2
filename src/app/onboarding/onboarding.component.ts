@@ -57,7 +57,7 @@ export class OnboardingComponent implements OnInit {
     this.onboardingInfo.shirt_size = size;
   }
 
-  onboardCompetitor():void {
+  onboardCompetitor(): void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
     var seasonOnboardData = { 'looking_for_team': this.lookingForTeamValue };
 
