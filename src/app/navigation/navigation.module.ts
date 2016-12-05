@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NavigationComponent } from './navigation.component';
+import { appRoutes } from '../app.routing';
+
 import { NavigationService } from './navigation.service';
+import { NavigationComponent } from './navigation.component';
 
 @NgModule({
   declarations: [
@@ -10,6 +12,8 @@ import { NavigationService } from './navigation.service';
   ],
   imports: [
     CommonModule,
+
+    appRoutes,
   ],
   exports: [NavigationComponent],
   providers: [NavigationService],
