@@ -17,7 +17,7 @@
 }
 
 .fa-times:hover {
-    color: #f44336;
+    color: #cc0000;
 }
 
 .search-team {
@@ -52,4 +52,8 @@ ul {
 ul li {
     margin-left:30px;
     font-weight: normal;
+}
+
+.search-team a {
+    cursor:pointer;
 }

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { Me } from '../../core/core.models';
+import { MeService } from '../../core/me.service';
 import { InvitesService } from '../../invites/invites.service';
 
 import { PrivateTeam } from '../teams.models';
@@ -21,6 +22,7 @@ export class DetailComponent implements OnInit {
   inviteInfo = {competitor_email: ''}
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _teamsService: TeamsService,
               private _toastService: ToastsManager,
@@ -64,6 +66,7 @@ export class DetailComponent implements OnInit {
   }
 
   private _handleSuccessfulTeamLeaving() {
+    this._meService.clearCurrentMeInfo();
     this._router.navigate(['teams']);
   }
 }

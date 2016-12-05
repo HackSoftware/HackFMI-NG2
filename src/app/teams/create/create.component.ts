@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Skill } from '../../core/core.models';
+import { MeService } from '../../core/me.service';
 
-import { TeamsService } from '../teams.service';
 import { PrivateTeam } from '../teams.models';
+import { TeamsService } from '../teams.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class CreateComponent implements OnInit {
   }
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _teamsService: TeamsService) { }
 
@@ -46,6 +48,7 @@ export class CreateComponent implements OnInit {
   }
 
   private _handleSuccessfulTeamCreation(team: PrivateTeam) {
+    this._meService.clearCurrentMeInfo();
     this._router.navigate(['teams', team.id]);
   }
 }
