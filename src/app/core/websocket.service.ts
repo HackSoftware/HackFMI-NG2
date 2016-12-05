@@ -4,9 +4,13 @@ import { Subject } from 'rxjs/Subject';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 
+import { AuthService } from '../auth/auth.service';
+
 
 @Injectable()
 export class WebSocketService {
+  constructor(private _authService: AuthService){}
+
   private _subject: Subject<MessageEvent>;
 
   public connect(url): Subject<MessageEvent> {
@@ -19,12 +23,14 @@ export class WebSocketService {
   private _createSubject(url): Subject<MessageEvent> {
     let ws = new WebSocket(url);
 
-    // TODO: Add Authorization here
+    let data = {"token": this._authService.token}
     ws.onopen = function() {
-        ws.send("hello server");
+      ws.send(JSON.stringify(data));
     }
 
-    if (ws.readyState == WebSocket.OPEN) ws.send("hello server");
+    // if (ws.readyState == WebSocket.OPEN) {
+    // TODO: Add Authorization here
+    // }
 
     let observable = Observable.create(
       (obs: Observer<MessageEvent>) => {

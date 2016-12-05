@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
 
+import { InvitationMessage } from '../core/core.models';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { WebSocketService } from '../core/websocket.service';
-import { InvitationMessage } from '../core/core.models';
 
 
 @Injectable()
