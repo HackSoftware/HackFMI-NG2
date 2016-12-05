@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MeService } from '../core/me.service';
 import { InvitesService } from './invites.service';
 import { InvitesComponent } from './invites.component';
 import { InvitesListResolver } from './invites.resolver';
@@ -17,6 +18,6 @@ import { InvitesRoutingModule } from './invites.routing';
     InvitesRoutingModule
   ],
   exports: [InvitesRoutingModule],
-  providers: [InvitesService, InvitesListResolver],
+  providers: [InvitesService, InvitesListResolver, MeService],
 })
 export class InvitesModule { }

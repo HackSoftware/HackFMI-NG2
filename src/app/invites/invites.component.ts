@@ -4,6 +4,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { Invite } from './invites.models';
+import { MeService } from '../core/me.service';
 import { InvitesService } from './invites.service';
 
 
@@ -16,6 +17,7 @@ export class InvitesComponent implements OnInit {
   invites: Invite[];
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _cdRef: ChangeDetectorRef,
               private _toastService: ToastsManager,
@@ -26,6 +28,7 @@ export class InvitesComponent implements OnInit {
   acceptInvitation(invitation: Invite):void {
     this._invitesService.acceptInvitation(invitation.id)
                         .subscribe(data => this._handleSuccessfulAcceptInvitation(data));
+    this._meService.clearCurrentMeInfo();
   }
 
   rejectInvitation(invitation: Invite):void {

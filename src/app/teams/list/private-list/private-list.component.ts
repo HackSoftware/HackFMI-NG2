@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Me } from '../../../core/core.models';
 
 import { PrivateTeam } from '../../teams.models';
+import { MeService } from '../../../core/me.service';
 import { SeasonCompetitorInfoService } from '../../../core/seasonCompetitorInfo.service';
 
 
@@ -17,6 +18,7 @@ export class PrivateListComponent implements OnInit {
   privateTeams: PrivateTeam[];
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
 
@@ -48,6 +50,7 @@ export class PrivateListComponent implements OnInit {
                                         this.lookingForTeamValue = !this.lookingForTeamValue
                                         this.setLookingForTeamString();
                                      });
+    this._meService.clearCurrentMeInfo();
   }
 
   setLookingForTeamString(): void {

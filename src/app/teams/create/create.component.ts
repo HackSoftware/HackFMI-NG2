@@ -3,8 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Skill } from '../../core/core.models';
 
-import { TeamsService } from '../teams.service';
+import { MeService } from '../../core/me.service';
 import { PrivateTeam } from '../teams.models';
+import { TeamsService } from '../teams.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class CreateComponent implements OnInit {
   }
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _teamsService: TeamsService) { }
 
@@ -43,6 +45,7 @@ export class CreateComponent implements OnInit {
   createTeam(): void {
     this._teamsService.createTeam(this.teamInfo)
                       .subscribe(data => this._handleSuccessfulTeamCreation(data));
+    this._meService.clearCurrentMeInfo();
   }
 
   private _handleSuccessfulTeamCreation(team: PrivateTeam) {
