@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { Skill } from '../core/core.models';
+import { MeService } from '../core/me.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { OnboardingService } from './onboarding.service';
@@ -37,6 +38,7 @@ export class OnboardingComponent implements OnInit {
   }
 
   constructor(private _router: Router,
+              private _meService: MeService,
               private _route: ActivatedRoute,
               private _onboardingService: OnboardingService,
               private _onboardingGuardService: OnboardingGuardService) { }

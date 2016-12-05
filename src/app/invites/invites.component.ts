@@ -3,8 +3,9 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { Invite } from './invites.models';
 import { MeService } from '../core/me.service';
+
+import { Invite } from './invites.models';
 import { InvitesService } from './invites.service';
 
 
@@ -28,7 +29,6 @@ export class InvitesComponent implements OnInit {
   acceptInvitation(invitation: Invite):void {
     this._invitesService.acceptInvitation(invitation.id)
                         .subscribe(data => this._handleSuccessfulAcceptInvitation(data));
-    this._meService.clearCurrentMeInfo();
   }
 
   rejectInvitation(invitation: Invite):void {
@@ -37,6 +37,7 @@ export class InvitesComponent implements OnInit {
   }
 
   private _handleSuccessfulAcceptInvitation(data: any) {
+    this._meService.clearCurrentMeInfo();
     this._toastService.info('Invitation accepted!');
     this._router.navigate(['teams']);
   }

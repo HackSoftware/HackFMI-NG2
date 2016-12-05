@@ -23,13 +23,13 @@ export class SeasonService {
     if (!!this._seasonInfo) {
         return Observable.of(this._seasonInfo);
     } else {
-        return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
-                                .map(res => {
-                                    this._seasonInfo = <Season>res.json();
-                                    return this._seasonInfo
-                                    })
-                                .catch(err => this._handleHttp.handleError(err));
-      }
+      return this._defaultHttp.get(this._apiUrlsService.currentSeasonDetailUrl)
+                              .map(res => {
+                                this._seasonInfo = <Season>res.json();
+                                return this._seasonInfo;
+                              })
+                              .catch(err => this._handleHttp.handleError(err));
+    }
   }
 
   clearCurrentSeasonInfo(): void {
