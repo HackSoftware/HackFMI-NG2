@@ -59,3 +59,7 @@ li a:hover {
   margin-top:0;
   margin-bottom:0;
 }
+
+.invites-counter {
+    background-color: #DC143C;
+}

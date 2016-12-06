@@ -12,9 +12,17 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class InvitesService {
+  invitesCounter:number = null;
+
   constructor(private _authHttp: AuthHttp,
               private _handleHttp: HandleHttpService,
-              private _apiUrlsService: ApiUrlsService) { }
+              private _apiUrlsService: ApiUrlsService) { 
+
+    if (!!!this.invitesCounter){
+      this.getInvites().subscribe(data => this.invitesCounter = data.length);
+    }
+
+  }
 
   getInvites(): Observable<Invite[]> {
     return this._authHttp.get(this._apiUrlsService.invitationUrl)

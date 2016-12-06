@@ -39,12 +39,14 @@ export class InvitesComponent implements OnInit {
   private _handleSuccessfulAcceptInvitation(data: any) {
     this._meService.clearCurrentMeInfo();
     this._toastService.info('Invitation accepted!');
+    this._invitesService.invitesCounter--;
     this._router.navigate(['teams']);
   }
 
   private _handleSuccessfulRejectInvitation(invitation: Invite) {
     this._toastService.info('Invitation rejected!');
     var index = this.invites.indexOf(invitation);
+    this._invitesService.invitesCounter--;
 
     if (index > -1) {
       this.invites.splice(index, 1);
