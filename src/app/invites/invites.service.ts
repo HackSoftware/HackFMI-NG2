@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../auth/auth.service';
 import { AuthHttp } from '../auth/authHttp.service';
 import { InvitationMessage } from '../core/core.models';
-import { ApiUrlsService } from '../core/apiUrls.service';
+import { ApiUrlsService } from '../core/api-urls.service';
 import { WebSocketService } from '../core/websocket.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 

@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiUrlsService } from './apiUrls.service';
+import { ApiUrlsService } from './api-urls.service';
 import { HandleHttpService } from './handleHttp.service';
 
 import { AuthHttp } from '../auth/authHttp.service';

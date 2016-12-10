@@ -6,7 +6,7 @@ import { MeSeasonResolver } from './me.resolver';
 import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
-import { ApiUrlsService } from './apiUrls.service';
+import { ApiUrlsService } from './api-urls.service';
 import { SeasonResolver } from './season.resolver';
 import { UrlParamsService } from './urlParams.service';
 import { WebSocketService } from './websocket.service';
