@@ -12,7 +12,7 @@ import { UrlParamsService } from './urlParams.service';
 import { WebSocketService } from './websocket.service';
 import { HandleHttpService } from './handleHttp.service';
 import { DefaultHttpService } from './defaultHttp.service';
-import { SeasonCompetitorInfoService } from './seasonCompetitorInfo.service';
+import { SeasonCompetitorInfoService } from './season-competitor-info.service';
 
 
 @NgModule({

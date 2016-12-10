@@ -5,7 +5,7 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
 import { DefaultHttpService } from '../core/defaultHttp.service';
-import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
+import { SeasonCompetitorInfoService } from '../core/season-competitor-info.service';
 
 import { PublicTeam, PrivateTeam } from './teams.models';
 

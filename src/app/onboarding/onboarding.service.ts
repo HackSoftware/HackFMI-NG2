@@ -5,7 +5,7 @@ import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/api-urls.service';
 import { MeService } from '../core/me.service';
 import { HandleHttpService } from '../core/handleHttp.service';
-import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
+import { SeasonCompetitorInfoService } from '../core/season-competitor-info.service';
 
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/mergeMap';

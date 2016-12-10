@@ -11,7 +11,7 @@ import { DetailComponent } from './detail/detail.component';
 import { UpdateComponent } from './update/update.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
-import { SeasonCompetitorInfoService } from '../core/seasonCompetitorInfo.service';
+import { SeasonCompetitorInfoService } from '../core/season-competitor-info.service';
 import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver } from './teams.resolver';
 
 @NgModule({

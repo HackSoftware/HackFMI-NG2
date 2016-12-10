@@ -5,7 +5,7 @@ import { Me } from '../../../core/core.models';
 
 import { PrivateTeam } from '../../teams.models';
 import { MeService } from '../../../core/me.service';
-import { SeasonCompetitorInfoService } from '../../../core/seasonCompetitorInfo.service';
+import { SeasonCompetitorInfoService } from '../../../core/season-competitor-info.service';
 
 
 @Component({
