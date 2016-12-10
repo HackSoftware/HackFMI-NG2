@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from '../../auth/auth-http.service';
 
 import { Me } from '../core.models';
-import { SeasonService } from '../season.service';
 import { ApiUrlsService } from '../api-urls.service';
+import { SeasonService } from '../season/season.service';
 import { HandleHttpService } from '../handle-http.service';
 
 import 'rxjs/add/operator/mergeMap';

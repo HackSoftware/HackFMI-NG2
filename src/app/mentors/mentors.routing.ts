@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MeSeasonResolver } from '../core/me/me.resolver';
-import { SeasonResolver } from '../core/season.resolver';
 import { AuthGuardService } from '../guard/auth-guard.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';
+import { SeasonInfoResolver } from '../core/season/season.resolver';
 import { MentorsGuardService } from '../guard/mentors-guard.service';
 
 
@@ -25,9 +25,9 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
             MentorsGuardService
           ],
           resolve: {
-            seasonInfo: SeasonResolver,
             meDetails: MeSeasonResolver,
             mentors: MentorsListResolver,
+            seasonInfo: SeasonInfoResolver,
             mentorsForTeam: MentorsForTeamResolver,
           }
         },

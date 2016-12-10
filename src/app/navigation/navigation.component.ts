@@ -4,9 +4,9 @@ import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 import { MeService } from '../core/me/me.service';
 import { AuthService } from '../auth/auth.service';
-import { SeasonService } from '../core/season.service';
 import { LogoutService } from '../core/logout.service';
 import { InvitesService } from '../invites/invites.service';
+import { SeasonService } from '../core/season/season.service';
 
 import { NavigationService } from './navigation.service';
 

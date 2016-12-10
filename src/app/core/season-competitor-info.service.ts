@@ -6,8 +6,8 @@ import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/handle-http.service';
 
 import { MeService } from './me/me.service';
-import { SeasonService } from './season.service';
 import { SeasonCompetitorInfo } from './core.models';
+import { SeasonService } from './season/season.service';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';

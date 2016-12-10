@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiUrlsService } from '../core/api-urls.service';
-import { HandleHttpService } from '../core/handle-http.service';
-import { DefaultHttpService } from '../core/default-http.service';
-
-import { Season } from './core.models';
+import { Season } from '../core.models';
+import { ApiUrlsService } from '../api-urls.service';
+import { HandleHttpService } from '../handle-http.service';
+import { DefaultHttpService } from '../default-http.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
