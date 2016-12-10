@@ -28,8 +28,9 @@ export class NavigationComponent implements OnInit {
               private _logoutService: LogoutService,
               private _invitesService: InvitesService,
               private _navigationService: NavigationService) {
-    _authService.userLoggedIn.subscribe(data => this._setInvitesCounter());
-    _invitesService.inviteEmitter.subscribe(accepted => this._updateInvitesCounter(accepted));
+    _authService.userLoggedIn.subscribe(data => {
+      if (_meService.isCompetitor()) this._setInvitesCounter()});
+    _invitesService.inviteEmitter.subscribe(accepted => this.invitesCounter--);
     _navigationService.wsOpened.subscribe(data => this._startListeningToWS());
   }
 
@@ -42,14 +43,6 @@ export class NavigationComponent implements OnInit {
 
   private _setInvitesCounter() {
     this._invitesService.getInvites().subscribe(data => this.invitesCounter = data.length);
-  }
-
-  private _updateInvitesCounter(accepted: boolean) {
-    if (accepted) {
-      this.invitesCounter++;
-    } else {
-      this.invitesCounter--;
-    }
   }
 
   private _startListeningToWS() {

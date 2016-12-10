@@ -6,7 +6,7 @@ import { LeaderGuardService } from './leader-guard.service';
 import { MentorsGuardService } from './mentors-guard.service';
 import { CompetitorGuardService } from './competitor-guard.service';
 import { OnboardingGuardService } from './onboarding-guard.service';
-
+import { MentorsPartOfTeamGuardService } from './mentors-part-of-team-guard.service';
 
 @NgModule({
   declarations: [],
@@ -19,6 +19,7 @@ import { OnboardingGuardService } from './onboarding-guard.service';
     MentorsGuardService,
     CompetitorGuardService,
     OnboardingGuardService,
+    MentorsPartOfTeamGuardService,
   ],
 })
 export class GuardModule { }

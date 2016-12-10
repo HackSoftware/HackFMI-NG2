@@ -16,7 +16,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class InvitesService {
   wsOpened: EventEmitter<any>;
-  inviteEmitter: EventEmitter<boolean>;
+  inviteEmitter: EventEmitter<any>;
   socket: Observable<InvitationMessage>;
 
   constructor(private _authHttp: AuthHttp,
@@ -25,7 +25,7 @@ export class InvitesService {
               private _apiUrlsService: ApiUrlsService,
               private _websocketService: WebSocketService) {
     this.wsOpened = new EventEmitter();
-    this.inviteEmitter = new EventEmitter<boolean>();
+    this.inviteEmitter = new EventEmitter();
     if (_authService.isLogged()) this._openWSConnection();
     _authService.userLoggedIn.subscribe(data => this._openWSConnection());
   }

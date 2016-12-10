@@ -49,6 +49,12 @@ export class MeService {
     this._meInfo = null;
   }
 
+  isCompetitor(): boolean {
+    if (!!this._meInfo) return this._meInfo.is_competitor;
+
+    return false;
+  }
+
   isLeader = ():boolean => {
     if (!!this._meInfo && !!this._meInfo.team){
       return this._meInfo.competitor_info.id == this._meInfo.team.leader_id;
