@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MentorsComponent } from './mentors.component';
 import { MentorsRoutingModule } from './mentors.routing';
 import { MentorsService } from './mentors.service';
 import { MentorsListResolver } from './mentors.resolver';
+import { PublicMentorsComponent } from './public/public.mentors.component';
+import { PrivateMentorsComponent } from './private/private.mentors.component';
+
 
 @NgModule({
   declarations: [
-    MentorsComponent,
+    PublicMentorsComponent,
+    PrivateMentorsComponent,
   ],
   imports: [
     CommonModule,
