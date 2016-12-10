@@ -1,0 +1,13 @@
+<h1 align="center">Избери своите ментори</h1>
+
+<div class="container">
+  <div *ngFor="let mentor of mentors" class="mentor-container">
+    <h2>{{mentor.name}}</h2>
+    <p>
+      <span>TODO: Да се показва само единият бутон. Треа ми инфо кои са ми менторите.</span>
+      <button hack-orange *ngIf="isLeader()" (click)="removeMentor(mentor)">Премахни</button>
+      <button hack-orange *ngIf="isLeader()" (click)="addMentor(mentor)">Избери</button>
+      <span [innerHTML]="mentor.description"></span>
+    </p>
+  </div>
+</div>

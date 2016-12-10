@@ -1,15 +1,15 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { Mentor } from './mentors.models';
+import { Mentor } from '../mentors.models';
 
 
 @Component({
-  selector: 'app-mentors',
-  templateUrl: './mentors.component.html',
-  styleUrls: ['./mentors.component.css']
+  selector: 'app-public-mentors',
+  templateUrl: './public.mentors.component.html',
+  styleUrls: ['../mentors.component.css']
 })
-export class MentorsComponent implements OnInit {
+export class PublicMentorsComponent implements OnInit {
   mentors: Mentor[];
 
   constructor(private _route: ActivatedRoute) { }
