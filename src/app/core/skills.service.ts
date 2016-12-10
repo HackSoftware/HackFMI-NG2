@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { Skill } from './core.models';
 import { ApiUrlsService } from './api-urls.service';
-import { HandleHttpService } from './handleHttp.service';
+import { HandleHttpService } from './handle-http.service';
 
 import { DefaultHttpService } from './default-http.service';
 

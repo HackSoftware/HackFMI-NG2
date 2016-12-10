@@ -10,7 +10,7 @@ import { ApiUrlsService } from './api-urls.service';
 import { SeasonResolver } from './season.resolver';
 import { UrlParamsService } from './urlParams.service';
 import { WebSocketService } from './websocket.service';
-import { HandleHttpService } from './handleHttp.service';
+import { HandleHttpService } from './handle-http.service';
 import { DefaultHttpService } from './default-http.service';
 import { SeasonCompetitorInfoService } from './season-competitor-info.service';
 
