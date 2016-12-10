@@ -1,36 +1,32 @@
+import { Injectable, Component, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Injectable } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../auth/auth.service';
+import { InvitationMessage } from '../core/core.models';
 import { ApiUrlsService } from '../core/apiUrls.service';
 import { WebSocketService } from '../core/websocket.service';
-import { InvitationMessage } from '../core/core.models';
-import { AuthService } from '../auth/auth.service';
 
 
 @Injectable()
 export class NavigationService {
-  _socket: Observable<InvitationMessage> = null;
+  public socket: Observable<InvitationMessage>;
+  public wsOpened: EventEmitter<any>;
 
   constructor(private _authService: AuthService,
               private _apiUrlsService: ApiUrlsService,
-              private _websocketService: WebSocketService) { 
-
-    if (!!this._authService.currentUser){
-      this._socket = this.openWebsocketConnection();
-    }
+              private _websocketService: WebSocketService) {
+    this.wsOpened = new EventEmitter();
+    if (_authService.isLogged()) this._openWSConnection();
+    _authService.userLoggedIn.subscribe(data => this._openWSConnection());
   }
 
-  openWebsocketConnection(): Observable<InvitationMessage> {
-    if (!!this._socket) {
-      return this._socket;
-    } else {
-      return this._websocketService.connect(this._apiUrlsService.invitationWebsocketUrl)
-                                   .map((res: MessageEvent): InvitationMessage => JSON.parse(res.data));
-    }
+  private _openWSConnection(): void {
+    this.socket = this._websocketService.connect(this._apiUrlsService.invitationWebsocketUrl)
+                                        .map((res: MessageEvent): InvitationMessage => JSON.parse(res.data));
+    this.wsOpened.emit();
   }
 
-  clearWebsocket(): void {
-    this._socket = null;
+  clearSocket(): void {
+    this.socket = null;
   }
 }

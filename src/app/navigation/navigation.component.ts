@@ -18,6 +18,7 @@ import { NavigationService } from './navigation.service';
 })
 export class NavigationComponent implements OnInit {
   socket = null;
+  invitesCounter:number = 0;
 
   constructor(private _meService: MeService,
               private _authService:AuthService,
@@ -26,29 +27,50 @@ export class NavigationComponent implements OnInit {
               private _seasonService: SeasonService,
               private _logoutService: LogoutService,
               private _invitesService: InvitesService,
-              private _navigationService: NavigationService) { }
+              private _navigationService: NavigationService) {
+    _authService.userLoggedIn.subscribe(data => this._setInvitesCounter());
+    _invitesService.inviteEmitter.subscribe(accepted => this._updateInvitesCounter(accepted));
+    _navigationService.wsOpened.subscribe(data => this._startListeningToWS());
+  }
 
   ngOnInit() {
-   if (this._authService.isLogged()) { 
-      this.socket = this._navigationService._socket.subscribe(msg => this._handleSuccessfulSentInvitation(msg))
+    if (this._authService.isLogged()) {
+      this._setInvitesCounter();
+      this._startListeningToWS();
+    };
+  }
+
+  private _setInvitesCounter() {
+    this._invitesService.getInvites().subscribe(data => this.invitesCounter = data.length);
+  }
+
+  private _updateInvitesCounter(accepted: boolean) {
+    if (accepted) {
+      this.invitesCounter++;
+    } else {
+      this.invitesCounter--;
     }
   }
 
-  private _handleSuccessfulSentInvitation(msg: any) {
-    if (msg.message != "User added to group."){
-      this._invitesService.invitesCounter++;
-      this._toastService.info("You have new invite!");
-    }
+  private _startListeningToWS() {
+    this.socket = this._navigationService.socket
+                                         .subscribe(msg => this._handleWsMessage(msg));
+  }
 
-    this._cdRef.detectChanges();
+  private _handleWsMessage(msg: any) {
+    if (msg.message == "New invitation was created."){
+      this.invitesCounter++;
+      this._toastService.info("You received new invitation.");
+      this._cdRef.detectChanges();
+    }
   }
 
   logout(event:MouseEvent):void {
     event.preventDefault();
     this._logoutService.logout().subscribe();
-    this._navigationService.clearWebsocket();
     this._authService.clearCurrentUser();
     this._meService.clearCurrentMeInfo();
+    this._navigationService.clearSocket();
     this._seasonService.clearCurrentSeasonInfo();
   }
 

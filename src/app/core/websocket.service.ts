@@ -9,42 +9,50 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class WebSocketService {
-  constructor(private _authService: AuthService){}
-
+  private _ws: WebSocket;
   private _subject: Subject<MessageEvent>;
 
+  constructor(private _authService: AuthService){
+    _authService.userLoggedOut.subscribe(data => this.close());
+  }
+
   public connect(url): Subject<MessageEvent> {
-    if (!this._subject) {
-      this._subject = this._createSubject(url);
-    }
+    if (!this._subject) this._subject = this._createSubject(url);
+
     return this._subject;
+  }
+
+  private close(): void {
+    if (!!this._ws) {
+      this._ws.close();
+      this._ws = null;
+      this._subject = null;
+    }
   }
 
   private _createSubject(url): Subject<MessageEvent> {
     let ws = new WebSocket(url);
+    let data = {'token': this._authService.token};
 
-    let data = {"token": this._authService.token}
     ws.onopen = function() {
       ws.send(JSON.stringify(data));
     }
 
-    // if (ws.readyState == WebSocket.OPEN) {
-    // TODO: Add Authorization here
-    // }
+    this._ws = ws;
 
     let observable = Observable.create(
       (obs: Observer<MessageEvent>) => {
-        ws.onmessage = obs.next.bind(obs);
-        ws.onerror = obs.error.bind(obs);
-        ws.onclose = obs.complete.bind(obs);
+        this._ws.onmessage = obs.next.bind(obs);
+        this._ws.onerror = obs.error.bind(obs);
+        this._ws.onclose = obs.complete.bind(obs);
 
-        return ws.close.bind(ws);
-      })
+        return this._ws.close.bind(this._ws);
+      }).share();
 
     let observer = {
       next: (data: Object) => {
-        if (ws.readyState === WebSocket.OPEN) {
-          ws.send(JSON.stringify(data));
+        if (this._ws.readyState === WebSocket.OPEN) {
+          this._ws.send(JSON.stringify(data));
         }
       }
     }
