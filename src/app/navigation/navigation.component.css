@@ -61,5 +61,13 @@ li a:hover {
 }
 
 .invites-counter {
-    background-color: #DC143C;
+    background-color: #fdcb4e;
+    text-align: center;
+    border-radius: 25px;
+    width: 20px;
+    height: 20px;
+}
+
+.your-invites {
+    padding-right: 5px !important;
 }

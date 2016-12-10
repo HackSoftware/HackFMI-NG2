@@ -34,7 +34,7 @@ export class MeService {
       return this._seasonService.getSeasonInfo().flatMap(
         season => {
           var seasonMeUrl = this._apiUrlsService.meUrl + season.id + "/";
-  
+
           return this._authHttp.get(seasonMeUrl)
                                .map(res => {
                                  this._meInfo = <Me>res.json();
@@ -53,6 +53,7 @@ export class MeService {
     if (!!this._meInfo && !!this._meInfo.team){
       return this._meInfo.competitor_info.id == this._meInfo.team.leader_id;
     }
+
     return false;
-  };
+  }
 }
