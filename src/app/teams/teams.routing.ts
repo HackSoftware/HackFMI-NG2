@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AuthGuardService } from '../guard/auth-guard.service';
 import { MeSeasonResolver } from '../core/me.resolver';
 import { SkillsResolver } from '../core/skills.resolver';
+import { AuthGuardService } from '../guard/auth-guard.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';
 import { LeaderGuardService } from '../guard/leader-guard.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
