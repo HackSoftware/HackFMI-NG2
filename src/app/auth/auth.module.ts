@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { AuthService } from './auth.service';
-import { AuthHttp } from './authHttp.service';
+import { AuthHttp } from './auth-http.service';
 
 
 @NgModule({
