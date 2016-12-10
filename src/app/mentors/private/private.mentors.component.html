@@ -1,12 +1,12 @@
-<h1 align="center">Избери своите ментори</h1>
-
+<h2 align="center">За този издание на HackFMI могат да бъдат избирани ментори в затворения интервал [{{seasonInfo.min_team_members_count}}-{{seasonInfo.max_team_members_count}}].</h2>
+<h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
 <div class="container">
   <div *ngFor="let mentor of mentors" class="mentor-container">
     <h2>{{mentor.name}}</h2>
+    <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
     <p>
-      <span>TODO: Да се показва само единият бутон. Треа ми инфо кои са ми менторите.</span>
-      <button hack-orange *ngIf="isLeader()" (click)="removeMentor(mentor)">Премахни</button>
-      <button hack-orange *ngIf="isLeader()" (click)="addMentor(mentor)">Избери</button>
+      <button hack-orange *ngIf="isLeader() && isMentorSelected(mentor)" (click)="removeMentor(mentor)">Премахни</button>
+      <button hack-orange *ngIf="isLeader() && !isMentorSelected(mentor)" (click)="addMentor(mentor)">Избери</button>
       <span [innerHTML]="mentor.description"></span>
     </p>
   </div>

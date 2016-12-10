@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MentorsRoutingModule } from './mentors.routing';
 import { MentorsService } from './mentors.service';
-import { MentorsListResolver } from './mentors.resolver';
+import { MentorsRoutingModule } from './mentors.routing';
 import { PublicMentorsComponent } from './public/public.mentors.component';
 import { PrivateMentorsComponent } from './private/private.mentors.component';
+import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver';
 
 
 @NgModule({
@@ -19,6 +19,10 @@ import { PrivateMentorsComponent } from './private/private.mentors.component';
     MentorsRoutingModule
   ],
   exports: [MentorsRoutingModule],
-  providers: [MentorsService, MentorsListResolver],
+  providers: [
+    MentorsService,
+    MentorsListResolver,
+    MentorsForTeamResolver
+  ]
 })
 export class MentorsModule { }

@@ -31,6 +31,7 @@ export class Me {
   team_membership_id: number;
   looking_for_team: boolean;
   season_competitor_info_id: number;
+  mentors: number[];
   competitor_info: CompetitorInfo;
   team: PrivateTeam;
 }

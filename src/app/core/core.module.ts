@@ -7,6 +7,7 @@ import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
 import { ApiUrlsService } from './apiUrls.service';
+import { SeasonResolver } from './season.resolver';
 import { UrlParamsService } from './urlParams.service';
 import { WebSocketService } from './websocket.service';
 import { HandleHttpService } from './handleHttp.service';
@@ -24,6 +25,7 @@ import { SeasonCompetitorInfoService } from './seasonCompetitorInfo.service';
     SkillsService,
     SeasonService,
     ApiUrlsService,
+    SeasonResolver,
     UrlParamsService,
     WebSocketService,
     HandleHttpService,

@@ -19,6 +19,7 @@ export class ApiUrlsService {
   teamsUrl = environment.apiUrl + 'teams/';                    // Authorization: JWT
   teamMembershipUrl = environment.apiUrl + 'team-membership/'  // Authorization: JWT
   teamMentorshipUrl = environment.apiUrl + 'team-mentorship/'  // Authorization: JWT
+  teamMentorsUrl = environment.apiUrl + 'team-mentors/'        // Authorization: JWT
   invitationUrl = environment.apiUrl + 'invitation/'           // Authorization: JWT
   competitorsUrl = environment.apiUrl + 'competitors/'         // Authorization: JWT
   seasonCompetitorInfoUrl = environment.apiUrl + 'season-competitor-info/'  // Authorization: JWT

@@ -21,3 +21,11 @@
     float:right;
     margin-left:20px;
 }
+
+.mentor-container h2 {
+    display: inline;
+}
+
+.mentor-container > span {
+    font-size: 20px;
+}

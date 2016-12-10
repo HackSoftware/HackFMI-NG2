@@ -13,3 +13,15 @@ export class MentorsListResolver implements Resolve<Mentor[]> {
         return this._mentorsService.getMentorsListInfo();
     }
 }
+
+
+@Injectable()
+export class MentorsForTeamResolver implements Resolve<Mentor[]> {
+    constructor(private _mentorsService:MentorsService) {}
+
+    resolve(route: ActivatedRouteSnapshot) {
+        return this._mentorsService.getMentorsForTeam();
+    }
+}
+
+

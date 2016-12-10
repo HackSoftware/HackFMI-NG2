@@ -25,6 +25,12 @@ export class MentorsService {
                                    .catch(err => this._handleHttp.handleError(err))
   }
 
+  getMentorsForTeam():Observable<Mentor[]> {
+    return this._authHttp.get(this._apiUrlsService.teamMentorsUrl)
+                                   .map(res => <number[]>res.json().map(mentor => mentor.id))
+                                   .catch(err => this._handleHttp.handleError(err))
+  }
+
   addMentor(data: any): Observable<any> {
     return this._authHttp.post(this._apiUrlsService.teamMentorshipUrl, data)
                          .catch(err => this._handleHttp.handleError(err));

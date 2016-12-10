@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { MeSeasonResolver } from '../core/me.resolver';
+import { SeasonResolver } from '../core/season.resolver';
 import { AuthGuardService } from '../guard/auth-guard.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';
 import { MentorsGuardService } from '../guard/mentors-guard.service';
 
 
-import { MentorsListResolver } from './mentors.resolver';
 import { PublicMentorsComponent } from './public/public.mentors.component';
 import { PrivateMentorsComponent } from './private/private.mentors.component';
+import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver';
 
 
 @NgModule({
@@ -24,8 +25,10 @@ import { PrivateMentorsComponent } from './private/private.mentors.component';
             MentorsGuardService
           ],
           resolve: {
+            seasonInfo: SeasonResolver,
+            meDetails: MeSeasonResolver,
             mentors: MentorsListResolver,
-            meDetails: MeSeasonResolver
+            mentorsForTeam: MentorsForTeamResolver,
           }
         },
         {
