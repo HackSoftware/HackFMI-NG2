@@ -53,8 +53,7 @@ export class NavigationComponent implements OnInit {
   }
 
   private _startListeningToWS() {
-    this.socket = this._navigationService.socket
-                                         .subscribe(msg => this._handleWsMessage(msg));
+    this.socket = this._navigationService.socket.subscribe(msg => this._handleWsMessage(msg));
   }
 
   private _handleWsMessage(msg: any) {
@@ -70,6 +69,7 @@ export class NavigationComponent implements OnInit {
     this._logoutService.logout().subscribe();
     this._authService.clearCurrentUser();
     this._meService.clearCurrentMeInfo();
+    this._invitesService.clearSocket();
     this._navigationService.clearSocket();
     this._seasonService.clearCurrentSeasonInfo();
   }

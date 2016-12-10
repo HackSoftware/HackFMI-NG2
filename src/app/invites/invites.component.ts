@@ -45,8 +45,7 @@ export class InvitesComponent implements OnInit {
   }
 
   private _startListeningToWS() {
-    this.socket = this._invitesService.socket
-                                      .subscribe(msg => this._handleWsMessage(msg));
+    this.socket = this._invitesService.socket.subscribe(msg => this._handleWsMessage(msg));
   }
 
   private _handleWsMessage(msg: any) {
