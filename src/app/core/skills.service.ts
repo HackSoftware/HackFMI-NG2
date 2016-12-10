@@ -5,7 +5,7 @@ import { Skill } from './core.models';
 import { ApiUrlsService } from './api-urls.service';
 import { HandleHttpService } from './handleHttp.service';
 
-import { DefaultHttpService } from './defaultHttp.service';
+import { DefaultHttpService } from './default-http.service';
 
 import 'rxjs/add/operator/map'
 

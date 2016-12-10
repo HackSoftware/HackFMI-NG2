@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
-import { DefaultHttpService } from '../core/defaultHttp.service';
+import { DefaultHttpService } from '../core/default-http.service';
 
 import { Season } from './core.models';
 

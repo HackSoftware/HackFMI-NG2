@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthHttp } from '../auth/authHttp.service';
 import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/handleHttp.service';
-import { DefaultHttpService } from '../core/defaultHttp.service';
+import { DefaultHttpService } from '../core/default-http.service';
 
 import { Mentor } from './mentors.models';
 

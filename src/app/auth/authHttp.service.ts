@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Headers, RequestOptions, Response } from '@angular/http';
 
-import { DefaultHttpService } from '../core/defaultHttp.service';
+import { DefaultHttpService } from '../core/default-http.service';
 
 import { AuthService } from './auth.service';
 
