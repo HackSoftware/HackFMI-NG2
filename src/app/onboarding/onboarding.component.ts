@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { Skill } from '../core/core.models';
-import { MeService } from '../core/me.service';
+import { MeService } from '../core/me/me.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { OnboardingService } from './onboarding.service';

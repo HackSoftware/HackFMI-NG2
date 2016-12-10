@@ -5,7 +5,7 @@ import { AuthHttp } from '../auth/auth-http.service';
 import { ApiUrlsService } from '../core/api-urls.service';
 import { HandleHttpService } from '../core/handle-http.service';
 
-import { MeService } from './me.service';
+import { MeService } from './me/me.service';
 import { SeasonService } from './season.service';
 import { SeasonCompetitorInfo } from './core.models';
 

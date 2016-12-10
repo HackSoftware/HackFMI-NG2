@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 
+import { MeService } from '../core/me/me.service';
 import { AuthService } from '../auth/auth.service';
-import { MeService } from '../core/me.service';
 
 import { LoginData } from './login.models';
 import { LoginService } from './login.service';

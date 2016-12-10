@@ -3,7 +3,7 @@ import { Component, OnInit, ChangeDetectorRef, EventEmitter } from '@angular/cor
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { MeService } from '../core/me.service';
+import { MeService } from '../core/me/me.service';
 import { AuthService } from '../auth/auth.service';
 
 import { Invite } from './invites.models';

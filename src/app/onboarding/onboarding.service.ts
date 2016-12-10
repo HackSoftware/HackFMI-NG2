@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
+import { MeService } from '../core/me/me.service';
 import { AuthHttp } from '../auth/auth-http.service';
 import { ApiUrlsService } from '../core/api-urls.service';
-import { MeService } from '../core/me.service';
 import { HandleHttpService } from '../core/handle-http.service';
 import { SeasonCompetitorInfoService } from '../core/season-competitor-info.service';
 

@@ -2,9 +2,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Me } from '../../../core/core.models';
-
 import { PrivateTeam } from '../../teams.models';
-import { MeService } from '../../../core/me.service';
+import { MeService } from '../../../core/me/me.service';
 import { SeasonCompetitorInfoService } from '../../../core/season-competitor-info.service';
 
 

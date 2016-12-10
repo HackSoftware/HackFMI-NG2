@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { MeService } from './me.service';
+import { MeService } from './me/me.service';
 import { LogoutService } from './logout.service';
-import { MeSeasonResolver } from './me.resolver';
+import { MeSeasonResolver } from './me/me.resolver';
 import { SeasonService } from './season.service';
 import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';

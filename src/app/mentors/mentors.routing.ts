@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MeSeasonResolver } from '../core/me.resolver';
+import { MeSeasonResolver } from '../core/me/me.resolver';
 import { SeasonResolver } from '../core/season.resolver';
 import { AuthGuardService } from '../guard/auth-guard.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';

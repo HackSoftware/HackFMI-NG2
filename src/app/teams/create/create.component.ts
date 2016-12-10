@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Skill } from '../../core/core.models';
-import { MeService } from '../../core/me.service';
+import { MeService } from '../../core/me/me.service';
 
 import { PrivateTeam } from '../teams.models';
 import { TeamsService } from '../teams.service';

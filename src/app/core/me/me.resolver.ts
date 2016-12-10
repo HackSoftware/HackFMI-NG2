@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot} from '@angular/router';
 
-import { Me } from './core.models';
+import { Me } from '../core.models';
 import { MeService } from './me.service';
 
 

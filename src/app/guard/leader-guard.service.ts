@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { Me } from '../core/core.models';
-import { MeService } from '../core/me.service';
+import { MeService } from '../core/me/me.service';
 
 
 @Injectable()

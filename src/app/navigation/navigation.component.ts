@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef} from '@angular/core';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { MeService } from '../core/me.service';
+import { MeService } from '../core/me/me.service';
 import { AuthService } from '../auth/auth.service';
 import { SeasonService } from '../core/season.service';
 import { LogoutService } from '../core/logout.service';
