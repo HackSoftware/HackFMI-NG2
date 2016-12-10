@@ -6,7 +6,7 @@ import { AuthHttp } from '../../auth/auth-http.service';
 import { Me } from '../core.models';
 import { ApiUrlsService } from '../api-urls.service';
 import { SeasonService } from '../season/season.service';
-import { HandleHttpService } from '../handle-http.service';
+import { HandleHttpService } from '../http/handle-http.service';
 
 import 'rxjs/add/operator/mergeMap';
 

@@ -6,7 +6,7 @@ import { AuthHttp } from '../auth/auth-http.service';
 import { InvitationMessage } from '../core/core.models';
 import { ApiUrlsService } from '../core/api-urls.service';
 import { WebSocketService } from '../core/websocket.service';
-import { HandleHttpService } from '../core/handle-http.service';
+import { HandleHttpService } from '../core/http/handle-http.service';
 
 import { Invite } from './invites.models';
 

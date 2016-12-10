@@ -2,8 +2,8 @@ import { Observable } from 'rxjs/Observable';
 import { Injectable, Inject } from '@angular/core';
 
 import { ApiUrlsService } from '../core/api-urls.service';
-import { HandleHttpService } from '../core/handle-http.service';
-import { DefaultHttpService } from '../core/default-http.service';
+import { HandleHttpService } from '../core/http/handle-http.service';
+import { DefaultHttpService } from '../core/http/default-http.service';
 
 import { LoginData } from './login.models';
 

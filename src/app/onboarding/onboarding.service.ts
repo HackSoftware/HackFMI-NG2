@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { MeService } from '../core/me/me.service';
 import { AuthHttp } from '../auth/auth-http.service';
 import { ApiUrlsService } from '../core/api-urls.service';
-import { HandleHttpService } from '../core/handle-http.service';
+import { HandleHttpService } from '../core/http/handle-http.service';
 import { SeasonCompetitorInfoService } from '../core/season/season-competitor-info.service';
 
 import 'rxjs/add/operator/map'

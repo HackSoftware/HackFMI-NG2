@@ -9,9 +9,9 @@ import { UrlParamsService } from './url-params.service';
 import { SeasonService } from './season/season.service';
 import { SkillsService } from './skills/skills.service';
 import { SkillsResolver } from './skills/skills.resolver';
-import { HandleHttpService } from './handle-http.service';
-import { DefaultHttpService } from './default-http.service';
 import { SeasonInfoResolver } from './season/season.resolver';
+import { HandleHttpService } from './http/handle-http.service';
+import { DefaultHttpService } from './http/default-http.service';
 import { SeasonCompetitorInfoService } from './season/season-competitor-info.service';
 
 

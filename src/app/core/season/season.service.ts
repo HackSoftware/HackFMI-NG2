@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { Season } from '../core.models';
 import { ApiUrlsService } from '../api-urls.service';
-import { HandleHttpService } from '../handle-http.service';
-import { DefaultHttpService } from '../default-http.service';
+import { HandleHttpService } from '../http/handle-http.service';
+import { DefaultHttpService } from '../http/default-http.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

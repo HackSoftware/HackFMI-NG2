@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 import 'rxjs/add/observable/throw';
 

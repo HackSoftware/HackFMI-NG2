@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { AuthHttp } from '../auth/auth-http.service';
-import { ApiUrlsService } from '../core/api-urls.service';
-import { HandleHttpService } from '../core/handle-http.service';
+import { AuthHttp } from '../../auth/auth-http.service';
 
-import { MeService } from './me/me.service';
-import { SeasonCompetitorInfo } from './core.models';
-import { SeasonService } from './season/season.service';
+import { MeService } from '../me/me.service';
+import { ApiUrlsService } from '../api-urls.service';
+import { SeasonCompetitorInfo } from '../core.models';
+import { SeasonService } from '../season/season.service';
+import { HandleHttpService } from '../http/handle-http.service';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/mergeMap';
