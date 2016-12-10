@@ -8,7 +8,7 @@ import { SkillsService } from './skills.service';
 import { SkillsResolver } from './skills.resolver';
 import { ApiUrlsService } from './api-urls.service';
 import { SeasonResolver } from './season.resolver';
-import { UrlParamsService } from './urlParams.service';
+import { UrlParamsService } from './url-params.service';
 import { WebSocketService } from './websocket.service';
 import { HandleHttpService } from './handle-http.service';
 import { DefaultHttpService } from './default-http.service';

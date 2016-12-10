@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { RequestOptions, Http, Response } from '@angular/http';
 
-import { UrlParamsService } from './urlParams.service';
+import { UrlParamsService } from './url-params.service';
 
 
 @Injectable()
