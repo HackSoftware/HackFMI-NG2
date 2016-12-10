@@ -12,7 +12,7 @@ import { SeasonService } from './season/season.service';
 import { HandleHttpService } from './handle-http.service';
 import { DefaultHttpService } from './default-http.service';
 import { SeasonInfoResolver } from './season/season.resolver';
-import { SeasonCompetitorInfoService } from './season-competitor-info.service';
+import { SeasonCompetitorInfoService } from './season/season-competitor-info.service';
 
 
 @NgModule({

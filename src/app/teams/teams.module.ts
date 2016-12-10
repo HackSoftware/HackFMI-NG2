@@ -4,14 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { TeamsService } from './teams.service';
 import { TeamsComponent } from './teams.component';
-import { InvitesService } from '../invites/invites.service';
 import { TeamsRoutingModule } from './teams.routing';
 import { CreateComponent } from './create/create.component';
 import { DetailComponent } from './detail/detail.component';
 import { UpdateComponent } from './update/update.component';
 import { PublicListComponent } from './list/public-list/public-list.component';
 import { PrivateListComponent } from './list/private-list/private-list.component';
-import { SeasonCompetitorInfoService } from '../core/season-competitor-info.service';
 import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver } from './teams.resolver';
 
 @NgModule({
@@ -32,11 +30,10 @@ import { PublicTeamsListResolver, PrivateTeamsListResolver, TeamDetailsResolver 
   exports: [TeamsRoutingModule],
   providers: [
     TeamsService,
-    InvitesService,
+
     TeamDetailsResolver,
     PublicTeamsListResolver,
     PrivateTeamsListResolver,
-    SeasonCompetitorInfoService
   ]
 })
 export class TeamsModule { }
