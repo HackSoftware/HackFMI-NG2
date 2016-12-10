@@ -8,7 +8,8 @@
         <li><a routerLink="/home" routerLinkActive="active">Начало</a></li>
         <li><a routerLink="/teams" routerLinkActive="active">Отбори</a></li>
         <li><a routerLink="/mentors" routerLinkActive="active">Ментори</a></li>
-        <li><a *ngIf="isLogged()" routerLink="/invites" routerLinkActive="active">Твоите покани</a></li>
+        <li><a class="your-invites" *ngIf="isLogged() && !isLeader()" routerLink="/invites" routerLinkActive="active">Твоите покани</a></li>
+        <li class="invites-counter" *ngIf="isLogged() && !isLeader()">{{invitesCounter}}</li>
         <li><a *ngIf="isLogged() && isLeader()" routerLink="/competitors" routerLinkActive="active">Покани състезател</a></li>
         <li><a *ngIf="isLogged()" target="_blank" href="https://hackbulgaria.com/profile/">Профил</a></li>
         <li><a *ngIf="!isLogged()" routerLink="/login" routerLinkActive="active">Вход</a></li>

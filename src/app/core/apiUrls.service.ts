@@ -23,5 +23,7 @@ export class ApiUrlsService {
   competitorsUrl = environment.apiUrl + 'competitors/'         // Authorization: JWT
   seasonCompetitorInfoUrl = environment.apiUrl + 'season-competitor-info/'  // Authorization: JWT
 
+  invitationWebsocketUrl = 'ws://localhost:8000/invitations';  // Authorization: JWT
+
   constructor() { }
 }

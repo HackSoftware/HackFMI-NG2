@@ -29,7 +29,6 @@ input ~ label {
     color:red;
 }
 
-
 button[hack-orange] {
     padding:10px 25px;
     background-color: #fdcb4e;

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 import { LoginData } from '../login/login.models';
 
@@ -10,19 +10,15 @@ var jwt_decode = require('jwt-decode');
 
 @Injectable()
 export class AuthService {
+  redirectUrl:string = null;
+  userLoggedIn: EventEmitter<any>;
+  userLoggedOut: EventEmitter<any>;
   private _currentUser: UserData = null;
-  private _redirectUrl:string = null;
 
   constructor(private _router: Router) {
     this._currentUser = JSON.parse(localStorage.getItem('user-data'));
-  }
-
-  get redirectUrl() {
-    return this._redirectUrl;
-  }
-
-  set redirectUrl(url:string){
-    this._redirectUrl = url;
+    this.userLoggedIn = new EventEmitter();
+    this.userLoggedOut = new EventEmitter();
   }
 
   get currentUser() {
@@ -39,12 +35,14 @@ export class AuthService {
     userData.token = token;
     this._currentUser = userData;
     localStorage.setItem('user-data', JSON.stringify(userData));
+    this.userLoggedIn.emit();
   }
 
   clearCurrentUser():void {
     this._currentUser = null;
-    this._redirectUrl = null;
+    this.redirectUrl = null;
     localStorage.removeItem('user-data');
+    this.userLoggedOut.emit();
     this._router.navigate(['home']);
   }
 
