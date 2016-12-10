@@ -10,7 +10,7 @@ const jwt_decode = require('jwt-decode');
 
 @Injectable()
 export class AuthService {
-  redirectUrl:string = null;
+  redirectUrl: string = null;
   userLoggedIn: EventEmitter<any>;
   userLoggedOut: EventEmitter<any>;
   private _currentUser: UserData = null;
@@ -29,7 +29,7 @@ export class AuthService {
     return this._currentUser.token;
   }
 
-  setCurrentUser(data:LoginData):void {
+  setCurrentUser(data: LoginData): void {
     let token = data.token;
     let userData = jwt_decode(token);
     userData.token = token;
@@ -38,7 +38,7 @@ export class AuthService {
     this.userLoggedIn.emit();
   }
 
-  clearCurrentUser():void {
+  clearCurrentUser(): void {
     this._currentUser = null;
     this.redirectUrl = null;
     localStorage.removeItem('user-data');
@@ -46,5 +46,5 @@ export class AuthService {
     this._router.navigate(['home']);
   }
 
-  isLogged = ():boolean => !!this._currentUser;
+  isLogged = (): boolean => !!this._currentUser;
 }

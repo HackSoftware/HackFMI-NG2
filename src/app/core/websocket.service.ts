@@ -6,18 +6,21 @@ import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from '../auth/auth.service';
 
+import 'rxjs/add/operator/share';
 
 @Injectable()
 export class WebSocketService {
   private _ws: WebSocket;
   private _subject: Subject<MessageEvent>;
 
-  constructor(private _authService: AuthService){
+  constructor(private _authService: AuthService) {
     _authService.userLoggedOut.subscribe(data => this.close());
   }
 
   public connect(url): Subject<MessageEvent> {
-    if (!this._subject) this._subject = this._createSubject(url);
+    if (!this._subject) {
+      this._subject = this._createSubject(url);
+    }
 
     return this._subject;
   }
@@ -32,11 +35,11 @@ export class WebSocketService {
 
   private _createSubject(url): Subject<MessageEvent> {
     let ws = new WebSocket(url);
-    let data = {'token': this._authService.token};
+    let dataToSend = {'token': this._authService.token};
 
     ws.onopen = function() {
-      ws.send(JSON.stringify(data));
-    }
+      ws.send(JSON.stringify(dataToSend));
+    };
 
     this._ws = ws;
 
@@ -55,7 +58,7 @@ export class WebSocketService {
           this._ws.send(JSON.stringify(data));
         }
       }
-    }
+    };
 
     return Subject.create(observer, observable);
   }

@@ -29,11 +29,11 @@ export class DetailComponent implements OnInit {
               private _invitesService: InvitesService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
-    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
+    this._route.data.subscribe((data: {meDetails: Me}) => this.meDetails = data.meDetails);
+    this._route.data.subscribe((data: {teamDetails: PrivateTeam}) => this.teamDetails = data.teamDetails);
   }
 
-  competitorInTeam():boolean {
+  competitorInTeam(): boolean {
     if (!this.meDetails.team) {
       return false;
     }
@@ -41,12 +41,16 @@ export class DetailComponent implements OnInit {
     return this.meDetails.team.id === this.teamDetails.id;
   }
 
-  isTeamLeader():boolean {return this.meDetails.competitor_info.id === this.teamDetails.leader_id;}
+  isTeamLeader(): boolean {
+    return this.meDetails.competitor_info.id === this.teamDetails.leader_id;
+  }
 
-  updateTeam():void {this._router.navigate(['teams', this.teamDetails.id, 'edit']);}
+  updateTeam(): void {
+    this._router.navigate(['teams', this.teamDetails.id, 'edit']);
+  }
 
   leaveTeam(): void {
-    let leave:boolean = confirm('Сигурен ли си, че искаш да напуснеш отбора?');
+    let leave: boolean = confirm('Сигурен ли си, че искаш да напуснеш отбора?');
 
     if (this.competitorInTeam() && leave) {
       let teamMembershipId = this.meDetails.team_membership_id;
@@ -56,13 +60,13 @@ export class DetailComponent implements OnInit {
       }
   }
 
-  inviteMember():void {
+  inviteMember(): void {
     this._invitesService.inviteMember(this.inviteInfo)
                         .subscribe(data => this._handleSuccessfulInvitation());
   }
 
   private _handleSuccessfulInvitation() {
-    var email = this.inviteInfo.competitor_email;
+    let email = this.inviteInfo.competitor_email;
     this.inviteInfo.competitor_email = '';
     this._toastService.success('Invitation email was sent to ' + email);
   }

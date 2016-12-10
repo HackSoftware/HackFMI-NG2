@@ -7,7 +7,7 @@ import { SkillsService } from './skills.service';
 
 @Injectable()
 export class SkillsResolver implements Resolve<Skill[]> {
-  constructor(private _skillsService:SkillsService) {}
+  constructor(private _skillsService: SkillsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
       return this._skillsService.getSkills();

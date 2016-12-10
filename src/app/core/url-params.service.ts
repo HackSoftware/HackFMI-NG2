@@ -10,9 +10,11 @@ export class UrlParamsService {
 
   constructor() { }
 
-  get params(): URLSearchParams {return this._params;}
+  get params(): URLSearchParams {
+    return this._params;
+  }
 
-  setDefaultParams(params?: URLSearchParams):void {
+  setDefaultParams(params?: URLSearchParams): void {
     /* Use provided params if any */
     this._params = params ? params : this._params;
     let defaultParams = environment.defaultUrlQueryParams;
@@ -20,7 +22,7 @@ export class UrlParamsService {
     Object.keys(defaultParams).forEach((key) => this._setParam(key, defaultParams[key]));
   }
 
-  private _setParam(key:string, value:string):void {
+  private _setParam(key: string, value: string): void {
     this._params.set(key, value);
   }
 }

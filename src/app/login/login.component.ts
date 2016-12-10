@@ -23,20 +23,22 @@ export class LoginComponent implements OnInit {
 
   constructor(private _router: Router,
               private _meService: MeService,
-              private _authService:AuthService,
-              private _loginService: LoginService,) { }
+              private _authService: AuthService,
+              private _loginService: LoginService) { }
 
   ngOnInit() { }
 
-  register () {this._loginService.register();}
+  register () {
+    this._loginService.register();
+  }
 
-  login():void {
+  login(): void {
     this._loginService.login(this.account.email, this.account.password)
                       .subscribe(data => this._handleSuccessfulLogin(data));
   }
 
-  private _handleSuccessfulLogin(data:LoginData) {
-    this._authService.setCurrentUser(data);
+  private _handleSuccessfulLogin(loginData: LoginData) {
+    this._authService.setCurrentUser(loginData);
     this._meService.getSeasonMeInfo().subscribe(
       data => {
         if (!data.is_competitor) {

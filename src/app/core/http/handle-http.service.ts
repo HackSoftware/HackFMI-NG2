@@ -13,10 +13,10 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class HandleHttpService {
   constructor(private _router: Router,
-              private _authService:AuthService,
+              private _authService: AuthService,
               private _toastService: ToastsManager) { }
 
-  handleError(response:Response | any){
+  handleError(response: Response | any) {
     if (response.status === 401) {
       this._authService.clearCurrentUser();
       this._router.navigate(['login']);
@@ -27,15 +27,15 @@ export class HandleHttpService {
     return Observable.throw(response);
   }
 
-  private _showError(error:string|string[]):void {
-    if (error instanceof Array){
+  private _showError(error: string|string[]): void {
+    if (error instanceof Array) {
       error.forEach((err) => this._displayError(err));
     } else {
       this._displayError(<string>error);
     }
   }
 
-  private _displayError(err:string):void {
+  private _displayError(err: string): void {
     this._toastService.error(err);
   };
 }

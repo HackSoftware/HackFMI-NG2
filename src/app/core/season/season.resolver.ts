@@ -7,7 +7,7 @@ import { SeasonService } from './season.service';
 
 @Injectable()
 export class SeasonInfoResolver implements Resolve<Season> {
-  constructor(private _seasonService:SeasonService) {}
+  constructor(private _seasonService: SeasonService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
       return this._seasonService.getSeasonInfo();

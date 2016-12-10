@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map';
 export class SkillsService {
   constructor(private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService,
-              private _defaultHttpService:DefaultHttpService) { }
+              private _defaultHttpService: DefaultHttpService) { }
 
   getSkills(): Observable<Skill[]> {
     return this._defaultHttpService.get(this._apiUrlsService.skillsUrl)

@@ -15,7 +15,7 @@ export class LogoutService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  logout():Observable<any> {
+  logout(): Observable<any> {
     return this._authHttp.post(this._apiUrlsService.logoutUrl, {})
                          .catch(err => this._handleHttp.handleError(err));
   }

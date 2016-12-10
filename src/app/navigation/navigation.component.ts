@@ -18,13 +18,13 @@ import { NavigationService } from './navigation.service';
 })
 export class NavigationComponent implements OnInit {
   socket = null;
-  invitesCounter:number = 0;
+  invitesCounter: number = 0;
 
   isLeader = this._meService.isLeader;
   isLogged = this._authService.isLogged;
 
   constructor(private _meService: MeService,
-              private _authService:AuthService,
+              private _authService: AuthService,
               private _cdRef: ChangeDetectorRef,
               private _toastService: ToastsManager,
               private _seasonService: SeasonService,
@@ -32,7 +32,10 @@ export class NavigationComponent implements OnInit {
               private _invitesService: InvitesService,
               private _navigationService: NavigationService) {
     _authService.userLoggedIn.subscribe(data => {
-      if (_meService.isCompetitor()) this._setInvitesCounter()});
+      if (_meService.isCompetitor()) {
+        this._setInvitesCounter();
+      }
+    });
     _invitesService.inviteEmitter.subscribe(accepted => this.invitesCounter--);
     _navigationService.wsOpened.subscribe(data => this._startListeningToWS());
   }
@@ -53,14 +56,14 @@ export class NavigationComponent implements OnInit {
   }
 
   private _handleWsMessage(msg: any) {
-    if (msg.message == "New invitation was created."){
+    if (msg.message === 'New invitation was created.') {
       this.invitesCounter++;
-      this._toastService.info("You received new invitation.");
+      this._toastService.info('You received new invitation.');
       this._cdRef.detectChanges();
     }
   }
 
-  logout(event:MouseEvent):void {
+  logout(event: MouseEvent): void {
     event.preventDefault();
     this._logoutService.logout().subscribe();
     this._authService.clearCurrentUser();

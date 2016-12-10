@@ -30,9 +30,11 @@ export class CreateComponent implements OnInit {
               private _route: ActivatedRoute,
               private _teamsService: TeamsService) { }
 
-  ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
+  ngOnInit() {
+    this._route.data.subscribe((data: {skills: Skill[]}) => this.skills = data.skills);
+  }
 
-  addOrRemoveSkill(id:number): void {
+  addOrRemoveSkill(id: number): void {
     let index = this.teamInfo.technologies.indexOf(id);
 
     if (index > -1) {

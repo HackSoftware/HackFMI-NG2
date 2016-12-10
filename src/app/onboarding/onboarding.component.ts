@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
-
 import { Skill } from '../core/core.models';
-import { MeService } from '../core/me/me.service';
 import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 
 import { OnboardingService } from './onboarding.service';
@@ -38,14 +35,15 @@ export class OnboardingComponent implements OnInit {
   };
 
   constructor(private _router: Router,
-              private _meService: MeService,
               private _route: ActivatedRoute,
               private _onboardingService: OnboardingService,
               private _onboardingGuardService: OnboardingGuardService) { }
 
-  ngOnInit() {this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);}
+  ngOnInit() {
+    this._route.data.subscribe((data: {skills: Skill[]}) => this.skills = data.skills);
+  }
 
-  addOrRemoveSkill(id:number): void {
+  addOrRemoveSkill(id: number): void {
     let index = this.onboardingInfo.known_skills.indexOf(id);
 
     if (index > -1) {
@@ -55,13 +53,13 @@ export class OnboardingComponent implements OnInit {
     }
   }
 
-  setShirtSize(size:string):void {
+  setShirtSize(size: string): void {
     this.onboardingInfo.shirt_size = size;
   }
 
   onboardCompetitor(): void {
     this.onboardingInfo['shirt_size'] = this.shirtSizeMap[this.onboardingInfo['shirt_size']];
-    var seasonOnboardData = { 'looking_for_team': this.lookingForTeamValue };
+    let seasonOnboardData = { 'looking_for_team': this.lookingForTeamValue };
 
     this._onboardingService.onboardSeasonCompetitor(this.onboardingInfo, seasonOnboardData)
                            .subscribe(data => this._handleSuccessfulOnboarding());

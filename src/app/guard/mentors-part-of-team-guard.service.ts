@@ -13,7 +13,9 @@ export class MentorsPartOfTeamGuardService implements CanActivate {
     return this._meService.getSeasonMeInfo()
                           .map(data => {
                             let result = !!data.team;
-                            if (!result) this._router.navigate(['mentors/public']);
+                            if (!result) {
+                              this._router.navigate(['mentors/public']);
+                            }
 
                             return result;
                           });

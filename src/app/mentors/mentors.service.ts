@@ -19,16 +19,16 @@ export class MentorsService {
               private _apiUrlsService: ApiUrlsService,
               private _defaultHttpService: DefaultHttpService) { }
 
-  getMentorsListInfo():Observable<Mentor[]> {
+  getMentorsListInfo(): Observable<Mentor[]> {
     return this._defaultHttpService.get(this._apiUrlsService.membersPublicListUrl)
                                    .map(res => <Mentor[]>res.json())
                                    .catch(err => this._handleHttp.handleError(err));
   }
 
-  getMentorsForTeam():Observable<Mentor[]> {
+  getMentorsForTeam(): Observable<Mentor[]> {
     return this._authHttp.get(this._apiUrlsService.teamMentorsUrl)
                                    .map(res => <number[]>res.json().map(mentor => mentor.id))
-                                   .catch(err => this._handleHttp.handleError(err))
+                                   .catch(err => this._handleHttp.handleError(err));
   }
 
   addMentor(data: any): Observable<any> {

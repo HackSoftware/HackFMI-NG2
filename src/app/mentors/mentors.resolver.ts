@@ -7,7 +7,7 @@ import { MentorsService } from './mentors.service';
 
 @Injectable()
 export class MentorsListResolver implements Resolve<Mentor[]> {
-    constructor(private _mentorsService:MentorsService) {}
+    constructor(private _mentorsService: MentorsService) {}
 
     resolve(route: ActivatedRouteSnapshot) {
         return this._mentorsService.getMentorsListInfo();
@@ -17,7 +17,7 @@ export class MentorsListResolver implements Resolve<Mentor[]> {
 
 @Injectable()
 export class MentorsForTeamResolver implements Resolve<Mentor[]> {
-    constructor(private _mentorsService:MentorsService) {}
+    constructor(private _mentorsService: MentorsService) {}
 
     resolve(route: ActivatedRouteSnapshot) {
         return this._mentorsService.getMentorsForTeam();

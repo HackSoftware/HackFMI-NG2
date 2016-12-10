@@ -15,7 +15,7 @@ export class LeaderGuardService implements CanActivate {
                           .map(data => this._handleIsLeader(data));
   }
 
-  private _handleIsLeader(meData:Me):boolean {
+  private _handleIsLeader(meData: Me): boolean {
     if (!meData.team) {
       return false;
     }

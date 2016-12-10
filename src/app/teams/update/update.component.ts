@@ -21,13 +21,15 @@ export class UpdateComponent implements OnInit {
               private _teamsService: TeamsService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {skills:Skill[]}) => this.skills = data.skills);
-    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
+    this._route.data.subscribe((data: {skills: Skill[]}) => this.skills = data.skills);
+    this._route.data.subscribe((data: {teamDetails: PrivateTeam}) => this.teamDetails = data.teamDetails);
   }
 
-  isSkillChosen(skillId:number):boolean {return this.teamDetails.technologies.indexOf(skillId) > -1;}
+  isSkillChosen(skillId: number): boolean {
+    return this.teamDetails.technologies.indexOf(skillId) > -1;
+  }
 
-  addOrRemoveSkill(id:number): void {
+  addOrRemoveSkill(id: number): void {
     let index = this.teamDetails.technologies.indexOf(id);
 
     if (index > -1) {
@@ -44,5 +46,7 @@ export class UpdateComponent implements OnInit {
                       .subscribe(data => this._handleSuccessfulTeamEdit(data));
   }
 
-  private _handleSuccessfulTeamEdit(team: PrivateTeam) {this._router.navigate(['teams', team.id]);}
+  private _handleSuccessfulTeamEdit(team: PrivateTeam) {
+    this._router.navigate(['teams', team.id]);
+  }
 }
