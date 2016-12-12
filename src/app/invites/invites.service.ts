@@ -56,7 +56,7 @@ export class InvitesService {
   }
 
   private _openWSConnection(): void {
-    this.socket = this._websocketService.connect(this._apiUrlsService.invitationWebsocketUrl)
+    this.socket = this._websocketService.connect(this._apiUrlsService.wsUrl)
                                         .map((res: MessageEvent): InvitationMessage => JSON.parse(res.data));
     this.wsOpened.emit();
   }
