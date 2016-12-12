@@ -66,8 +66,15 @@ li a:hover {
     border-radius: 25px;
     width: 20px;
     height: 20px;
+    cursor: default;
 }
 
-.your-invites {
-    padding-right: 5px !important;
+ul li a.your-invites {
+    padding-right: 5px;
+}
+
+ul li a.active {
+    padding-bottom:10px;
+    color: #F88C00;
+    border-bottom:5px solid #F88C00;
 }

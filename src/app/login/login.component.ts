@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
     this._authService.setCurrentUser(data);
     this._meService.getSeasonMeInfo().subscribe(
       data => {
+        /* After `meInfo` is fetched notify listeners that user is logged */
+        this._authService.userLoggedIn.emit();
         if (!data.is_competitor) {
           /* Always onboard new users after login */
           this._router.navigate(['onboarding']);

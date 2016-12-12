@@ -18,6 +18,12 @@ import { OnBoardingRoutingModule } from './onboarding.routing';
     OnBoardingRoutingModule
   ],
   exports: [OnBoardingRoutingModule],
-  providers: [OnboardingService],
+  providers: [
+    OnboardingService,
+    {
+      provide: 'Window',
+      useValue: window
+    },
+  ]
 })
 export class OnBoardingModule { }

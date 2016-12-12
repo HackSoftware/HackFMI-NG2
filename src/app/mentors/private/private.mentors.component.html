@@ -2,6 +2,9 @@
 <h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
 <div class="container">
   <div *ngFor="let mentor of mentors" class="mentor-container">
+    <div *ngIf="mentor.picture" class="mentor-avatar">
+      <img [src]="mentor.picture" />
+    </div>
     <h2>{{mentor.name}}</h2>
     <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
     <p>

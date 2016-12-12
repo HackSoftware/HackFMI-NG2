@@ -6,7 +6,7 @@
     position:relative;
 }
 
-.mentor-container:after {
+.mentor-container:before {
     height:20px;
     width:100%;
     position:absolute;
@@ -15,6 +15,13 @@
     background-color: #eaeaea;
     display:block;
     content:"";
+    clear:both;
+}
+
+.mentor-container:after{
+    display:block;
+    content:"";
+    clear:both;
 }
 
 .mentor-container button {
@@ -28,4 +35,18 @@
 
 .mentor-container > span {
     font-size: 20px;
+}
+
+.mentor-avatar {
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+    max-height:200px;
+    width:200px;
+    text-align: center;
+}
+
+.mentor-avatar img {
+    max-width:200px;
+    max-height:200px;
 }

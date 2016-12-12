@@ -35,7 +35,6 @@ export class AuthService {
     userData.token = token;
     this._currentUser = userData;
     localStorage.setItem('user-data', JSON.stringify(userData));
-    this.userLoggedIn.emit();
   }
 
   clearCurrentUser():void {

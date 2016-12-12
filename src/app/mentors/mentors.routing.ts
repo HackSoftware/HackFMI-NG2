@@ -6,6 +6,7 @@ import { AuthGuardService } from '../guard/auth-guard.service';
 import { TeamsGuardService } from '../guard/teams-guard.service';
 import { SeasonInfoResolver } from '../core/season/season.resolver';
 import { MentorsGuardService } from '../guard/mentors-guard.service';
+import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 import { MentorsPartOfTeamGuardService } from '../guard/mentors-part-of-team-guard.service';
 
 import { PublicMentorsComponent } from './public/public.mentors.component';
@@ -23,6 +24,7 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
           component: PrivateMentorsComponent,
           canActivate: [
             MentorsGuardService,
+            OnboardingGuardService,
             MentorsPartOfTeamGuardService
           ],
           resolve: {
