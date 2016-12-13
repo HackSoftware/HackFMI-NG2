@@ -7,7 +7,6 @@ import { HandleHttpService } from '../http/handle-http.service';
 import { DefaultHttpService } from '../http/default-http.service';
 
 import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 
 
