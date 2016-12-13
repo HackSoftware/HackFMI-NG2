@@ -8,7 +8,7 @@
         <li><a routerLink="/home" routerLinkActive="active">Начало</a></li>
         <li><a routerLink="/teams" routerLinkActive="active">Отбори</a></li>
         <li><a routerLink="/mentors" routerLinkActive="active">Ментори</a></li>
-        <li><a routerLink="/mentors-schedule" routerLinkActive="active">Разпределение на менторите</a></li>
+        <li><a routerLink="/mentors/schedule" routerLinkActive="active">Разпределение на менторите</a></li>
         <li><a class="your-invites" *ngIf="isLogged()" routerLink="/invites" routerLinkActive="active">Твоите покани</a></li>
         <li class="invites-counter" *ngIf="isLogged()">{{invitesCounter}}</li>
         <li><a *ngIf="isLogged() && isLeader()" routerLink="/competitors" routerLinkActive="active">Покани състезател</a></li>

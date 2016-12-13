@@ -22,7 +22,6 @@ import { InvitesModule } from './invites/invites.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { OnBoardingModule } from './onboarding/onboarding.module';
 import { CompetitorsModule } from './competitors/competitors.module';
-import { MentorsScheduleModule } from './mentors-schedule/mentors-schedule.module';
 
 
 @NgModule({
@@ -47,8 +46,7 @@ import { MentorsScheduleModule } from './mentors-schedule/mentors-schedule.modul
     InvitesModule,
     NavigationModule,
     OnBoardingModule,
-    CompetitorsModule,
-    MentorsScheduleModule,
+    CompetitorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
