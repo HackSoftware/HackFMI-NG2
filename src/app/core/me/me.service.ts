@@ -8,6 +8,7 @@ import { ApiUrlsService } from '../api-urls.service';
 import { SeasonService } from '../season/season.service';
 import { HandleHttpService } from '../http/handle-http.service';
 
+import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/mergeMap';
 
 
