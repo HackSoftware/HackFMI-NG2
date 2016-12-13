@@ -1,0 +1,65 @@
+.mentor-container {
+    border: 0;
+    padding: 20px 20px 40px 20px;
+    box-shadow: 5px 5px 20px #888888;
+    margin-top: 40px;
+    position: relative;
+}
+
+.mentor-container div {
+    float: left;
+}
+
+.mentor-container:before {
+    height:20px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background-color: #eaeaea;
+    display:block;
+    content:"";
+    clear:both;
+}
+
+.mentor-container:after{
+    display:block;
+    content:"";
+    clear:both;
+}
+
+.mentor-container button {
+    float:right;
+    margin-left:20px;
+}
+
+.mentor-container h2 {
+    display: block;
+}
+
+.mentor-container > span {
+    font-size: 20px;
+}
+
+.mentor-information {
+    float:left;
+    height: 100%;
+    margin-right: 5%;
+    margin-bottom: 2%;
+    width: 250px;
+    display: block;
+    text-align: center;
+}
+
+.mentor-avatar {
+    max-width:200px;
+    max-height:200px;
+    background display: block;
+    border: 2px solid #9D9898;
+}
+
+.mentor-teams {
+    float: right;
+    text-align: right;
+    display: block;
+}
