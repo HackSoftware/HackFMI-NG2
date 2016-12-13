@@ -45,7 +45,7 @@ export class DetailComponent implements OnInit {
   isVisible = false;
 
   changeRoomFormIsVisible(): void {
-    !this.isVisible
+    this.isVisible = !this.isVisible
   }
 
   competitorInTeam():boolean {
@@ -84,7 +84,8 @@ export class DetailComponent implements OnInit {
   private _handleSuccessfulChangeRoom(team: PrivateTeam) {
     this._router.navigate(['teams', team.id]);
     this._toastService.success('You are now in room ' + this.teamDetails.updated_room);
-    this.roomNumber = this.teamDetails.updated_room
+    this.roomNumber = this.teamDetails.updated_room;
+    this.changeRoomFormIsVisible();
   }
 
   private _handleSuccessfulInvitation() {
