@@ -38,10 +38,11 @@
     <span *ngIf=!teamDetails.need_more_members>Не</span>
   </div>
   <p *ngIf="teamDetails.need_more_members && teamDetails.members_needed_desc"><b>Какви хора търсим:</b> {{teamDetails.members_needed_desc}}</p>
-  <form (ngSubmit)="changeRoom()" #changeRoomForm="ngForm">
-    <span *ngIf="roomNumber">Стая: {{roomNumber}}<input hack-orange type="text" class="form-control" id="room-number" required [(ngModel)]="teamDetails.updated_room" name="room-number"></span>
+  <span *ngIf="roomNumber">Стая: {{roomNumber}}</span><i (click)="changeRoomFormIsVisible()" class="fa fa-pencil" aria-hidden="true"></i>
+  <form *ngIf="!!changeRoomFormIsVisible" (ngSubmit)="changeRoom()" #changeRoomForm="ngForm">
+    <input hack-orange type="text" class="form-control" id="room-number" required [(ngModel)]="teamDetails.updated_room" name="room-number">
     <span class="submit-container">
-      <button hack-orange type="submit" [disabled]="!changeRoomForm.form.valid"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button hack-orange type="submit" [disabled]="!changeRoomForm.form.valid">Промени</button>
     </span>
   </form>
 </div>

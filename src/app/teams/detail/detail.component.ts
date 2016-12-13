@@ -42,6 +42,12 @@ export class DetailComponent implements OnInit {
                                                                     });
   }
 
+  isVisible = false;
+
+  changeRoomFormIsVisible(): void {
+    !this.isVisible
+  }
+
   competitorInTeam():boolean {
     if (!this.meDetails.team) return false;
 
