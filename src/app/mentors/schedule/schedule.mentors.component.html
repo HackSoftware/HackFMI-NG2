@@ -1,15 +1,16 @@
 <h1 align="center">Разпределение на менторите по отбори:</h1>
 
 <div class="container">
-  <div *ngFor="let mentor of mentors" class="mentor-container col-sm-12">
-    <div *ngIf="mentor.picture" class="mentor-information col-sm-3">
+  <div class="col-md-3"></div>
+  <div *ngFor="let mentor of mentors" class="mentor-container col-md-6">
+    <div *ngIf="mentor.picture" class="mentor-information col-sm-2">
       <img [src]="mentor.picture" class="mentor-avatar"/>
-      <h2 class="mentor-name">{{mentor.name}}</h2>
+      <b><div class="mentor-name">{{mentor.name}}</div></b>
     </div>
-    <div class="mentor-teams col-sm-9">
+    <div class="mentor-teams col-sm-4">
       <div *ngFor="let team of mentor.teams">
-        <b><span *ngIf="!!team.updated_room">{{team.name}}: {{team.updated_room}}</span></b>
-        <b><span *ngIf="!!!team.updated_room">{{team.name}}: {{team.room}}</span></b>
+        <b><span *ngIf="!!team.updated_room">{{team.name}}: {{team.updated_room}} стая</span></b>
+        <b><span *ngIf="!!!team.updated_room">{{team.name}}: {{team.room}} стая</span></b>
       </div>
     </div>
   </div>
