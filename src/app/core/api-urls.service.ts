@@ -16,6 +16,7 @@ export class ApiUrlsService {
   teamsUrl = API + 'teams/';                                 // Authorization: JWT
   logoutUrl = API + 'jwt-logout/';                           // Authorization: JWT
   invitationUrl = API + 'invitation/'                        // Authorization: JWT
+  changeRoomUrl = API + 'change-room/'                       // Authorization: JWT
   competitorsUrl = API + 'competitors/'                      // Authorization: JWT
   teamMentorsUrl = API + 'team-mentors/'                     // Authorization: JWT
   onboardUrl = API + 'onboard-competitor/';                  // Authorization: JWT

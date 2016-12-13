@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -20,6 +21,7 @@ export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
   inviteInfo = {competitor_email: ''}
+  roomNumber: any;
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -57,6 +59,16 @@ export class DetailComponent implements OnInit {
   inviteMember():void {
     this._invitesService.inviteMember(this.inviteInfo)
                         .subscribe(data => this._handleSuccessfulInvitation());
+  }
+
+  changeRoom(): void {
+    this._teamsService.changeRoom(this.roomNumber)
+                      .subscribe(data => this._handleSuccessfulChangeRoom());
+  }
+
+  private _handleSuccessfulChangeRoom() {
+    this._toastService.success('You are now in room ' + this.roomNumber);
+    this.roomNumber = null;
   }
 
   private _handleSuccessfulInvitation() {
