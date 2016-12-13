@@ -32,7 +32,14 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
-    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => this.teamDetails = data.teamDetails);
+    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => {
+                                                                     this.teamDetails = data.teamDetails;
+                                                                     if (!!data.teamDetails.updated_room){
+                                                                       this.roomNumber = data.teamDetails.updated_room;
+                                                                     } else {
+                                                                       this.roomNumber = data.teamDetails.room;
+                                                                     }
+                                                                    });
   }
 
   competitorInTeam():boolean {
@@ -62,13 +69,16 @@ export class DetailComponent implements OnInit {
   }
 
   changeRoom(): void {
-    this._teamsService.changeRoom(this.roomNumber)
-                      .subscribe(data => this._handleSuccessfulChangeRoom());
+    var teamId = this.teamDetails.id
+
+    this._teamsService.editTeam(teamId, this.teamDetails)
+                      .subscribe(data => this._handleSuccessfulChangeRoom(data));
   }
 
-  private _handleSuccessfulChangeRoom() {
-    this._toastService.success('You are now in room ' + this.roomNumber);
-    this.roomNumber = null;
+  private _handleSuccessfulChangeRoom(team: PrivateTeam) {
+    this._router.navigate(['teams', team.id]);
+    this._toastService.success('You are now in room ' + this.teamDetails.updated_room);
+    this.roomNumber = this.teamDetails.updated_room
   }
 
   private _handleSuccessfulInvitation() {

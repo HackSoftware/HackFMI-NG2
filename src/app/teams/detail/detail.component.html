@@ -39,9 +39,9 @@
   </div>
   <p *ngIf="teamDetails.need_more_members && teamDetails.members_needed_desc"><b>Какви хора търсим:</b> {{teamDetails.members_needed_desc}}</p>
   <form (ngSubmit)="changeRoom()" #changeRoomForm="ngForm">
-    <p *ngIf="teamDetails.room">Стая: {{teamDetails.room}}</p><input hack-orange type="text" class="form-control" id="roomNumber" required [(ngModel)]="roomNumber" name="roomNumber">
+    <span *ngIf="roomNumber">Стая: {{roomNumber}}<input hack-orange type="text" class="form-control" id="room-number" required [(ngModel)]="teamDetails.updated_room" name="room-number"></span>
+    <span class="submit-container">
+      <button hack-orange type="submit" [disabled]="!changeRoomForm.form.valid"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+    </span>
   </form>
-  <div class="submit-container">
-    <button hack-orange type="submit" [disabled]="!changeRoomForm.form.valid"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-  </div>
 </div>

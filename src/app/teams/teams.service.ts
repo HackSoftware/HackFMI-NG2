@@ -60,10 +60,4 @@ export class TeamsService {
     return this._authHttp.delete(teamLeaveUrl)
                          .catch(err => this._handleHttp.handleError(err));
   }
-
-  changeRoom(newRoom: any): Observable<any> {
-    return this._authHttp.post(this._apiUrlsService.changeRoomUrl, newRoom)
-                         .catch(err => this._handleHttp.handleError(err));
-  }
-
 }
