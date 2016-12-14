@@ -21,7 +21,8 @@ export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
   inviteInfo = {competitor_email: ''}
-  roomNumber: any;
+  roomNumber: number|string;
+  roomFormVisible:boolean = false;
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -34,18 +35,20 @@ export class DetailComponent implements OnInit {
     this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
     this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => {
                                                                      this.teamDetails = data.teamDetails;
-                                                                     if (!!data.teamDetails.updated_room){
-                                                                       this.roomNumber = data.teamDetails.updated_room;
-                                                                     } else {
-                                                                       this.roomNumber = data.teamDetails.room;
-                                                                     }
+                                                                     this.setRoomNumber(data.teamDetails)
                                                                     });
   }
 
-  isVisible = false;
+  setRoomNumber(team: PrivateTeam):void {
+    if (!!team.updated_room){
+      this.roomNumber = team.updated_room;
+    } else {
+      this.roomNumber = team.room;
+    }
+  }
 
   changeRoomFormIsVisible(): void {
-    this.isVisible = !this.isVisible
+    this.roomFormVisible = !this.roomFormVisible;
   }
 
   competitorInTeam():boolean {
@@ -83,7 +86,7 @@ export class DetailComponent implements OnInit {
 
   private _handleSuccessfulChangeRoom(team: PrivateTeam) {
     this._router.navigate(['teams', team.id]);
-    this._toastService.success('You are now in room ' + this.teamDetails.updated_room);
+    this._toastService.success('Your team is now located in room ' + this.teamDetails.updated_room + '.');
     this.roomNumber = this.teamDetails.updated_room;
     this.changeRoomFormIsVisible();
   }
