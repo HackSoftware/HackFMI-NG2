@@ -54,7 +54,7 @@ ul li {
     font-weight: normal;
 }
 
-.search-team-text {
+.search-team a {
     cursor:pointer;
     display:inline-block;
     text-align: center;
