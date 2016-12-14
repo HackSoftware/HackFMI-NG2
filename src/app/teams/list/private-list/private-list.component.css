@@ -54,12 +54,28 @@ ul li {
     font-weight: normal;
 }
 
-.search-team-text {
+.search-team a {
     cursor:pointer;
     display:inline-block;
     text-align: center;
     font-weight: bold;
     font-size: 25px;
+}
+
+.team-container:last-child {
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 595px) {
+    .create-team-container {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 596px) {
+    .create-team-container {
+        margin-top: 20px;
+    }
 }
 
 .slide-button-container {
@@ -71,20 +87,20 @@ ul li {
     cursor:pointer;
 }
 
-.slide-button-container.activated .slide-button{
+.slide-button-container.activated .slide-button {
     margin-left:4%;
 }
 
-.slide-button-container.deactivated .slide-button{
+.slide-button-container.deactivated .slide-button {
     margin-left:50%;
 }
 
-.slide-button-container.activated .slide-button-background{
+.slide-button-container.activated .slide-button-background {
     background-color: #FF4136;
     transition: all 0.5s linear;
 }
 
-.slide-button-container.deactivated .slide-button-background{
+.slide-button-container.deactivated .slide-button-background {
     background-color: #2ECC40;
     transition: all 0.5s linear;
 }

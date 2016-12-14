@@ -46,7 +46,7 @@ import { CompetitorsModule } from './competitors/competitors.module';
     InvitesModule,
     NavigationModule,
     OnBoardingModule,
-    CompetitorsModule,
+    CompetitorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

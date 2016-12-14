@@ -30,3 +30,7 @@ ul li {
     margin-left:30px;
     font-weight: normal;
 }
+
+.team-container:last-child {
+    margin-bottom: 120px;
+}

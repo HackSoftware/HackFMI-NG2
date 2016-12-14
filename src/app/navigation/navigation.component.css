@@ -78,3 +78,38 @@ ul li a.active {
     color: #F88C00;
     border-bottom:5px solid #F88C00;
 }
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+
+    .main-navigation ul {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .main-navigation {
+        margin-bottom: -14px;
+    }
+    .main-navigation ul {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 411px) {
+    .main-navigation ul {
+        font-size: 16px;
+    }
+    .navbar {
+        padding: 23px 0;
+    }
+}
+
+@media screen and (min-width: 412px) and (max-width: 667px) {
+    .main-navigation ul {
+        font-size: 18px;
+    }
+    .navbar {
+        padding: 23px 0;
+    }
+}

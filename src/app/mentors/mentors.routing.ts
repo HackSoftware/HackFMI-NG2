@@ -11,6 +11,7 @@ import { MentorsPartOfTeamGuardService } from '../guard/mentors-part-of-team-gua
 
 import { PublicMentorsComponent } from './public/public.mentors.component';
 import { PrivateMentorsComponent } from './private/private.mentors.component';
+import { MentorsScheduleComponent } from './schedule/schedule.mentors.component';
 import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver';
 
 
@@ -37,6 +38,13 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
         {
           path: 'public',
           component: PublicMentorsComponent,
+          resolve: {
+            mentors: MentorsListResolver
+          }
+        },
+        {
+          path: 'schedule',
+          component: MentorsScheduleComponent,
           resolve: {
             mentors: MentorsListResolver
           }
