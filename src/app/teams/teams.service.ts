@@ -59,5 +59,4 @@ export class TeamsService {
     return this._authHttp.delete(teamLeaveUrl)
                          .catch(err => this._handleHttp.handleError(err));
   }
-
 }

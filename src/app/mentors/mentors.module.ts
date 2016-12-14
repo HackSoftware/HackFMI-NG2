@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MentorsService } from './mentors.service';
 import { MentorsRoutingModule } from './mentors.routing';
+import { MentorsScheduleComponent } from './schedule/schedule.mentors.component';
 import { PublicMentorsComponent } from './public/public.mentors.component';
 import { PrivateMentorsComponent } from './private/private.mentors.component';
 import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver';
@@ -12,6 +13,7 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
   declarations: [
     PublicMentorsComponent,
     PrivateMentorsComponent,
+    MentorsScheduleComponent,
   ],
   imports: [
     CommonModule,

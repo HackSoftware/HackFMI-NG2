@@ -3,8 +3,13 @@
 </div>
 
 <div *ngIf="!!!meDetails.team_membership_id" class="container create-team-container">
-  <div class="search-team">Търсиш ли си отбор?
-    <a (click)="changeLookingForTeamValue()" [class]="lookingForTeamValue ? 'fa fa-check':'fa fa-times'" > {{this.lookingForTeamString}}</a>
+  <div class="search-team">Търсиш ли си отбор?</div>
+  <div (click)="changeLookingForTeamValue()" [class]="lookingForTeamValue ? 'slide-button-container deactivated':'slide-button-container activated'" >
+    <div class="slide-button-background"></div>
+    <div class="slide-button"></div>
+  </div>
+  <div>
+    {{lookingForTeamString}}
   </div>
 </div>
 

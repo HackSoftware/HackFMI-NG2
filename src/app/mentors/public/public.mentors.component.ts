@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { Mentor } from '../mentors.models';
@@ -12,9 +12,12 @@ import { Mentor } from '../mentors.models';
 export class PublicMentorsComponent implements OnInit {
   mentors: Mentor[];
 
-  constructor(private _route: ActivatedRoute) { }
+  constructor(private _router: Router,
+              private _route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this._route.data.subscribe((data: {mentors: Mentor[]}) => this.mentors = data.mentors);
+  ngOnInit() { this._route.data.subscribe((data: {mentors: Mentor[]}) => this.mentors = data.mentors); }
+
+  showMentorsSchedule(): void {
+    this._router.navigate(['mentors/schedule']);
   }
 }

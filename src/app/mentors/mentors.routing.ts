@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { MeSeasonResolver } from '../core/me/me.resolver';
 import { SeasonInfoResolver } from '../core/season/season.resolver';
 import { MentorsGuardService } from '../guard/mentors-guard.service';
+import { OnboardingGuardService } from '../guard/onboarding-guard.service';
 import { MentorsPartOfTeamGuardService } from '../guard/mentors-part-of-team-guard.service';
 
 import { PublicMentorsComponent } from './public/public.mentors.component';
 import { PrivateMentorsComponent } from './private/private.mentors.component';
+import { MentorsScheduleComponent } from './schedule/schedule.mentors.component';
 import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver';
 
 
@@ -21,6 +23,7 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
           component: PrivateMentorsComponent,
           canActivate: [
             MentorsGuardService,
+            OnboardingGuardService,
             MentorsPartOfTeamGuardService
           ],
           resolve: {
@@ -33,6 +36,13 @@ import { MentorsListResolver, MentorsForTeamResolver } from './mentors.resolver'
         {
           path: 'public',
           component: PublicMentorsComponent,
+          resolve: {
+            mentors: MentorsListResolver
+          }
+        },
+        {
+          path: 'schedule',
+          component: MentorsScheduleComponent,
           resolve: {
             mentors: MentorsListResolver
           }

@@ -1,7 +1,12 @@
-<h1 align="center">Нашите ментори:</h1>
+<div class="mentors-title">
+  <button hack-orange (click)="showMentorsSchedule()">Разпределение</button>
+</div>
 
 <div class="container">
   <div *ngFor="let mentor of mentors" class="mentor-container">
+    <div *ngIf="mentor.picture" class="mentor-avatar">
+      <img [src]="mentor.picture" />
+    </div>
     <h2>{{mentor.name}}</h2>
     <p>
       <span [innerHTML]="mentor.description"></span>

@@ -66,8 +66,50 @@ li a:hover {
     border-radius: 25px;
     width: 20px;
     height: 20px;
+    cursor: default;
 }
 
-.your-invites {
-    padding-right: 5px !important;
+ul li a.your-invites {
+    padding-right: 5px;
+}
+
+ul li a.active {
+    padding-bottom:10px;
+    color: #F88C00;
+    border-bottom:5px solid #F88C00;
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+
+    .main-navigation ul {
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .main-navigation {
+        margin-bottom: -14px;
+    }
+    .main-navigation ul {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 411px) {
+    .main-navigation ul {
+        font-size: 16px;
+    }
+    .navbar {
+        padding: 23px 0;
+    }
+}
+
+@media screen and (min-width: 412px) and (max-width: 667px) {
+    .main-navigation ul {
+        font-size: 18px;
+    }
+    .navbar {
+        padding: 23px 0;
+    }
 }

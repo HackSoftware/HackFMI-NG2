@@ -32,6 +32,7 @@ export class PrivateTeam {
   need_more_members: boolean;
   members_needed_desc: string;
   room: number;
+  updated_room: string;
   picture: string;
   member: Member[];
   leader_id: number;

@@ -16,9 +16,7 @@ export class LoginService {
               private _defaultHttpService: DefaultHttpService,
               @Inject('Window') private _window: Window) { }
 
-  register(): void {
-    this._window.open(this._apiUrlsService.resiterUrl, '_blank');
-  }
+  register(): void { this._window.open(this._apiUrlsService.registerUrl, '_blank'); }
 
   login(email: string, password: string): Observable<LoginData> {
     let data = {'email': email, 'password': password};

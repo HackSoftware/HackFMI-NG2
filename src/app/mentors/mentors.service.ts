@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { AuthHttp } from '../auth/auth-http.service';
 import { ApiUrlsService } from '../core/api-urls.service';
+import { environment } from '../../environments/environment';
 import { HandleHttpService } from '../core/http/handle-http.service';
 import { DefaultHttpService } from '../core/http/default-http.service';
 
@@ -10,6 +11,8 @@ import { Mentor } from './mentors.models';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+
+const MEDIA = environment.protocol + '://' + environment.domain + 'media/';
 
 
 @Injectable()
@@ -22,6 +25,12 @@ export class MentorsService {
   getMentorsListInfo(): Observable<Mentor[]> {
     return this._defaultHttpService.get(this._apiUrlsService.membersPublicListUrl)
                                    .map(res => <Mentor[]>res.json())
+                                   .map(res => res.map(mentor => {
+                                     if (!!mentor.picture) {
+                                       mentor.picture = MEDIA + mentor.picture;
+                                     }
+                                     return mentor;
+                                   }))
                                    .catch(err => this._handleHttp.handleError(err));
   }
 

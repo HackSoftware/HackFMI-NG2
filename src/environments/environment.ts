@@ -6,10 +6,10 @@
 export const environment = {
   /* TODO: Discuss this */
   production: false,
-
-  domain: 'http://localhost:8000/',
-  apiUrl: 'http://localhost:8000/hackfmi/api/',
-
+  protocol: 'http',
+  domain: 'localhost:8000/',
+  apiBaseUrl: 'hackfmi/api/',
+  ws: 'ws',
   defaultUrlQueryParams: {
     'format': 'json'
   }

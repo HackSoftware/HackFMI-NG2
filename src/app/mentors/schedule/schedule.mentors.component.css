@@ -1,0 +1,138 @@
+.mentor-container {
+    border: 0;
+    padding-top: 10px;
+    box-shadow: 5px 5px 20px #888888;
+    margin-top: 40px;
+    position: relative;
+}
+
+.mentor-container:before {
+    height:20px;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    background-color: #eaeaea;
+    display:block;
+    content:"";
+    clear:both;
+}
+
+.mentor-container:after{
+    display:block;
+    content:"";
+    clear:both;
+}
+
+.mentor-container button {
+    float:right;
+    margin-left:20px;
+}
+
+.mentor-container div {
+    display: block;
+    font-size: 16px;
+}
+
+.mentor-container > span {
+    font-size: 20px;
+}
+
+.mentor-information {
+    float:left;
+    height: 100%;
+    margin-right: 3%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+    display: block;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.mentor-avatar {
+    width: 100px;
+    height: 100px;
+    background display: block;
+    border: 2px solid #9D9898;
+}
+
+.mentor-teams {
+    font-size: 150%;
+    padding-bottom: 3%;
+}
+
+.mentor-teams div {
+    margin-bottom: 2%;
+    margin-left: 35%;
+}
+
+.mentor-container:last-child {
+    margin-bottom: 100px;
+}
+
+.mentors-title {
+    text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .mentors-title h1 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    .mentor-teams div {
+        padding-bottom: 3%;
+        font-size: 14px;
+    }
+
+    .mentor-avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .mentor-information {
+        max-width: 100px;
+        word-break: break-word;
+    }
+
+    .mentors-title h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 411px) {
+    .mentor-avatar {
+        width: 75px;
+        height: 75px;
+    }
+
+    .mentor-information {
+        max-width: 150px;
+        word-break: break-word;
+    }
+
+    .mentor-teams div {
+        padding-bottom: 3%;
+        font-size: 14px;
+    }
+
+    .mentors-title h1 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 412px) and (max-width: 667px) {
+    .mentor-information {
+        max-width: 150px;
+        word-break: break-word;
+    }
+
+    .mentor-teams div {
+        padding-bottom: 3%;
+    }
+
+    .mentors-title h1 {
+        font-size: 32px;
+    }
+}

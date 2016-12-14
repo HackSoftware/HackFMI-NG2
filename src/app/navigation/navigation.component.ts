@@ -47,15 +47,19 @@ export class NavigationComponent implements OnInit {
     };
   }
 
-  private _setInvitesCounter() {
+  private _setInvitesCounter(): void {
     this._invitesService.getInvites().subscribe(data => this.invitesCounter = data.length);
   }
 
-  private _startListeningToWS() {
+  private _resetInvitesCounter(): void {
+    this.invitesCounter = 0;
+  }
+
+  private _startListeningToWS(): void {
     this.socket = this._navigationService.socket.subscribe(msg => this._handleWsMessage(msg));
   }
 
-  private _handleWsMessage(msg: any) {
+  private _handleWsMessage(msg: any): void {
     if (msg.message === 'New invitation was created.') {
       this.invitesCounter++;
       this._toastService.info('You received new invitation.');
@@ -71,5 +75,6 @@ export class NavigationComponent implements OnInit {
     this._invitesService.clearSocket();
     this._navigationService.clearSocket();
     this._seasonService.clearCurrentSeasonInfo();
+    this._resetInvitesCounter();
   }
 }

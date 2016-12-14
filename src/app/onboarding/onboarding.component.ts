@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Skill } from '../core/core.models';
@@ -36,6 +36,7 @@ export class OnboardingComponent implements OnInit {
 
   constructor(private _router: Router,
               private _route: ActivatedRoute,
+              @Inject('Window') private _window: Window,
               private _onboardingService: OnboardingService,
               private _onboardingGuardService: OnboardingGuardService) { }
 
@@ -66,6 +67,11 @@ export class OnboardingComponent implements OnInit {
   }
 
   private _handleSuccessfulOnboarding() {
+    /* Team list view is dead for some reason when Mozilla Firefox is used.
+    Refreshing the client does the job to fix this. TODO: Fix this without refreshing. */
+    if (this._window.navigator.userAgent.startsWith('Mozilla')) {
+      this._window.open('/', '_self');
+    }
     if (this._onboardingGuardService.redirectUrl) {
       this._router.navigate([this._onboardingGuardService.redirectUrl]);
     } else {

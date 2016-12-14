@@ -1,9 +1,9 @@
 export const environment = {
   production: true,
-
-  domain: 'https://hackbulgaria.com/',
-  apiUrl: 'https://hackbulgaria.com/hackfmi/api/',
-
+  protocol: 'https',
+  domain: 'hackbulgaria.com/',
+  apiBaseUrl: 'hackfmi/api/',
+  ws: 'wss',
   defaultUrlQueryParams: {
     'format': 'json'
   }

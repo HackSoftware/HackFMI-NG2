@@ -20,6 +20,8 @@ export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
   inviteInfo = {competitor_email: ''};
+  roomNumber: number|string;
+  roomFormVisible: boolean = false;
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -30,7 +32,22 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this._route.data.subscribe((data: {meDetails: Me}) => this.meDetails = data.meDetails);
-    this._route.data.subscribe((data: {teamDetails: PrivateTeam}) => this.teamDetails = data.teamDetails);
+    this._route.data.subscribe((data: {teamDetails: PrivateTeam}) => {
+                                                                     this.teamDetails = data.teamDetails;
+                                                                     this.setRoomNumber(data.teamDetails);
+                                                                    });
+  }
+
+  setRoomNumber(team: PrivateTeam): void {
+    if (!!team.updated_room) {
+      this.roomNumber = team.updated_room;
+    } else {
+      this.roomNumber = team.room;
+    }
+  }
+
+  changeRoomFormIsVisible(): void {
+    this.roomFormVisible = !this.roomFormVisible;
   }
 
   competitorInTeam(): boolean {
@@ -63,6 +80,20 @@ export class DetailComponent implements OnInit {
   inviteMember(): void {
     this._invitesService.inviteMember(this.inviteInfo)
                         .subscribe(data => this._handleSuccessfulInvitation());
+  }
+
+  changeRoom(): void {
+    let teamId = this.teamDetails.id;
+
+    this._teamsService.editTeam(teamId, this.teamDetails)
+                      .subscribe(data => this._handleSuccessfulChangeRoom(data));
+  }
+
+  private _handleSuccessfulChangeRoom(team: PrivateTeam) {
+    this._router.navigate(['teams', team.id]);
+    this._toastService.success('Your team is now located in room ' + this.teamDetails.updated_room + '.');
+    this.roomNumber = this.teamDetails.updated_room;
+    this.changeRoomFormIsVisible();
   }
 
   private _handleSuccessfulInvitation() {

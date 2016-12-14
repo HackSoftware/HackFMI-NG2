@@ -135,3 +135,7 @@ textarea[hack-orange]:focus {
     position:relative;
     padding-bottom: 200px;
 }
+
+.mentor-container ul {
+    display:inline-block;
+}
