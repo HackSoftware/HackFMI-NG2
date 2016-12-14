@@ -50,3 +50,7 @@
     max-width:200px;
     max-height:200px;
 }
+
+.mentor-container:last-child {
+    margin-bottom: 120px;
+}

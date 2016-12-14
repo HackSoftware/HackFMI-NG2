@@ -57,3 +57,19 @@ ul li {
 .search-team a {
     cursor:pointer;
 }
+
+.team-container:last-child {
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 595px) {
+    .create-team-container {
+        margin-top: 120px;
+    }
+}
+
+@media screen and (min-width: 596px) {
+    .create-team-container {
+        margin-top: 20px;
+    }
+}
