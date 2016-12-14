@@ -51,3 +51,8 @@ form div {
 form label {
     font-size: 16px;
 }
+
+.change-room-button {
+    margin-left: 5px;
+    padding: 4px 10px;
+}
