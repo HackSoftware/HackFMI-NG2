@@ -5,7 +5,7 @@ import { Mentor } from '../mentors.models';
 
 
 @Component({
-  selector: 'app-public-mentors',
+  selector: 'app-schedule-mentors',
   templateUrl: './schedule.mentors.component.html',
   styleUrls: ['./schedule.mentors.component.css']
 })
