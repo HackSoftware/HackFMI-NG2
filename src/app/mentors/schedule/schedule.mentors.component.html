@@ -9,8 +9,8 @@
     </div>
     <div class="mentor-teams col-sm-4">
       <div *ngFor="let team of mentor.teams">
-        <b><span *ngIf="(team.room == 'None')">{{team.name}}: В момента няма стая.</span></b>
-        <b><span *ngIf="(team.room != 'None')">{{team.name}}: {{team.room}} стая</span></b>
+        <b><span *ngIf="!!!team.room">{{team.name}}: В момента няма стая.</span></b>
+        <b><span *ngIf="!!team.room">{{team.name}}: {{team.room}} стая</span></b>
       </div>
     </div>
   </div>
