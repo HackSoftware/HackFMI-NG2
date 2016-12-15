@@ -9,7 +9,7 @@ export class TeamsGuardService implements CanActivate {
   constructor(private _router: Router, private _authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    var result: boolean = !!this._authService.currentUser;
+    let result: boolean = !!this._authService.currentUser;
 
     if (!result) {
       this._router.navigate(['teams/public']);

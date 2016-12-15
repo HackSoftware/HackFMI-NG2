@@ -7,7 +7,7 @@ import { PublicTeam, PrivateTeam,  } from './teams.models';
 
 @Injectable()
 export class PublicTeamsListResolver implements Resolve<PublicTeam[]> {
-  constructor(private _teamsService:TeamsService) {}
+  constructor(private _teamsService: TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this._teamsService.getPublicTeams();
@@ -17,7 +17,7 @@ export class PublicTeamsListResolver implements Resolve<PublicTeam[]> {
 
 @Injectable()
 export class PrivateTeamsListResolver implements Resolve<PrivateTeam[]> {
-  constructor(private _teamsService:TeamsService) {}
+  constructor(private _teamsService: TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this._teamsService.getPrivateTeams();
@@ -27,10 +27,10 @@ export class PrivateTeamsListResolver implements Resolve<PrivateTeam[]> {
 
 @Injectable()
 export class TeamDetailsResolver implements Resolve<PrivateTeam> {
-  constructor(private _teamsService:TeamsService) {}
+  constructor(private _teamsService: TeamsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
-    var id = route.params['id'];
+    let id = route.params['id'];
 
     return this._teamsService.getTeamDetails(id);
   }

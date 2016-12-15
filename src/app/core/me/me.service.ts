@@ -9,6 +9,7 @@ import { SeasonService } from '../season/season.service';
 import { HandleHttpService } from '../http/handle-http.service';
 
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/observable/of';
 
 
 @Injectable()
@@ -21,19 +22,19 @@ export class MeService {
               private _apiUrlsService: ApiUrlsService) { }
 
   /* TODO: This is unused. Atm we always know who's the active season */
-  getMeInfo():Observable<any> {
+  getMeInfo(): Observable<any> {
     return this._authHttp.get(this._apiUrlsService.meUrl)
                          .map(res => res.json())
                          .catch(err => this._handleHttp.handleError(err));
   }
 
-  getSeasonMeInfo():Observable<Me> {
-    if (!!this._meInfo){
+  getSeasonMeInfo(): Observable<Me> {
+    if (!!this._meInfo) {
       return Observable.of(this._meInfo);
     } else {
       return this._seasonService.getSeasonInfo().flatMap(
         season => {
-          var seasonMeUrl = this._apiUrlsService.meUrl + season.id + "/";
+          let seasonMeUrl = this._apiUrlsService.meUrl + season.id + '/';
 
           return this._authHttp.get(seasonMeUrl)
                                .map(res => {
@@ -41,7 +42,7 @@ export class MeService {
                                  return this._meInfo;
                                })
                                .catch(err => this._handleHttp.handleError(err));
-      })
+      });
     }
   }
 
@@ -50,14 +51,16 @@ export class MeService {
   }
 
   isCompetitor(): boolean {
-    if (!!this._meInfo) return this._meInfo.is_competitor;
+    if (!!this._meInfo) {
+      return this._meInfo.is_competitor;
+    }
 
     return false;
   }
 
-  isLeader = ():boolean => {
-    if (!!this._meInfo && !!this._meInfo.team){
-      return this._meInfo.competitor_info.id == this._meInfo.team.leader_id;
+  isLeader = (): boolean => {
+    if (!!this._meInfo && !!this._meInfo.team) {
+      return this._meInfo.competitor_info.id === this._meInfo.team.leader_id;
     }
 
     return false;

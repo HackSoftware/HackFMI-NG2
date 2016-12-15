@@ -24,4 +24,4 @@ import { CompetitorsComponent } from './competitors.component';
   ])],
   exports: [RouterModule]
 })
-export class CompetitorsRoutingModule {}
+export class CompetitorsRoutingModule { }

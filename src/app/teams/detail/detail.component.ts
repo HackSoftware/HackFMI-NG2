@@ -19,9 +19,9 @@ import { TeamsService } from '../teams.service';
 export class DetailComponent implements OnInit {
   meDetails: Me;
   teamDetails: PrivateTeam;
-  inviteInfo = {competitor_email: ''}
+  inviteInfo = {competitor_email: ''};
   roomNumber: number|string;
-  roomFormVisible:boolean = false;
+  roomFormVisible: boolean = false;
 
   constructor(private _router: Router,
               private _meService: MeService,
@@ -31,15 +31,15 @@ export class DetailComponent implements OnInit {
               private _invitesService: InvitesService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {meDetails:Me}) => this.meDetails = data.meDetails);
-    this._route.data.subscribe((data: {teamDetails:PrivateTeam}) => {
+    this._route.data.subscribe((data: {meDetails: Me}) => this.meDetails = data.meDetails);
+    this._route.data.subscribe((data: {teamDetails: PrivateTeam}) => {
                                                                      this.teamDetails = data.teamDetails;
-                                                                     this.setRoomNumber(data.teamDetails)
+                                                                     this.setRoomNumber(data.teamDetails);
                                                                     });
   }
 
-  setRoomNumber(team: PrivateTeam):void {
-    if (!!team.updated_room){
+  setRoomNumber(team: PrivateTeam): void {
+    if (!!team.updated_room) {
       this.roomNumber = team.updated_room;
     } else {
       this.roomNumber = team.room;
@@ -50,34 +50,40 @@ export class DetailComponent implements OnInit {
     this.roomFormVisible = !this.roomFormVisible;
   }
 
-  competitorInTeam():boolean {
-    if (!this.meDetails.team) return false;
+  competitorInTeam(): boolean {
+    if (!this.meDetails.team) {
+      return false;
+    }
 
-    return this.meDetails.team.id == this.teamDetails.id;
+    return this.meDetails.team.id === this.teamDetails.id;
   }
 
-  isTeamLeader():boolean {return this.meDetails.competitor_info.id == this.teamDetails.leader_id;}
+  isTeamLeader(): boolean {
+    return this.meDetails.competitor_info.id === this.teamDetails.leader_id;
+  }
 
-  updateTeam():void {this._router.navigate(['teams', this.teamDetails.id, 'edit']);}
+  updateTeam(): void {
+    this._router.navigate(['teams', this.teamDetails.id, 'edit']);
+  }
 
   leaveTeam(): void {
-    var leave:boolean = confirm("Сигурен ли си, че искаш да напуснеш отбора?");
+    let leave: boolean = confirm('Сигурен ли си, че искаш да напуснеш отбора?');
 
     if (this.competitorInTeam() && leave) {
-      var teamMembershipId = this.meDetails.team_membership_id;
+      let teamMembershipId = this.meDetails.team_membership_id;
 
       this._teamsService.leaveTeam(teamMembershipId)
                         .subscribe(data => this._handleSuccessfulTeamLeaving());
       }
   }
 
-  inviteMember():void {
+  inviteMember(): void {
     this._invitesService.inviteMember(this.inviteInfo)
                         .subscribe(data => this._handleSuccessfulInvitation());
   }
 
   changeRoom(): void {
-    var teamId = this.teamDetails.id
+    let teamId = this.teamDetails.id;
 
     this._teamsService.editTeam(teamId, this.teamDetails)
                       .subscribe(data => this._handleSuccessfulChangeRoom(data));
@@ -91,7 +97,7 @@ export class DetailComponent implements OnInit {
   }
 
   private _handleSuccessfulInvitation() {
-    var email = this.inviteInfo.competitor_email;
+    let email = this.inviteInfo.competitor_email;
     this.inviteInfo.competitor_email = '';
     this._toastService.success('Invitation email was sent to ' + email);
   }

@@ -7,7 +7,7 @@ import { CompetitorInfoForList } from './competitors.models';
 
 @Injectable()
 export class CompetitorsResolver implements Resolve<CompetitorInfoForList[]> {
-  constructor(private _competitorsService:CompetitorsService) {}
+  constructor(private _competitorsService: CompetitorsService) {}
 
   resolve(route: ActivatedRouteSnapshot) {
     return this._competitorsService.getCompetitorsList();

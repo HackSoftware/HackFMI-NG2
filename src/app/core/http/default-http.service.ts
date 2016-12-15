@@ -7,7 +7,7 @@ import { UrlParamsService } from '../url-params.service';
 
 @Injectable()
 export class DefaultHttpService {
-  constructor(private _http:Http,
+  constructor(private _http: Http,
               private _urlParamsService: UrlParamsService) {}
 
   private createDefaultOptions(requestOptions?: RequestOptions) {
@@ -20,19 +20,19 @@ export class DefaultHttpService {
     return options;
   }
 
-  get(url:string, options?: RequestOptions):Observable<Response> {
+  get(url: string, options?: RequestOptions): Observable<Response> {
     return this._http.get(url, this.createDefaultOptions(options));
   }
 
-  post(url:string, body:any, options?: RequestOptions):Observable<Response> {
+  post(url: string, body: any, options?: RequestOptions): Observable<Response> {
     return this._http.post(url, body, this.createDefaultOptions(options));
   }
 
-  patch(url:string, body:any, options?: RequestOptions):Observable<Response> {
+  patch(url: string, body: any, options?: RequestOptions): Observable<Response> {
     return this._http.patch(url, body, this.createDefaultOptions(options));
   }
 
-  delete(url:string, options?: RequestOptions):Observable<Response> {
+  delete(url: string, options?: RequestOptions): Observable<Response> {
     return this._http.delete(url, this.createDefaultOptions(options));
   }
 }

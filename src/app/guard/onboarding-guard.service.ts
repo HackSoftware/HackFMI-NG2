@@ -7,11 +7,13 @@ import { MeService } from '../core/me/me.service';
 
 @Injectable()
 export class OnboardingGuardService implements CanActivate {
-  private _redirectUrl:string = null;
+  private _redirectUrl: string = null;
 
   constructor(private _router: Router, private _meService: MeService) { }
 
-  get redirectUrl() {return this._redirectUrl;}
+  get redirectUrl() {
+    return this._redirectUrl;
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this._meService.getSeasonMeInfo()

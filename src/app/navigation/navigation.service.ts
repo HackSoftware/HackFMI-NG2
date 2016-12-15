@@ -1,4 +1,4 @@
-import { Injectable, Component, OnInit, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from '../auth/auth.service';
@@ -16,7 +16,9 @@ export class NavigationService {
               private _apiUrlsService: ApiUrlsService,
               private _websocketService: WebSocketService) {
     this.wsOpened = new EventEmitter();
-    if (_authService.isLogged()) this._openWSConnection();
+    if (_authService.isLogged()) {
+      this._openWSConnection();
+    }
     _authService.userLoggedIn.subscribe(data => this._openWSConnection());
   }
 

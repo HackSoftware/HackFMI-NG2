@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthHttp {
-  constructor(private _authService:AuthService,
+  constructor(private _authService: AuthService,
               private _defaultHttpService: DefaultHttpService) { }
 
   private _createAuthorizationHeaders(requestOptions: RequestOptions) {
@@ -20,19 +20,19 @@ export class AuthHttp {
     return options;
   }
 
-  get(url:string, options?: RequestOptions):Observable<Response> {
+  get(url: string, options?: RequestOptions): Observable<Response> {
     return this._defaultHttpService.get(url, this._createAuthorizationHeaders(options));
   }
 
-  post(url:string, body:any, options?: RequestOptions):Observable<Response> {
+  post(url: string, body: any, options?: RequestOptions): Observable<Response> {
     return this._defaultHttpService.post(url, body, this._createAuthorizationHeaders(options));
   }
 
-  patch(url:string, body:any, options?: RequestOptions):Observable<Response> {
+  patch(url: string, body: any, options?: RequestOptions): Observable<Response> {
     return this._defaultHttpService.patch(url, body, this._createAuthorizationHeaders(options));
   }
 
-  delete(url:string, options?: RequestOptions):Observable<Response> {
+  delete(url: string, options?: RequestOptions): Observable<Response> {
     return this._defaultHttpService.delete(url, this._createAuthorizationHeaders(options));
   }
 }

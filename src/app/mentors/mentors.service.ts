@@ -9,8 +9,8 @@ import { DefaultHttpService } from '../core/http/default-http.service';
 
 import { Mentor } from './mentors.models';
 
-import 'rxjs/add/operator/map'
-import 'rxjs/add/operator/catch'
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 const MEDIA = environment.protocol + '://' + environment.domain + 'media/';
 
@@ -22,20 +22,22 @@ export class MentorsService {
               private _apiUrlsService: ApiUrlsService,
               private _defaultHttpService: DefaultHttpService) { }
 
-  getMentorsListInfo():Observable<Mentor[]> {
+  getMentorsListInfo(): Observable<Mentor[]> {
     return this._defaultHttpService.get(this._apiUrlsService.membersPublicListUrl)
                                    .map(res => <Mentor[]>res.json())
                                    .map(res => res.map(mentor => {
-                                     if(!!mentor.picture) mentor.picture = MEDIA + mentor.picture;
+                                     if (!!mentor.picture) {
+                                       mentor.picture = MEDIA + mentor.picture;
+                                     }
                                      return mentor;
                                    }))
-                                   .catch(err => this._handleHttp.handleError(err))
+                                   .catch(err => this._handleHttp.handleError(err));
   }
 
-  getMentorsForTeam():Observable<Mentor[]> {
+  getMentorsForTeam(): Observable<Mentor[]> {
     return this._authHttp.get(this._apiUrlsService.teamMentorsUrl)
                                    .map(res => <number[]>res.json().map(mentor => mentor.id))
-                                   .catch(err => this._handleHttp.handleError(err))
+                                   .catch(err => this._handleHttp.handleError(err));
   }
 
   addMentor(data: any): Observable<any> {

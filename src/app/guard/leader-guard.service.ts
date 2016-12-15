@@ -15,9 +15,11 @@ export class LeaderGuardService implements CanActivate {
                           .map(data => this._handleIsLeader(data));
   }
 
-  private _handleIsLeader(meData:Me):boolean {
-    if (!meData.team) return false;
+  private _handleIsLeader(meData: Me): boolean {
+    if (!meData.team) {
+      return false;
+    }
 
-    return meData.competitor_info.id == meData.team.leader_id;
+    return meData.competitor_info.id === meData.team.leader_id;
   }
 }

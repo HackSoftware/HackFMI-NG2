@@ -15,16 +15,16 @@ export class ApiUrlsService {
   meUrl = API + 'me/';                                       // Authorization: JWT
   teamsUrl = API + 'teams/';                                 // Authorization: JWT
   logoutUrl = API + 'jwt-logout/';                           // Authorization: JWT
-  invitationUrl = API + 'invitation/'                        // Authorization: JWT
-  competitorsUrl = API + 'competitors/'                      // Authorization: JWT
-  teamMentorsUrl = API + 'team-mentors/'                     // Authorization: JWT
+  invitationUrl = API + 'invitation/';                        // Authorization: JWT
+  competitorsUrl = API + 'competitors/';                      // Authorization: JWT
+  teamMentorsUrl = API + 'team-mentors/';                     // Authorization: JWT
   onboardUrl = API + 'onboard-competitor/';                  // Authorization: JWT
-  teamMembershipUrl = API + 'team-membership/'               // Authorization: JWT
-  teamMentorshipUrl = API + 'team-mentorship/'               // Authorization: JWT
-  seasonCompetitorInfoUrl = API + 'season-competitor-info/'  // Authorization: JWT
+  teamMembershipUrl = API + 'team-membership/';               // Authorization: JWT
+  teamMentorshipUrl = API + 'team-mentorship/';               // Authorization: JWT
+  seasonCompetitorInfoUrl = API + 'season-competitor-info/';  // Authorization: JWT
 
   wsUrl = environment.ws + '://' + environment.domain + 'ws/invitations';
-  registerUrl = environment.protocol + '://' + environment.domain + 'register/?origin=hackfmi'
+  registerUrl = environment.protocol + '://' + environment.domain + 'register/?origin=hackfmi';
 
   constructor() { }
 }
