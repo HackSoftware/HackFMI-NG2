@@ -1,5 +1,7 @@
-<h2 align="center">За този издание на HackFMI могат да бъдат избирани ментори в затворения интервал [{{seasonInfo.min_team_members_count}}-{{seasonInfo.max_team_members_count}}]</h2>
-<h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
+<div class="mentors-title">
+  <h2 align="center">За този издание на HackFMI могат да бъдат избирани ментори в затворения интервал [{{seasonInfo.min_team_members_count}}-{{seasonInfo.max_team_members_count}}]</h2>
+  <h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
+</div>
 <div class="container">
   <div *ngFor="let mentor of mentors" class="mentor-container">
     <div *ngIf="mentor.picture" class="mentor-avatar">

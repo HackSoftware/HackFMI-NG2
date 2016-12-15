@@ -5,3 +5,19 @@
 div {
     font-size: 20px;
 }
+
+.season-deadlines {
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    .season-deadlines {
+        padding-bottom: 90px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 415px) {
+    .season-deadlines {
+        padding-bottom: 60px;
+    }
+}

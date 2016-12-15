@@ -57,29 +57,43 @@
 
 .mentors-title {
     text-align: center;
-    margin-top: 20px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 359px) {
-    .mentors-title h1 {
+@media screen and (max-width: 359px) {
+    .mentors-title h1 h2 {
         font-size: 20px;
+    }
+    .mentors-title {
+        margin-top: 30%;
     }
 }
 
 @media screen and (min-width: 360px) and (max-width: 374px) {
-    .mentors-title h1 {
+    .mentors-title h1 h2 {
         font-size: 24px;
     }
 }
 
 @media screen and (min-width: 375px) and (max-width: 411px) {
-    .mentors-title h1 {
+    .mentors-title h1 h2 {
         font-size: 28px;
     }
 }
 
 @media screen and (min-width: 412px) and (max-width: 667px) {
-    .mentors-title h1 {
+    .mentors-title h1 h2 {
         font-size: 32px;
     }
+}
+
+@media screen and (min-width: 360px) and (max-width: 411px) {
+    .mentors-title {
+        margin-top: 20%;
+    }   
+}
+
+@media screen and (min-width: 412px) and (max-width: 459px) {
+    .mentors-title {
+        margin-top: 15%;
+    }   
 }

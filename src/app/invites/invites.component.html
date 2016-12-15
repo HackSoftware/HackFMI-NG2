@@ -6,8 +6,10 @@
   <div class="container invitations-container">
     <div *ngFor="let invitation of invites" class="invitation-container">
       <span><b>Имаш покана да се присъединиш към отбор {{invitation.team.name}}</b></span>
-      <button hack-orange (click)="acceptInvitation(invitation)">Приеми</button>
-      <button hack-orange (click)="rejectInvitation(invitation)">Откажи</button>
+      <div class="invite-buttons">
+        <button class="reject-button" hack-orange (click)="rejectInvitation(invitation)">Откажи</button>
+        <button class="accept-button" hack-orange (click)="acceptInvitation(invitation)">Приеми</button>
+      </div>
     </div>
   </div>
 </div>
