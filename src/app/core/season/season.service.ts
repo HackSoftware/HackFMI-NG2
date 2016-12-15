@@ -15,7 +15,7 @@ export class SeasonService {
   private _seasonInfo: Season = null;
 
   constructor(private _handleHttp: HandleHttpService,
-              private _defaultHttp:DefaultHttpService,
+              private _defaultHttp: DefaultHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
   getSeasonInfo(): Observable<Season> {

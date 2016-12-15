@@ -6,14 +6,14 @@ import { ApiUrlsService } from '../api-urls.service';
 import { HandleHttpService } from '../http/handle-http.service';
 import { DefaultHttpService } from '../http/default-http.service';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class SkillsService {
   constructor(private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService,
-              private _defaultHttpService:DefaultHttpService) { }
+              private _defaultHttpService: DefaultHttpService) { }
 
   getSkills(): Observable<Skill[]> {
     return this._defaultHttpService.get(this._apiUrlsService.skillsUrl)

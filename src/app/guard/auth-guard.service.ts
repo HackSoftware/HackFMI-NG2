@@ -8,8 +8,8 @@ import { AuthService } from '../auth/auth.service';
 export class AuthGuardService implements CanActivate {
   constructor(private _router: Router, private _authService: AuthService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): boolean {
-    var result: boolean = !!this._authService.currentUser;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    let result: boolean = !!this._authService.currentUser;
 
     if (!result) {
       this._router.navigate(['login']);

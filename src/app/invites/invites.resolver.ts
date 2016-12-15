@@ -7,7 +7,7 @@ import { InvitesService } from './invites.service';
 
 @Injectable()
 export class InvitesListResolver implements Resolve<Invite[]> {
-    constructor(private _invitesService:InvitesService) {}
+    constructor(private _invitesService: InvitesService) {}
 
     resolve(route: ActivatedRouteSnapshot) {
         return this._invitesService.getInvites();

@@ -24,24 +24,24 @@ export class PrivateListComponent implements OnInit {
               private _seasonCompetitorInfoService: SeasonCompetitorInfoService) { }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {meDetails:Me}) => {
+    this._route.data.subscribe((data: {meDetails: Me}) => {
       this.meDetails = data.meDetails;
       this.lookingForTeamValue = data.meDetails.looking_for_team;
       this.setLookingForTeamString();
     });
-    this._route.data.subscribe((data: {privateTeams:PrivateTeam[]}) => this.privateTeams = data.privateTeams);
+    this._route.data.subscribe((data: {privateTeams: PrivateTeam[]}) => this.privateTeams = data.privateTeams);
   }
 
-  showTeamDetails(team:PrivateTeam):void {
+  showTeamDetails(team: PrivateTeam): void {
     this._router.navigate(['teams', team.id]);
   }
 
-  createTeam():void {
+  createTeam(): void {
     this._router.navigate(['teams/create']);
   }
 
   changeLookingForTeamValue(): void {
-    var seasonInfoData = {'looking_for_team': !this.lookingForTeamValue}
+    let seasonInfoData = {'looking_for_team': !this.lookingForTeamValue};
     this._seasonCompetitorInfoService.editSeasonCompetitorInfo(this.meDetails.season_competitor_info_id, seasonInfoData)
                                      .subscribe(data => this._handleSuccessfulSeasonCompetitorInfoUpdate());
   }
@@ -54,9 +54,9 @@ export class PrivateListComponent implements OnInit {
 
   setLookingForTeamString(): void {
     if (!!this.lookingForTeamValue) {
-      this.lookingForTeamString = "Да, търся си.";
+      this.lookingForTeamString = 'Да, търся си.';
     } else {
-      this.lookingForTeamString = "Не, не си търся.";
+      this.lookingForTeamString = 'Не, не си търся.';
     }
   }
 }

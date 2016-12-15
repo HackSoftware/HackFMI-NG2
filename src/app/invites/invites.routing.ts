@@ -24,4 +24,4 @@ import { InvitesListResolver } from './invites.resolver';
   ])],
   exports: [RouterModule]
 })
-export class InvitesRoutingModule {}
+export class InvitesRoutingModule { }

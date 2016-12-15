@@ -10,7 +10,7 @@ import { HandleHttpService } from '../core/http/handle-http.service';
 
 import { Invite } from './invites.models';
 
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
@@ -26,7 +26,9 @@ export class InvitesService {
               private _websocketService: WebSocketService) {
     this.wsOpened = new EventEmitter();
     this.inviteEmitter = new EventEmitter();
-    if (_authService.isLogged()) this._openWSConnection();
+    if (_authService.isLogged()) {
+      this._openWSConnection();
+    }
     _authService.userLoggedIn.subscribe(data => this._openWSConnection());
   }
 
@@ -37,20 +39,20 @@ export class InvitesService {
   }
 
   acceptInvitation(invitationId: number): Observable<any> {
-    var acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/accept/";
+    let acceptInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + '/accept/';
 
     return this._authHttp.post(acceptInvitationUrl, {})
                          .catch(err => this._handleHttp.handleError(err));
   }
 
   rejectInvitation(invitationId: number): Observable<any> {
-    var rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + "/";
+    let rejectInvitationUrl = this._apiUrlsService.invitationUrl + invitationId + '/';
 
     return this._authHttp.delete(rejectInvitationUrl)
                          .catch(err => this._handleHttp.handleError(err));
   }
 
-  inviteMember(inviteData:any): Observable<any> {
+  inviteMember(inviteData: any): Observable<any> {
     return this._authHttp.post(this._apiUrlsService.invitationUrl, inviteData)
                          .catch(err => this._handleHttp.handleError(err));
   }

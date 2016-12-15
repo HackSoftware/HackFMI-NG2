@@ -16,10 +16,10 @@ export class LoginService {
               private _defaultHttpService: DefaultHttpService,
               @Inject('Window') private _window: Window) { }
 
-  register():void {this._window.open(this._apiUrlsService.registerUrl, '_blank');}
+  register(): void { this._window.open(this._apiUrlsService.registerUrl, '_blank'); }
 
-  login(email:string, password:string):Observable<LoginData> {
-    var data = {"email": email, "password": password };
+  login(email: string, password: string): Observable<LoginData> {
+    let data = {'email': email, 'password': password};
 
     return this._defaultHttpService.post(this._apiUrlsService.loginUrl, data)
                                    .map(res => <LoginData>res.json())

@@ -17,7 +17,7 @@ export class CompetitorsService {
               private _handleHttp: HandleHttpService,
               private _apiUrlsService: ApiUrlsService) { }
 
-  getCompetitorsList():Observable<CompetitorInfoForList[]> {
+  getCompetitorsList(): Observable<CompetitorInfoForList[]> {
     return this._authHttp.get(this._apiUrlsService.competitorsUrl)
                          .map(res => <CompetitorInfoForList[]>res.json())
                          .catch(err => this._handleHttp.handleError(err));

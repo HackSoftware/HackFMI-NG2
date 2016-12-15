@@ -15,7 +15,7 @@ export class PublicMentorsComponent implements OnInit {
   constructor(private _router: Router,
               private _route: ActivatedRoute) { }
 
-  ngOnInit() {this._route.data.subscribe((data: {mentors:Mentor[]}) => this.mentors = data.mentors);}
+  ngOnInit() { this._route.data.subscribe((data: {mentors: Mentor[]}) => this.mentors = data.mentors); }
 
   showMentorsSchedule(): void {
     this._router.navigate(['mentors/schedule']);

@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, ChangeDetectorRef, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
@@ -22,7 +22,7 @@ export class InvitesComponent implements OnInit {
   constructor(private _router: Router,
               private _meService: MeService,
               private _route: ActivatedRoute,
-              private _authService:AuthService,
+              private _authService: AuthService,
               private _cdRef: ChangeDetectorRef,
               private _toastService: ToastsManager,
               private _invitesService: InvitesService) {
@@ -30,16 +30,18 @@ export class InvitesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._route.data.subscribe((data: {invites:Invite[]}) => this.invites = data.invites);
-    if (this._authService.isLogged()) this._startListeningToWS();
+    this._route.data.subscribe((data: {invites: Invite[]}) => this.invites = data.invites);
+    if (this._authService.isLogged()) {
+      this._startListeningToWS();
+    }
   }
 
-  acceptInvitation(invitation: Invite):void {
+  acceptInvitation(invitation: Invite): void {
     this._invitesService.acceptInvitation(invitation.id)
                         .subscribe(data => this._handleSuccessfulAcceptInvitation(data));
   }
 
-  rejectInvitation(invitation: Invite):void {
+  rejectInvitation(invitation: Invite): void {
     this._invitesService.rejectInvitation(invitation.id)
                         .subscribe(data => this._handleSuccessfulRejectInvitation(invitation));
   }
@@ -49,7 +51,7 @@ export class InvitesComponent implements OnInit {
   }
 
   private _handleWsMessage(msg: any) {
-    if (msg.message == "New invitation was created."){
+    if (msg.message === 'New invitation was created.') {
       this._invitesService.getInvites()
                           .subscribe(data => {
                             this.invites = data;
@@ -69,7 +71,7 @@ export class InvitesComponent implements OnInit {
     this._toastService.info('Invitation rejected!');
     this._invitesService.inviteEmitter.emit();
 
-    var index = this.invites.indexOf(invitation);
+    let index = this.invites.indexOf(invitation);
 
     if (index > -1) {
       this.invites.splice(index, 1);

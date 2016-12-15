@@ -14,5 +14,7 @@ export class PublicListComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute) { }
 
-  ngOnInit() {this._route.data.subscribe((data: {publicTeams:PublicTeam[]}) => this.publicTeams = data.publicTeams);}
+  ngOnInit() {
+    this._route.data.subscribe((data: {publicTeams: PublicTeam[]}) => this.publicTeams = data.publicTeams);
+  }
 }
