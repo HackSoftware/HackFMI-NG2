@@ -27,4 +27,9 @@ tbody > tr:hover {
 .competitors-container {
     overflow-x: auto;
     width: 100%;
+    margin-bottom: 35%;
+}
+
+.competitors-container h1 {
+    text-align: center;
 }
