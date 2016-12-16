@@ -16,6 +16,37 @@
         <li><a *ngIf="isLogged()" (click)="logout($event)">Изход</a></li>
       </ul>
     </div>
+    <div class="responsive-navbar-trigger">
+      <div class="fa fa-bars" (click)="toggleResponsiveMenu()"></div>
+      <div *ngIf="isLogged()" class="invites-counter">{{invitesCounter}}</div>
+    </div>
+    <div class="responsive-navbar {{navbarVisibleClass}}">
+      <div class="main-navigation-responsive">
+        <ul>
+          <li (click)="hideResponsiveMenu()"><a routerLink="/home" routerLinkActive="active">Начало</a></li>
+          <li (click)="hideResponsiveMenu()"><a routerLink="/teams" routerLinkActive="active">Отбори</a></li>
+          <li (click)="hideResponsiveMenu()"><a routerLink="/mentors" routerLinkActive="active">Ментори</a></li>
+          <li (click)="hideResponsiveMenu()" *ngIf="isLogged()" >
+            <a class="your-invites" routerLink="/invites" routerLinkActive="active">
+              <span>Твоите покани</span>
+              <div class="invites-counter">{{invitesCounter}}</div>
+            </a>
+          </li>
+          <li (click)="hideResponsiveMenu()" *ngIf="isLogged() && isLeader()">
+            <a routerLink="/competitors" routerLinkActive="active">Покани състезател</a>
+          </li>
+          <li (click)="hideResponsiveMenu()" *ngIf="isLogged()" >
+            <a  target="_blank" href="https://hackbulgaria.com/profile/">Профил</a>
+          </li>
+          <li (click)="hideResponsiveMenu()" *ngIf="!isLogged()">
+            <a  routerLink="/login" routerLinkActive="active">Вход</a>
+          </li>
+          <li (click)="hideResponsiveMenu()" *ngIf="isLogged()" >
+            <a  (click)="logout($event)">Изход</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -21,6 +21,12 @@ form {
     display:block;
 }
 
+@media screen and (max-width: 768px) {
+    form {
+        width:100%;
+    }
+}
+
 .submit-container {
     margin-top:20px;
     margin-bottom:20px;

@@ -7,8 +7,10 @@
     <div *ngIf="mentor.picture" class="mentor-avatar">
       <img [src]="mentor.picture" />
     </div>
-    <h2>{{mentor.name}}</h2>
-    <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
+    <div [class]="isMentorSelected(mentor) ? 'mentor-picked-status picked':'mentor-picked-status'" >
+      <h2>{{mentor.name}}</h2>
+      <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
+    </div>
     <p>
       <button hack-orange *ngIf="isLeader() && isMentorSelected(mentor)" (click)="removeMentor(mentor)">Премахни</button>
       <button hack-orange *ngIf="isLeader() && !isMentorSelected(mentor)" (click)="addMentor(mentor)">Избери</button>

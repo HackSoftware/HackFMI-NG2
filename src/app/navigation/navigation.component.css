@@ -3,7 +3,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-style: 200px;
 }
 
 li {
@@ -32,6 +31,100 @@ li a:hover {
     top:0;
     width:100%;
     left:0;
+    z-index:1000;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        background-color:rgba(0, 0, 0, 0.7);
+        padding:10px 0 10px 0;
+        position: absolute;
+        top:0;
+        width:100%;
+        left:0;
+        transition: all 0.2s linear;
+    }
+
+    .navbar .navbar-header img {
+        height:40px;
+        float:left;
+    }
+
+    .navbar .main-navigation {
+        display:none;
+    }
+
+    .navbar .responsive-navbar-trigger {
+        display:inline-block !important;
+        color:white;
+        font-size: 30px;
+        float:right;
+        padding-right: 10px;
+        padding-left:10px;
+        line-height: 40px;
+        cursor:pointer;
+        height: 33px;
+    }
+
+    .navbar .responsive-navbar-trigger .invites-counter {
+        font-size: 18px;
+        padding: 0;
+        position: relative;
+        top: -43px;
+        right: -16px;
+        line-height: 24px;
+        color: #222;
+    }
+
+    .navbar .responsive-navbar {
+        display:block !important;
+        float:left;
+        width:100%;
+        position:relative;
+        z-index:1000;
+    }
+
+    .navbar .responsive-navbar.activated {
+        display:block;
+    }
+
+    .navbar .main-navigation-responsive {
+        display:block;
+        font-size: 18px;
+    }
+
+    .navbar .main-navigation-responsive ul li {
+        text-align: center;
+        float:none;
+        padding:0px 0;
+        height:0;
+        transition: all 0.2s linear;
+    }
+
+    .navbar .responsive-navbar.activated .main-navigation-responsive ul li {
+        height:30px;
+        padding:10px 0;
+        display:block;
+        transition: all 0.2s linear;
+    }
+
+    .navbar .responsive-navbar.activated .main-navigation-responsive ul li .invites-counter {
+        display:inline-block;
+        padding: 1px;
+        line-height: 22px;
+        color:#222;
+    }
+
+    .navbar .responsive-navbar .main-navigation-responsive ul li a {
+        transition: all 0.2s linear;
+        height:0px;
+        padding:0px;
+        border-bottom:0;
+    }
+    .navbar .responsive-navbar.activated .main-navigation-responsive ul li a {
+        padding:10px;
+        height:18px;
+    }
 }
 
 .navbar:after {
@@ -42,6 +135,10 @@ li a:hover {
 
 .navbar .navbar-header {
     float:left;
+}
+
+.navbar .responsive-navbar, .navbar .responsive-navbar-trigger {
+    display:none;
 }
 
 .navbar .main-navigation {
@@ -77,39 +174,4 @@ ul li a.active {
     padding-bottom:10px;
     color: #F88C00;
     border-bottom:5px solid #F88C00;
-}
-
-@media screen and (min-width: 320px) and (max-width: 359px) {
-
-    .main-navigation ul {
-        font-size: 14px;
-    }
-}
-
-@media screen and (min-width: 360px) and (max-width: 374px) {
-    .main-navigation {
-        margin-bottom: -14px;
-    }
-    .main-navigation ul {
-        font-size: 16px;
-    }
-}
-
-
-@media screen and (min-width: 375px) and (max-width: 411px) {
-    .main-navigation ul {
-        font-size: 16px;
-    }
-    .navbar {
-        padding: 23px 0;
-    }
-}
-
-@media screen and (min-width: 412px) and (max-width: 667px) {
-    .main-navigation ul {
-        font-size: 18px;
-    }
-    .navbar {
-        padding: 23px 0;
-    }
 }

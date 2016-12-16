@@ -8,6 +8,30 @@
     }
 }
 
+@media screen and (max-width:425px) {
+    span button[hack-orange] {
+        display:block;
+        margin:10px auto 10px auto;
+    }
+
+    .my-team-container {
+        text-align: center;
+    }
+
+    input {
+        margin-bottom:10px;
+        margin-top:10px;
+    }
+
+    form div.submit-container {
+        float:none;
+    }
+
+    button[type="submit"] {
+        float:none;
+    }
+}
+
 
 ul {
     padding-left:0;
@@ -56,16 +80,4 @@ form label {
 .change-room-button {
     margin-left: 5px;
     padding: 4px 10px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 359px) {
-    .team-container {
-        margin-bottom: 40%;
-    }
-}
-
-@media screen and (min-width: 360px) and (max-width: 760px) {
-    .team-container {
-        margin-bottom: 25%;
-    }
 }

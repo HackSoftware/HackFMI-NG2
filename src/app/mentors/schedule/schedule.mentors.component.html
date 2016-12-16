@@ -3,16 +3,15 @@
 </div>
 
 <div class="container">
-  <div class="col-md-3"></div>
-  <div *ngFor="let mentor of mentors" class="mentor-container col-md-6">
-    <div *ngIf="mentor.picture" class="mentor-information col-sm-2">
+  <div *ngFor="let mentor of mentors" class="mentor-container">
+    <div *ngIf="mentor.picture" class="mentor-information">
       <img [src]="mentor.picture" class="mentor-avatar"/>
       <b><div class="mentor-name">{{mentor.name}}</div></b>
     </div>
-    <div class="mentor-teams col-sm-4">
+    <div class="mentor-teams">
       <div *ngFor="let team of mentor.teams">
-        <b><span *ngIf="!!!team.room">{{team.name}}: В момента няма стая.</span></b>
-        <b><span *ngIf="!!team.room">{{team.name}}: {{team.room}} стая</span></b>
+        <div class="mentor-team" *ngIf="!!!team.room" ><b>{{team.name}}</b>: <span>В момента няма стая.</span></div>
+        <div class="mentor-team" *ngIf="!!team.room" ><b>{{team.name}}:</b> <span>{{team.room}} стая</span></div>
       </div>
     </div>
   </div>

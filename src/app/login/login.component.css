@@ -27,7 +27,11 @@
     margin-top:20px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 415px) {
+@media screen and (max-width: 415px) {
+    .login-container .form-control label {
+        width:auto;
+    }
+
     .buttons-container button {
         width: 92%;
     }

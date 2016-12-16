@@ -19,6 +19,8 @@ import { NavigationService } from './navigation.service';
 export class NavigationComponent implements OnInit {
   socket = null;
   invitesCounter: number = 0;
+  navbarVisibleClassName = "activated"
+  navbarVisibleClass = "";
 
   isLeader = this._meService.isLeader;
   isLogged = this._authService.isLogged;
@@ -65,6 +67,18 @@ export class NavigationComponent implements OnInit {
       this._toastService.info('You received new invitation.');
       this._cdRef.detectChanges();
     }
+  }
+
+  toggleResponsiveMenu() {
+    if(this.navbarVisibleClass == "") {
+      this.navbarVisibleClass = this.navbarVisibleClassName;
+    } else {
+      this.navbarVisibleClass = "";
+    }
+  }
+
+  hideResponsiveMenu() {
+    this.navbarVisibleClass = "";
   }
 
   logout(event: MouseEvent): void {

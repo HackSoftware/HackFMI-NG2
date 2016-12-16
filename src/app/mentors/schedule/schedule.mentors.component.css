@@ -1,9 +1,9 @@
 .mentor-container {
     border: 0;
-    padding-top: 10px;
     box-shadow: 5px 5px 20px #888888;
     margin-top: 40px;
     position: relative;
+    padding: 20px 20px 30px 20px;
 }
 
 .mentor-container:before {
@@ -29,9 +29,11 @@
     margin-left:20px;
 }
 
-.mentor-container div {
+.mentor-container .mentor-information {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
+    width:200px;
+    word-break: break-word;
 }
 
 .mentor-container > span {
@@ -40,99 +42,41 @@
 
 .mentor-information {
     float:left;
-    height: 100%;
-    margin-right: 3%;
-    margin-left: 4%;
-    margin-bottom: 2%;
-    display: block;
     text-align: center;
-    padding-bottom: 5%;
 }
 
 .mentor-avatar {
-    width: 100px;
-    height: 100px;
-    background display: block;
-    border: 2px solid #9D9898;
+    max-width: 200px;
+    max-height: 200px;
 }
 
 .mentor-teams {
-    font-size: 150%;
-    padding-bottom: 3%;
+    float:left;
+    padding-left:20px;
 }
 
-.mentor-teams div {
-    margin-bottom: 2%;
-    margin-left: 35%;
+.mentor-teams .mentor-team {
+    font-size:18px;
 }
 
-.mentor-container:last-child {
-    margin-bottom: 100px;
+.mentor-teams .mentor-team b{
+    color: #003ea2;
+}
+
+.mentor-teams .mentor-team span{
+    color: #222;
 }
 
 .mentors-title {
     text-align: center;
 }
 
-@media screen and (min-width: 320px) and (max-width: 359px) {
-    .mentors-title h1 {
-        font-size: 20px;
-    }
-}
-
-@media screen and (min-width: 360px) and (max-width: 374px) {
-    .mentor-teams div {
-        padding-bottom: 3%;
-        font-size: 14px;
-    }
-
-    .mentor-avatar {
-        width: 50px;
-        height: 50px;
-    }
-
-    .mentor-information {
-        max-width: 100px;
-        word-break: break-word;
-    }
-
-    .mentors-title h1 {
-        font-size: 24px;
-    }
-}
-
-@media screen and (min-width: 375px) and (max-width: 411px) {
-    .mentor-avatar {
-        width: 75px;
-        height: 75px;
-    }
-
-    .mentor-information {
-        max-width: 150px;
-        word-break: break-word;
-    }
-
-    .mentor-teams div {
-        padding-bottom: 3%;
-        font-size: 14px;
-    }
-
-    .mentors-title h1 {
-        font-size: 28px;
-    }
-}
-
-@media screen and (min-width: 412px) and (max-width: 667px) {
-    .mentor-information {
-        max-width: 150px;
-        word-break: break-word;
-    }
-
-    .mentor-teams div {
-        padding-bottom: 3%;
-    }
-
-    .mentors-title h1 {
-        font-size: 32px;
+@media screen and (max-width:425px) {
+    .mentor-container div.mentor-information {
+        width: 100%;
+        float: none;
+        border-bottom: 1px solid silver;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
     }
 }

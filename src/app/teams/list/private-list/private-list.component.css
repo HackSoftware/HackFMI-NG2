@@ -62,12 +62,8 @@ ul li {
     font-size: 25px;
 }
 
-.team-container:last-child {
-    margin-bottom: 120px;
-}
-
 .create-team-container {
-    margin-top: 10%;
+    margin-top: 30px;
 }
 
 .create-team {
@@ -75,13 +71,7 @@ ul li {
     font-size: 28px;
 }
 
-@media screen and (min-width: 600px) {
-    .create-team-container {
-        margin-top: 5%;
-    }
-}
-
-@media screen and (min-width: 300px) and (max-width: 415px) {
+@media screen and (max-width: 768px) {
     .create-team {
         padding: 10px 30px;
     }
