@@ -1,12 +1,16 @@
-<h2 align="center">За този издание на HackFMI могат да бъдат избирани ментори в затворения интервал [{{seasonInfo.min_team_members_count}}-{{seasonInfo.max_team_members_count}}]</h2>
-<h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
+<div class="mentors-title">
+  <h2 align="center">За този издание на HackFMI могат да бъдат избирани ментори в затворения интервал [{{seasonInfo.min_team_members_count}}-{{seasonInfo.max_team_members_count}}]</h2>
+  <h1 align="center">Избрани ментори до момента: <b>{{selectedMentors()}}</b></h1>
+</div>
 <div class="container">
   <div *ngFor="let mentor of mentors" class="mentor-container">
     <div *ngIf="mentor.picture" class="mentor-avatar">
       <img [src]="mentor.picture" />
     </div>
-    <h2>{{mentor.name}}</h2>
-    <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
+    <div [class]="isMentorSelected(mentor) ? 'mentor-picked-status picked':'mentor-picked-status'" >
+      <h2>{{mentor.name}}</h2>
+      <span [class]="isMentorSelected(mentor) ? 'fa fa-check':'fa fa-times'"></span>
+    </div>
     <p>
       <button hack-orange *ngIf="isLeader() && isMentorSelected(mentor)" (click)="removeMentor(mentor)">Премахни</button>
       <button hack-orange *ngIf="isLeader() && !isMentorSelected(mentor)" (click)="addMentor(mentor)">Избери</button>

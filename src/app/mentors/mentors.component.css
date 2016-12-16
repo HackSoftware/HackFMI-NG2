@@ -29,12 +29,37 @@
     margin-left:20px;
 }
 
+@media screen and (max-width:425px) {
+    .mentor-container button {
+        float:none;
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+    }
+
+    .mentor-container .mentor-avatar, .mentor-picked-status {
+        float:none;
+        display:block;
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+    }
+}
+
 .mentor-container h2 {
     display: inline;
 }
 
 .mentor-container > span {
     font-size: 20px;
+}
+
+.mentor-picked-status {
+    color: #003ea2;
+}
+
+.mentor-picked-status.picked {
+    color: green;
 }
 
 .mentor-avatar {
@@ -51,35 +76,8 @@
     max-height:200px;
 }
 
-.mentor-container:last-child {
-    margin-bottom: 120px;
-}
-
 .mentors-title {
     text-align: center;
-    margin-top: 20px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 359px) {
-    .mentors-title h1 {
-        font-size: 20px;
-    }
-}
-
-@media screen and (min-width: 360px) and (max-width: 374px) {
-    .mentors-title h1 {
-        font-size: 24px;
-    }
-}
-
-@media screen and (min-width: 375px) and (max-width: 411px) {
-    .mentors-title h1 {
-        font-size: 28px;
-    }
-}
-
-@media screen and (min-width: 412px) and (max-width: 667px) {
-    .mentors-title h1 {
-        font-size: 32px;
-    }
+    margin-top:20px;
+    margin-bottom:20px;
 }

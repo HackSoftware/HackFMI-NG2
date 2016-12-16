@@ -82,6 +82,14 @@ textarea[hack-orange]:focus {
     border-color:#4ea0fd;
 }
 
+@media screen and (max-width: 768px) {
+    textarea[hack-orange] {
+        width:100%;
+        padding:0;
+    }
+
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -134,6 +142,19 @@ textarea[hack-orange]:focus {
 .page-wrapper .page {
     position:relative;
     padding-bottom: 200px;
+    overflow-x:hidden;
+}
+
+@media screen and (max-width: 425px) {
+    .page-wrapper .page {
+        padding-bottom: 230px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .page-wrapper .page {
+        padding-bottom: 340px;
+    }
 }
 
 .mentor-container ul {

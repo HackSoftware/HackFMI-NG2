@@ -8,6 +8,30 @@
     }
 }
 
+@media screen and (max-width:425px) {
+    span button[hack-orange] {
+        display:block;
+        margin:10px auto 10px auto;
+    }
+
+    .my-team-container {
+        text-align: center;
+    }
+
+    input {
+        margin-bottom:10px;
+        margin-top:10px;
+    }
+
+    form div.submit-container {
+        float:none;
+    }
+
+    button[type="submit"] {
+        float:none;
+    }
+}
+
 
 ul {
     padding-left:0;
@@ -23,6 +47,7 @@ ul li {
     padding:20px 20px 40px 20px;
     box-shadow: 5px 5px 20px #888888;
     margin-top:40px;
+    margin-bottom: 5%;
     position:relative;
 }
 

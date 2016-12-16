@@ -1,4 +1,4 @@
-<div align="center" *ngIf="competitors.length">
+<div *ngIf="competitors.length" class="competitors-container">
   <h1>Състезатели, които са заявили, че си търсят отбор:</h1>
 
   <table id="competitors-table" class="container" cellspacing="0">
@@ -15,7 +15,7 @@
       <td>{{competitor.email}}</td>
       <td>
         <summary>
-          <div class="summary-div">
+          <div class="skills-container">
             <div *ngIf=competitor.known_skills_full.length>
               <div align="center" *ngFor="let skill of competitor.known_skills_full">{{skill.name}}</div>
               <span *ngIf=competitor.other_skills.length> {{competitor.other_skills}}</span>

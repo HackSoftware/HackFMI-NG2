@@ -1,7 +1,7 @@
 .login-container {
     text-align: center;
-    padding-top:100px;
-    padding-bottom:100px;
+    padding-top:10%;
+    padding-bottom: 30%;
 }
 
 .form-container {
@@ -25,4 +25,17 @@
 
 .buttons-container {
     margin-top:20px;
+}
+
+@media screen and (max-width: 415px) {
+    .login-container .form-control label {
+        width:auto;
+    }
+
+    .buttons-container button {
+        width: 92%;
+    }
+    .login-container {
+        padding-bottom: 75%;
+    }
 }
