@@ -1,4 +1,6 @@
-# HackFMING2
+# HackFMI App - NG2 version
+
+Uses [Loki](https://github.com/HackSoftware/Loki) for backend.
 
 ## Install required packages
 
